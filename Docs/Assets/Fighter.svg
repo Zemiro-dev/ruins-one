@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="126.84131"
+   height="121.16425"
+   viewBox="0 0 126.84131 121.16425"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="alpha_concept.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#180d19"
+     bordercolor="#ffffff"
+     borderopacity="0.46666667"
+     inkscape:showpageshadow="false"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#180d19"
+     inkscape:document-units="px"
+     inkscape:zoom="0.5"
+     inkscape:cx="1877"
+     inkscape:cy="420"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     borderlayer="true"
+     showguides="true">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="-1024.1344"
+       originy="-567.34184"
+       spacingx="32"
+       spacingy="32"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="false"
+       enabled="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 1"
+     transform="translate(-1024.1344,-567.34186)">
+    <g
+       id="g100">
+      <g
+         id="g58"
+         transform="rotate(41.646726,897.78308,394.77701)">
+        <rect
+           style="opacity:1;fill:#ff86dd;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-miterlimit:5;paint-order:stroke fill markers"
+           id="rect56"
+           width="18.21673"
+           height="19.782209"
+           x="1232.4781"
+           y="431.10889" />
+        <g
+           id="g55"
+           transform="matrix(0.82803317,0,0,0.8242587,201.57687,71.319971)"
+           style="stroke-width:1.21044">
+          <path
+             id="rect54"
+             style="opacity:1;fill:#ff86dd;stroke:#180d19;stroke-width:14.5253;stroke-miterlimit:5;paint-order:stroke fill markers"
+             d="m 1193.3637,403.69163 h 56.2232 l 18.2895,28.30002 h -92.8022 z"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             id="rect55"
+             style="opacity:1;fill:#ff86dd;stroke:#180d19;stroke-width:14.5253;stroke-miterlimit:5;paint-order:stroke fill markers"
+             d="m 1175.0742,465.00834 h 92.8022 l -18.2895,28.30003 h -56.2232 z"
+             sodipodi:nodetypes="ccccc" />
+        </g>
+        <ellipse
+           style="opacity:1;fill:#ff86dd;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-miterlimit:5;paint-order:stroke fill markers"
+           id="path55"
+           cx="1212.999"
+           cy="441"
+           rx="21.942879"
+           ry="21.842855" />
+      </g>
+      <g
+         id="g63"
+         transform="rotate(41.646726,985.05758,671.74937)">
+        <ellipse
+           style="opacity:0.0909091;fill:#fdf853;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-miterlimit:5;paint-order:stroke fill markers"
+           id="ellipse63"
+           cx="992"
+           cy="569"
+           rx="15"
+           ry="11" />
+        <ellipse
+           style="opacity:0.347107;fill:#fdf853;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-miterlimit:5;paint-order:stroke fill markers"
+           id="ellipse62"
+           cx="982"
+           cy="569"
+           rx="15"
+           ry="11" />
+        <ellipse
+           style="opacity:0.658402;fill:#fdf853;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-miterlimit:5;paint-order:stroke fill markers"
+           id="circle61"
+           cx="972"
+           cy="569"
+           rx="15"
+           ry="11" />
+        <circle
+           style="opacity:1;fill:#fdf853;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-miterlimit:5;paint-order:stroke fill markers"
+           id="path45"
+           cx="966"
+           cy="569"
+           r="9" />
+      </g>
+    </g>
+  </g>
+</svg>
