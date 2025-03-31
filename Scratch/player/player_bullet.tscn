@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddj0sy7nhv85x"]
+
+[ext_resource type="Script" path="res://Scratch/player/player_bullet.gd" id="1_0grh6"]
+[ext_resource type="Texture2D" uid="uid://c0ybigcj1hvwa" path="res://Scratch/player/bullet.png" id="1_bu8wt"]
+[ext_resource type="Texture2D" uid="uid://s2sxibhoydj2" path="res://Scratch/player/red_particle.png" id="2_4agwp"]
+
+[sub_resource type="Gradient" id="Gradient_p262a"]
+offsets = PackedFloat32Array(0, 0.997494, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0200501, 1, 1, 1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73mww"]
+radius = 21.0
+
+[node name="PlayerBullet" type="Node2D"]
+script = ExtResource("1_0grh6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(18, 0)
+emitting = false
+amount = 64
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("2_4agwp")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 300.0
+color_ramp = SubResource("Gradient_p262a")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("1_bu8wt")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_73mww")
