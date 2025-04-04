@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvpqy4he2p537"]
+
+[ext_resource type="Script" path="res://projectiles/projectile.gd" id="1_nxuqk"]
+[ext_resource type="PackedScene" uid="uid://c4ibl6204neda" path="res://core/hurtbox.tscn" id="2_kxirh"]
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_nxuqk")
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_kxirh")]
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Lifetime" type="Timer" parent="."]
+
+[node name="DetProjMarker" type="Marker2D" parent="."]
+
+[node name="DetParticleMarker" type="Marker2D" parent="."]

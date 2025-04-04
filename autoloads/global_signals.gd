@@ -2,6 +2,10 @@ extends Node
 
 
 signal camera_shake_requested(duration: float, strength: float)
-
-
-signal projectile_spawn_requested(projectile: Projectile)
+signal node_spawn_requested(node: Node2D)
+signal projectile_spawn_requested(node: Projectile)
+signal particle_spawn_requested(node: Entity)
+signal breakable_spawn_requested(node: Entity)
+signal collectable_spawn_requested(node: Entity)
+signal enemy_spawn_requested(node: Entity)
+signal player_spawn_requested(node: Player)

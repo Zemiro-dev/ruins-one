@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dodyvj3itrwoa"]
+
+[ext_resource type="Script" path="res://world/world.gd" id="1_wwhb7"]
+[ext_resource type="Script" path="res://spawners/player_spawner.gd" id="2_heo8v"]
+[ext_resource type="Script" path="res://spawners/projectile_spawner.gd" id="2_l7ww2"]
+[ext_resource type="Script" path="res://spawners/particle_spawner.gd" id="4_bgr11"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_wwhb7")
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+
+[node name="MainCamera" type="Camera2D" parent="."]
+
+[node name="BreakableNest" type="Node" parent="."]
+
+[node name="CollectableNest" type="Node" parent="."]
+
+[node name="EnemyNest" type="Node" parent="."]
+
+[node name="PlayerNest" type="Node" parent="."]
+script = ExtResource("2_heo8v")
+
+[node name="ProjectileNest" type="Node" parent="."]
+script = ExtResource("2_l7ww2")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="ParticleNest" type="Node" parent="."]
+script = ExtResource("4_bgr11")
