@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://ol4x06ugv7kw"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_tqatu"]
-[ext_resource type="Texture2D" uid="uid://s2sxibhoydj2" path="res://Scratch/player/red_particle.png" id="2_5fr1t"]
 [ext_resource type="PackedScene" uid="uid://cesdm5o64g6fn" path="res://projectiles/projectile_red_shot.tscn" id="2_aj1wt"]
-[ext_resource type="Texture2D" uid="uid://b5qt0oobvcp2v" path="res://Scratch/player/cannon.png" id="3_go830"]
 [ext_resource type="Script" path="res://core/shoot_projectile_base_strategy.gd" id="3_p0kbh"]
-[ext_resource type="Texture2D" uid="uid://c8h5der1465ri" path="res://Scratch/player/center.png" id="4_eepdq"]
-[ext_resource type="Texture2D" uid="uid://bqjasvrc6gq7w" path="res://Scratch/player/body.png" id="5_53h75"]
+[ext_resource type="Texture2D" uid="uid://r2gimpeoxat2" path="res://assets/particle_red_circle.png" id="4_3hrt4"]
+[ext_resource type="Texture2D" uid="uid://0xb0ffg08uoh" path="res://assets/player_cannon.png" id="5_mr540"]
+[ext_resource type="Texture2D" uid="uid://qi5txtm6777y" path="res://assets/player_body.png" id="6_qrtnj"]
+[ext_resource type="Texture2D" uid="uid://cicfjxy22w5of" path="res://assets/player_ring.png" id="7_2jayw"]
 
 [sub_resource type="Resource" id="Resource_l45ut"]
 script = ExtResource("3_p0kbh")
@@ -19,13 +19,15 @@ radius = 41.28
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 5
+motion_mode = 1
 script = ExtResource("1_tqatu")
 current_projectile_scene = ExtResource("2_aj1wt")
 shoot_style = SubResource("Resource_l45ut")
 
 [node name="Thrust" type="CPUParticles2D" parent="."]
 amount = 32
-texture = ExtResource("2_5fr1t")
+texture = ExtResource("4_3hrt4")
 emission_shape = 1
 emission_sphere_radius = 38.0
 spread = 15.0
@@ -38,16 +40,16 @@ color_ramp = SubResource("Gradient_8vlgr")
 
 [node name="Cannon" type="Sprite2D" parent="Pivot"]
 position = Vector2(38, 0)
-texture = ExtResource("3_go830")
+texture = ExtResource("5_mr540")
 
 [node name="ProjMarker" type="Marker2D" parent="Pivot"]
 position = Vector2(52, 0)
 
-[node name="Center" type="Sprite2D" parent="."]
-texture = ExtResource("4_eepdq")
-
 [node name="Body" type="Sprite2D" parent="."]
-texture = ExtResource("5_53h75")
+texture = ExtResource("6_qrtnj")
+
+[node name="Ring" type="Sprite2D" parent="."]
+texture = ExtResource("7_2jayw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ocomg")

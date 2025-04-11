@@ -12,38 +12,98 @@ var current_health := 1
 @export var max_shield := 0
 var current_shield := 0
 
+@export var max_invulnerability_time := 0.0
+var remaining_invulnerability_time := 0.0
+
+@export var allow_knockback := true
+@export var knockback_decay_rate := .1
+var current_knockback: Vector2 = Vector2.ZERO
+
+@export var drag_strategy: DragBaseStrategy
+var can_drag := true
+
 var is_dead := false
 var is_invincible := false
 
+@export var should_play_damage_tween: bool = true
+@export var health_damage_tween_color := Color(1., .6, .6)
+@export var shield_damage_tween_color := Color(.8, .8, 1.) 
+var modulate_tween: Tween = null
+var initial_modulate: Color
+
+var collision_core: Node2D
+var collision_shield: Node2D
 
 func _ready() -> void:
 	current_health = max_health
 	current_shield = max_shield
+	initial_modulate = modulate
+	collision_core = get_node_or_null("CollisionCore")
+	collision_shield = get_node_or_null("CollisionShield")
+	updateCollisionShapes()
+
+
+func _physics_process(delta: float) -> void:
+	updateCollisionShapes()
+	if remaining_invulnerability_time > 0.0:
+		remaining_invulnerability_time -= delta
+	if !current_knockback.is_zero_approx():
+		velocity += current_knockback
+		current_knockback = current_knockback.lerp(Vector2.ZERO, knockback_decay_rate)
+	if can_drag and !!drag_strategy:
+		velocity = drag_strategy.drag(velocity)
+
+
+func is_invulnerable():
+	return remaining_invulnerability_time > 0;
+
+
+func can_knockback():
+	return !is_invulnerable() and allow_knockback
+
+
+func updateCollisionShapes() -> void:
+	if collision_core != null:
+		collision_core.set_deferred("disabled", current_health <= 0)	
+	
+	if collision_shield != null:
+		collision_shield.set_deferred("disabled", current_shield <= 0)
 
 
 func can_be_damaged() -> bool:
 	return !is_dead && !is_invincible
 
 
-func take_damage(damage: int, attacker: Node2D):
+func take_damage(damage: int, attacker: Node2D, hurtbox: Hurtbox):
 	if !can_be_damaged():
 		return
+	var tween_color := health_damage_tween_color
 	if current_shield > 0:
 		current_shield -= damage
 		if current_shield <= 0:
 			current_shield = 0
 		on_shield_changed.emit(current_shield, max_shield)
+		tween_color = shield_damage_tween_color
 	else:
 		current_health -= damage
 		on_health_changed.emit(current_health, max_health)
 	
 	on_damage_taken.emit(attacker)
-	if current_health <=	 0:
+	if can_knockback():
+		hurtbox.knockback_strategy.knockback(self, hurtbox.damage_source)
+	
+	if max_invulnerability_time > 0.0 and current_health > 0:
+		remaining_invulnerability_time = max_invulnerability_time
+
+	if current_health > 0:
+		play_damage_tween(tween_color)
+	
+	if current_health <= 0:
 		die()
 
 
 func die() -> void:
-	is_dead 	= true
+	is_dead = true
 	on_death.emit(self)
 
 
@@ -59,3 +119,15 @@ func restore_shield(amount: int):
 	current_shield = clampi(current_shield + amount, current_shield, max_shield)
 	if current_shield != previous_shield:
 		on_shield_changed.emit(current_shield, max_shield)
+
+
+func play_damage_tween(color: Color) -> Tween:
+	if not should_play_damage_tween: return null
+	if modulate_tween != null: 
+		modulate_tween.kill()
+		modulate = initial_modulate
+		
+	modulate_tween = create_tween()
+	modulate_tween.tween_property(self, "modulate", color, .2)
+	modulate_tween.tween_property(self, "modulate", Color(1, 1, 1), .2)
+	return modulate_tween

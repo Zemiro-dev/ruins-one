@@ -18,11 +18,11 @@ script = ExtResource("1_wwhb7")
 
 [node name="EnemyNest" type="Node" parent="."]
 
-[node name="PlayerNest" type="Node" parent="."]
-script = ExtResource("2_heo8v")
-
 [node name="ProjectileNest" type="Node" parent="."]
 script = ExtResource("2_l7ww2")
+
+[node name="PlayerNest" type="Node" parent="."]
+script = ExtResource("2_heo8v")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqjasvrc6gq7w"
-path="res://.godot/imported/body.png-e81593b072a79d9fb05ff7428bb5f637.ctex"
+uid="uid://cw4hgpbdj0ipm"
+path="res://.godot/imported/blue_hex_shield.png-43ee40e4ab0e799e00eb92700116fd8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scratch/player/body.png"
-dest_files=["res://.godot/imported/body.png-e81593b072a79d9fb05ff7428bb5f637.ctex"]
+source_file="res://assets/blue_hex_shield.png"
+dest_files=["res://.godot/imported/blue_hex_shield.png-43ee40e4ab0e799e00eb92700116fd8b.ctex"]
 
 [params]
 

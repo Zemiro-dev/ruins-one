@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciig3y1oej1wv"]
+
+[ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/pink_bubble.png" id="1_a0l2i"]
+[ext_resource type="Script" path="res://npcs/target_dummy.gd" id="1_vh8wg"]
+[ext_resource type="Texture2D" uid="uid://cw4hgpbdj0ipm" path="res://assets/blue_hex_shield.png" id="2_17lto"]
+[ext_resource type="Script" path="res://core/drag_base_strategy.gd" id="2_fgxuo"]
+
+[sub_resource type="Resource" id="Resource_anssv"]
+script = ExtResource("2_fgxuo")
+velocity_decay_rate = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcmj6"]
+radius = 49.0102
+
+[node name="TargetDummy" type="CharacterBody2D"]
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("1_vh8wg")
+max_health = 100
+max_shield = 10
+drag_strategy = SubResource("Resource_anssv")
+
+[node name="CollisionCore" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dcmj6")
+
+[node name="CollisionShield" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-73, 0, -36, -63, 37, -63, 73, 0, 37, 63, -36, 63)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("2_17lto")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a0l2i")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Label" type="Label" parent="Marker2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -22.5
+offset_right = 27.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "100"

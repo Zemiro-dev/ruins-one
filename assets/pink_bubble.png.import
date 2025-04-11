@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s2sxibhoydj2"
-path="res://.godot/imported/red_particle.png-85ccba4703e62bbefd3ee35fea774d39.ctex"
+uid="uid://bi6cnmxbkqcgq"
+path="res://.godot/imported/pink_bubble.png-426357e80349dd400c35c15dc95cf045.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scratch/player/red_particle.png"
-dest_files=["res://.godot/imported/red_particle.png-85ccba4703e62bbefd3ee35fea774d39.ctex"]
+source_file="res://assets/pink_bubble.png"
+dest_files=["res://.godot/imported/pink_bubble.png-426357e80349dd400c35c15dc95cf045.ctex"]
 
 [params]
 

@@ -24,9 +24,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#000000"
      inkscape:document-units="px"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="-3787.6175"
-     inkscape:cy="-766.50375"
+     inkscape:zoom="0.63670429"
+     inkscape:cx="-3628.0579"
+     inkscape:cy="-782.15273"
      inkscape:window-width="2560"
      inkscape:window-height="1494"
      inkscape:window-x="-11"
@@ -5335,6 +5335,22 @@
          x="-6074.3589"
          y="-457.08298" />
     </g>
+    <path
+       sodipodi:type="star"
+       style="fill:#95deec;fill-opacity:0.25;stroke:#95deec;stroke-width:8.04016;stroke-linecap:round;stroke-miterlimit:5;stroke-opacity:0.312195;paint-order:stroke fill markers"
+       id="path148-0"
+       inkscape:flatsided="true"
+       sodipodi:sides="6"
+       sodipodi:cx="830"
+       sodipodi:cy="288"
+       sodipodi:r1="102.47439"
+       sodipodi:r2="88.745422"
+       sodipodi:arg1="1.0471976"
+       sodipodi:arg2="1.5707963"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 881.23719,376.74543 -102.47439,-10e-6 -51.23719,-88.74543 51.2372,-88.74542 102.47439,1e-5 51.23719,88.74543 z"
+       transform="matrix(0.74687187,0,0,0.74563687,-4330.7903,-497.30938)" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -7831,5 +7847,12 @@
        id="path313-3-2"
        style="display:inline;fill:#d115cc;stroke:#180d19;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
        d="M 5754.0002,959.36046 V 2027.3605 h -116 V 959.36046 Z" />
+    <path
+       id="path262-9"
+       style="display:inline;fill:#ff86dd;stroke:#180d19;stroke-width:16;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
+       d="m -5816.5471,1410.5813 a 41.582363,41.582363 0 0 1 -41.5823,41.5823 41.582363,41.582363 0 0 1 -41.5824,-41.5823 41.582363,41.582363 0 0 1 41.5824,-41.5823 41.582363,41.582363 0 0 1 41.5823,41.5823 z"
+       inkscape:export-filename="..\..\Scratch\Sprites\bubble.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>

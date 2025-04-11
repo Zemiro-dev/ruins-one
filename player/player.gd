@@ -6,6 +6,7 @@ class_name Player
 @export var shoot_style: ShootProjectileBaseStrategy
 
 func _physics_process(delta: float) -> void:
+	super(delta)
 	velocity = get_control_vector() * 500.0
 	if velocity.is_zero_approx():
 		$Thrust.emitting = false

@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docs/Journal/2025-03-30 Dev Log.md",
+                "file": "Docs/Journal/2025-04-06 Shield.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-03-30 Dev Log"
+              "title": "2025-04-06 Shield"
             }
           },
           {
@@ -192,17 +192,23 @@
   },
   "active": "089a74840b8d9650",
   "lastOpenFiles": [
-    "particles/parC09B.tmp",
-    "particles/par1095.tmp",
-    "projectiles/pro2B55.tmp",
-    "Scratch/wor2AFA.tmp",
-    "world/Wor27E1.tmp",
-    "Scratch/wor4308.tmp",
-    "projectiles/pro3C74.tmp",
-    "particles/parBBE1.tmp",
-    "particles/particle_one_shot_free.gd",
-    "particles/particle_red_circle_one_shot.gd",
-    "particles/par32E8.tmp",
+    "projectiles/pro38A4.tmp",
+    "core/ent82BD.tmp",
+    "core/entC334.tmp",
+    "core/dra1B87.tmp",
+    "core/draB180.tmp",
+    "core/dra2180.tmp",
+    "core/draB9B0.tmp",
+    "core/draB674.tmp",
+    "core/dra6F12.tmp",
+    "core/drag_base_strategy.gd",
+    "npcs/tar4A32.tmp",
+    "Docs/Journal/2025-04-06 Spawnables.md",
+    "Docs/Journal/2025-04-06 Shield.md",
+    "assets/pink_bubble.png",
+    "Scratch/Sprites/pink_bubble.png",
+    "Scratch/Sprites/bubble.png",
+    "Docs/Journal/2025-03-30 Dev Log.md",
     "assets/particle_red_circle.png",
     "assets/red_particle.png",
     "assets/projectile_red_shot.png",
@@ -210,11 +216,7 @@
     "assets/player_cannon.png",
     "assets/cannon.png",
     "assets/player_body.png",
-    "assets/player_ring.png",
-    "assets/body.png",
-    "assets/center.png",
     "Docs/Journal/2025-03-13 Tilemap.md",
-    "Docs/Journal/2025-03-30 Dev Log.md",
     "Design.md",
     "Readme.md"
   ]
