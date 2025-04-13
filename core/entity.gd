@@ -15,12 +15,16 @@ var current_shield := 0
 @export var max_invulnerability_time := 0.0
 var remaining_invulnerability_time := 0.0
 
+#@export var move_resolve_strategy
+
 @export var allow_knockback := true
 @export var knockback_decay_rate := .1
 var current_knockback: Vector2 = Vector2.ZERO
 
 @export var drag_strategy: DragBaseStrategy
 var can_drag := true
+
+@export var move_resolve_strategy: MoveResolveStrategy
 
 var is_dead := false
 var is_invincible := false
@@ -53,6 +57,12 @@ func _physics_process(delta: float) -> void:
 	if can_drag and !!drag_strategy:
 		velocity = drag_strategy.drag(velocity)
 
+
+func move_and_resolve(delta: float) -> void:
+	if !!move_resolve_strategy:
+		move_resolve_strategy.move_and_resolve(self, delta)
+	else:
+		move_and_slide()
 
 func is_invulnerable():
 	return remaining_invulnerability_time > 0;

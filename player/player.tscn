@@ -1,15 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://ol4x06ugv7kw"]
+[gd_scene load_steps=15 format=3 uid="uid://ol4x06ugv7kw"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_tqatu"]
 [ext_resource type="PackedScene" uid="uid://cesdm5o64g6fn" path="res://projectiles/projectile_red_shot.tscn" id="2_aj1wt"]
 [ext_resource type="Script" path="res://core/shoot_projectile_base_strategy.gd" id="3_p0kbh"]
 [ext_resource type="Texture2D" uid="uid://r2gimpeoxat2" path="res://assets/particle_red_circle.png" id="4_3hrt4"]
+[ext_resource type="Script" path="res://core/drag_base_strategy.gd" id="4_ejge3"]
+[ext_resource type="Script" path="res://core/move_resolve_strategy.gd" id="4_uprka"]
 [ext_resource type="Texture2D" uid="uid://0xb0ffg08uoh" path="res://assets/player_cannon.png" id="5_mr540"]
 [ext_resource type="Texture2D" uid="uid://qi5txtm6777y" path="res://assets/player_body.png" id="6_qrtnj"]
 [ext_resource type="Texture2D" uid="uid://cicfjxy22w5of" path="res://assets/player_ring.png" id="7_2jayw"]
 
 [sub_resource type="Resource" id="Resource_l45ut"]
 script = ExtResource("3_p0kbh")
+
+[sub_resource type="Resource" id="Resource_mkvoq"]
+script = ExtResource("4_ejge3")
+velocity_decay_rate = 0.01
+
+[sub_resource type="Resource" id="Resource_mobqn"]
+script = ExtResource("4_uprka")
 
 [sub_resource type="Gradient" id="Gradient_8vlgr"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -23,6 +32,9 @@ motion_mode = 1
 script = ExtResource("1_tqatu")
 current_projectile_scene = ExtResource("2_aj1wt")
 shoot_style = SubResource("Resource_l45ut")
+allow_knockback = false
+drag_strategy = SubResource("Resource_mkvoq")
+move_resolve_strategy = SubResource("Resource_mobqn")
 
 [node name="Thrust" type="CPUParticles2D" parent="."]
 amount = 32

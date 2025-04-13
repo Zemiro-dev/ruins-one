@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://ciig3y1oej1wv"]
+[gd_scene load_steps=9 format=3 uid="uid://ciig3y1oej1wv"]
 
 [ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/pink_bubble.png" id="1_a0l2i"]
 [ext_resource type="Script" path="res://npcs/target_dummy.gd" id="1_vh8wg"]
 [ext_resource type="Texture2D" uid="uid://cw4hgpbdj0ipm" path="res://assets/blue_hex_shield.png" id="2_17lto"]
 [ext_resource type="Script" path="res://core/drag_base_strategy.gd" id="2_fgxuo"]
+[ext_resource type="Script" path="res://core/move_resolve_strategy.gd" id="3_gge71"]
 
 [sub_resource type="Resource" id="Resource_anssv"]
 script = ExtResource("2_fgxuo")
 velocity_decay_rate = 0.1
+
+[sub_resource type="Resource" id="Resource_d5dhk"]
+script = ExtResource("3_gge71")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcmj6"]
 radius = 49.0102
@@ -20,6 +24,7 @@ script = ExtResource("1_vh8wg")
 max_health = 100
 max_shield = 10
 drag_strategy = SubResource("Resource_anssv")
+move_resolve_strategy = SubResource("Resource_d5dhk")
 
 [node name="CollisionCore" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dcmj6")
