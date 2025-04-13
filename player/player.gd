@@ -21,7 +21,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire"):
 		var projectile: Projectile = current_projectile_scene.instantiate()
 		shoot_style.shoot(projectile, self, proj_marker.global_transform)
-	move_and_slide()
+	#move_and_slide()
+	
+	var collision = move_and_collide(velocity * delta, true)
+	if collision:
+		velocity = velocity.slide(collision.get_normal())
+		print(velocity)
+		#current_knockback = current_knockback.slide(collision.get_normal())
+	move_and_collide(velocity * delta)
 
 
 func get_control_vector() -> Vector2:
