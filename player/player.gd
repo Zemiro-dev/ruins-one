@@ -1,14 +1,19 @@
 extends Entity
 class_name Player
 
-@onready var thrust_emitter := $Thrust
+
+@onready var thrust_particles: CPUParticles2D = $ThrustParticles
+@onready var dash_particles: CPUParticles2D = $DashParticles
 @onready var proj_marker: Marker2D = $Pivot/ProjMarker
 @export var current_projectile_scene: PackedScene
 @export var shoot_style: ShootProjectileBaseStrategy
 
 @export var impulse_acceleration: float = 500.0
 @export var handling_multiplier: float = 3.0
-@export var max_speed := 2000.0
+@export var max_speed := 1200.0
+
+var max_dash_cooldown: float = .1
+var dash_cooldown: float = 0.0
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -18,11 +23,11 @@ func _physics_process(delta: float) -> void:
 		
 	if not is_impulse_on():
 		can_drag = true
-		$Thrust.emitting = false
+		thrust_particles.emitting = false
 	else:
 		can_drag = false
-		$Thrust.emitting = true
-	$Thrust.rotation = velocity.angle() + PI
+		thrust_particles.emitting = true
+	thrust_particles.rotation = velocity.angle() + PI
 	var aim = get_aim_vector()
 	if !aim.is_zero_approx():
 		var aim_angle = aim.angle()
@@ -31,6 +36,27 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire"):
 		var projectile: Projectile = current_projectile_scene.instantiate()
 		shoot_style.shoot(projectile, self, proj_marker.global_transform)
+	
+	if Input.is_action_just_pressed("dash") and dash_cooldown <= 0.:
+		dash_particles.emitting = true
+		dash_cooldown = max_dash_cooldown
+		if is_impulse_on():
+			velocity = get_impulse_vector(delta).normalized() * max_speed
+		else:
+			velocity = velocity.normalized() * max_speed
+			
+	if dash_cooldown > -.4:
+		dash_cooldown -= delta
+	else:
+		dash_particles.emitting = false
+	
+	
+	if Input.is_action_pressed("break"):
+		drag_strategy.velocity_decay_rate = .5
+		can_drag = true
+	else:
+		drag_strategy.velocity_decay_rate = .02
+		
 	move_and_resolve(delta)
 
 

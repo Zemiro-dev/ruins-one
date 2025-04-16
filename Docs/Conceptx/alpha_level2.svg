@@ -25,8 +25,8 @@
      inkscape:deskcolor="#000000"
      inkscape:document-units="px"
      inkscape:zoom="0.63670429"
-     inkscape:cx="-3628.0579"
-     inkscape:cy="-782.15273"
+     inkscape:cx="-3188.2933"
+     inkscape:cy="-512.01163"
      inkscape:window-width="2560"
      inkscape:window-height="1494"
      inkscape:window-x="-11"
@@ -5350,7 +5350,20 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="m 881.23719,376.74543 -102.47439,-10e-6 -51.23719,-88.74543 51.2372,-88.74542 102.47439,1e-5 51.23719,88.74543 z"
-       transform="matrix(0.74687187,0,0,0.74563687,-4330.7903,-497.30938)" />
+       transform="matrix(0.74687187,0,0,0.74563687,-4330.7903,-497.30938)"
+       inkscape:export-filename="shield.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#fd2faf;stroke:none;stroke-width:16;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
+       id="rect29"
+       width="256"
+       height="256"
+       x="-3162.1875"
+       y="-403.64099"
+       inkscape:export-filename="scale_rect.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
   <g
      inkscape:groupmode="layer"

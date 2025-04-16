@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ol4x06ugv7kw"]
+[gd_scene load_steps=18 format=3 uid="uid://ol4x06ugv7kw"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_tqatu"]
 [ext_resource type="PackedScene" uid="uid://cesdm5o64g6fn" path="res://projectiles/projectile_red_shot.tscn" id="2_aj1wt"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://core/drag_base_strategy.gd" id="4_ejge3"]
 [ext_resource type="Script" path="res://core/move_resolve_strategy.gd" id="4_uprka"]
 [ext_resource type="Texture2D" uid="uid://0xb0ffg08uoh" path="res://assets/player_cannon.png" id="5_mr540"]
+[ext_resource type="Texture2D" uid="uid://b71igb15rweha" path="res://assets/white_circle.png" id="6_l5ldl"]
 [ext_resource type="Texture2D" uid="uid://qi5txtm6777y" path="res://assets/player_body.png" id="6_qrtnj"]
 [ext_resource type="Texture2D" uid="uid://cicfjxy22w5of" path="res://assets/player_ring.png" id="7_2jayw"]
 
@@ -19,6 +20,14 @@ velocity_decay_rate = 0.01
 
 [sub_resource type="Resource" id="Resource_mobqn"]
 script = ExtResource("4_uprka")
+
+[sub_resource type="Gradient" id="Gradient_6qltq"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_cmssk"]
+min_value = -1.0
+_data = [Vector2(0.00250626, 0.606882), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_8vlgr"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -36,7 +45,19 @@ allow_knockback = false
 drag_strategy = SubResource("Resource_mkvoq")
 move_resolve_strategy = SubResource("Resource_mobqn")
 
-[node name="Thrust" type="CPUParticles2D" parent="."]
+[node name="DashParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 4
+lifetime = 0.4
+texture = ExtResource("6_l5ldl")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_6qltq")
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_cmssk")
+
+[node name="ThrustParticles" type="CPUParticles2D" parent="."]
 amount = 32
 texture = ExtResource("4_3hrt4")
 emission_shape = 1

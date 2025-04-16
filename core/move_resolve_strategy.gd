@@ -12,7 +12,7 @@ func move_and_resolve(entity: Entity, delta: float) -> void:
 		if !entity.velocity.is_zero_approx():
 			entity.velocity = entity.velocity.bounce(
 				collision.get_normal()
-			) * 2.
+			)
 			entity.current_knockback = entity.current_knockback.bounce(
 				collision.get_normal()
 			)

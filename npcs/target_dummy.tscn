@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciig3y1oej1wv"]
+[gd_scene load_steps=12 format=3 uid="uid://ciig3y1oej1wv"]
 
 [ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/pink_bubble.png" id="1_a0l2i"]
 [ext_resource type="Script" path="res://npcs/target_dummy.gd" id="1_vh8wg"]
 [ext_resource type="Texture2D" uid="uid://cw4hgpbdj0ipm" path="res://assets/blue_hex_shield.png" id="2_17lto"]
 [ext_resource type="Script" path="res://core/drag_base_strategy.gd" id="2_fgxuo"]
 [ext_resource type="Script" path="res://core/move_resolve_strategy.gd" id="3_gge71"]
+[ext_resource type="Texture2D" uid="uid://c0vlsa16wdwcq" path="res://assets/blue_big_hex_shield.png" id="4_vmsjw"]
 
 [sub_resource type="Resource" id="Resource_anssv"]
 script = ExtResource("2_fgxuo")
@@ -15,6 +16,14 @@ script = ExtResource("3_gge71")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcmj6"]
 radius = 49.0102
+
+[sub_resource type="Curve" id="Curve_68pvh"]
+_data = [Vector2(0, 0.5), 0.0, 2.80175, 0, 0, Vector2(1, 0.168), 1.10452, 2.34119, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_xxms2"]
+offsets = PackedFloat32Array(0, 0.997326)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="TargetDummy" type="CharacterBody2D"]
 collision_layer = 4
@@ -31,6 +40,17 @@ shape = SubResource("CircleShape2D_dcmj6")
 
 [node name="CollisionShield" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-73, 0, -36, -63, 37, -63, 73, 0, 37, 63, -36, 63)
+
+[node name="ShieldPulser" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 0.25
+one_shot = true
+local_coords = true
+texture = ExtResource("4_vmsjw")
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_68pvh")
+color_ramp = SubResource("Gradient_xxms2")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture = ExtResource("2_17lto")
