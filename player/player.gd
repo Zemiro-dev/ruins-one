@@ -5,12 +5,15 @@ class_name Player
 @onready var thrust_particles: CPUParticles2D = $ThrustParticles
 @onready var dash_particles: CPUParticles2D = $DashParticles
 @onready var proj_marker: Marker2D = $Pivot/ProjMarker
+@onready var pivot: Node2D = $Pivot
+
+
 @export var current_projectile_scene: PackedScene
 @export var shoot_style: ShootProjectileBaseStrategy
 
-@export var impulse_acceleration: float = 500.0
+@export var impulse_acceleration: float = 1000.0
 @export var handling_multiplier: float = 3.0
-@export var max_speed := 1200.0
+@export var max_speed := 2500.0
 
 var max_dash_cooldown: float = .1
 var dash_cooldown: float = 0.0
@@ -31,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	var aim = get_aim_vector()
 	if !aim.is_zero_approx():
 		var aim_angle = aim.angle()
-		$Pivot.rotation = lerp_angle($Pivot.rotation, aim_angle, .1)
+		pivot.rotation = lerp_angle(pivot.rotation, aim_angle, .1)
 	
 	if Input.is_action_just_pressed("fire"):
 		var projectile: Projectile = current_projectile_scene.instantiate()
@@ -52,12 +55,16 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_pressed("break"):
-		drag_strategy.velocity_decay_rate = .5
+		drag_strategy.velocity_decay_rate = .1
 		can_drag = true
 	else:
-		drag_strategy.velocity_decay_rate = .02
+		drag_strategy.velocity_decay_rate = .01
 		
 	move_and_resolve(delta)
+
+
+func get_facing_rotation() -> float:
+	return pivot.rotation
 
 
 func is_impulse_on() -> bool:
