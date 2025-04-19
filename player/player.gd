@@ -4,9 +4,8 @@ class_name Player
 
 @onready var thrust_particles: CPUParticles2D = $ThrustParticles
 @onready var dash_particles: CPUParticles2D = $DashParticles
-@onready var proj_marker: Marker2D = $Pivot/ProjMarker
-@onready var pivot: Node2D = $Pivot
-
+@onready var targeting_pivot: PlayerTargetingPivot = $TargetingPivot
+@onready var proj_marker: Marker2D = $TargetingPivot/ProjMarker
 
 @export var current_projectile_scene: PackedScene
 @export var shoot_style: ShootProjectileBaseStrategy
@@ -34,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	var aim = get_aim_vector()
 	if !aim.is_zero_approx():
 		var aim_angle = aim.angle()
-		pivot.rotation = lerp_angle(pivot.rotation, aim_angle, .1)
+		targeting_pivot.set_target_angle(aim_angle)
 	
 	if Input.is_action_just_pressed("fire"):
 		var projectile: Projectile = current_projectile_scene.instantiate()
@@ -59,12 +58,21 @@ func _physics_process(delta: float) -> void:
 		can_drag = true
 	else:
 		drag_strategy.velocity_decay_rate = .01
+	
+	if Input.is_action_just_pressed("target"):
+		var target_node: Node2D = $TargetingPivot/TargetingModule.get_next_target()
+		if target_node and !targeting_pivot.target_node:
+			GlobalSignals.player_target_requested.emit(target_node)
+			targeting_pivot.set_target_node(target_node)
+		else:
+			GlobalSignals.player_target_released.emit()
+			targeting_pivot.release_target_node()
 		
 	move_and_resolve(delta)
 
 
 func get_facing_rotation() -> float:
-	return pivot.rotation
+	return targeting_pivot.rotation
 
 
 func is_impulse_on() -> bool:
