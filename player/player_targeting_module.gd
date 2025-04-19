@@ -12,7 +12,7 @@ func flush_memory() -> void:
 	previous_targets = []
 
 
-func get_next_target(targeter: Node2D, current_target: Node2D) -> Node2D:		
+func get_next_target(targeter: Node2D, current_target: Node2D) -> Node2D:
 	var targets := get_eligable_targets(targeter)
 	if targets.size():
 		for target in targets:

@@ -15,6 +15,9 @@ class_name Player
 @export var handling_multiplier: float = 3.0
 @export var max_speed := 2500.0
 
+@export var release_target_deadzone: float = .5
+@export var release_target_angle: float = PI / 2.
+
 var max_dash_cooldown: float = .1
 var dash_cooldown: float = 0.0
 
@@ -63,12 +66,17 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("target"):
 		var target_node: Node2D = targeting_module.get_next_target(self, targeting_pivot.target_node)
-		if target_node:
+		var release: bool = false
+		if target_node and aim.length() > release_target_deadzone:
+			var angle_to_target: float = global_position.angle_to(target_node.global_position) if target_node else 0.
+			release =  absf(angle_to_target - aim.angle()) > release_target_angle
+		if target_node and !release:
 			GlobalSignals.player_target_requested.emit(target_node)
 			targeting_pivot.set_target_node(target_node)
 		else:
 			GlobalSignals.player_target_released.emit()
 			targeting_pivot.release_target_node()
+			targeting_module.flush_memory()
 		
 	move_and_resolve(delta)
 
