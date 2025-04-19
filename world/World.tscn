@@ -39,4 +39,3 @@ script = ExtResource("4_bgr11")
 [node name="IndicatorNext" type="Node" parent="."]
 
 [node name="PlayerTrackingOrb" parent="IndicatorNext" instance=ExtResource("6_fiu4g")]
-visible = true

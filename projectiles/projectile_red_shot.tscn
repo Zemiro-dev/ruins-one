@@ -29,7 +29,8 @@ height = 52.0
 [node name="RedShot" instance=ExtResource("1_kfb6y")]
 collision_layer = 0
 detonate_particle_scene = ExtResource("2_a0mcf")
-initial_speed = 1000.0
+initial_speed = 2000.0
+max_speed = 2000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_id3k0")

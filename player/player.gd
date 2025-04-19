@@ -6,6 +6,7 @@ class_name Player
 @onready var dash_particles: CPUParticles2D = $DashParticles
 @onready var targeting_pivot: PlayerTargetingPivot = $TargetingPivot
 @onready var proj_marker: Marker2D = $TargetingPivot/ProjMarker
+@onready var targeting_module: PlayerTargetingModule = $TargetingPivot/TargetingModule
 
 @export var current_projectile_scene: PackedScene
 @export var shoot_style: ShootProjectileBaseStrategy
@@ -16,6 +17,7 @@ class_name Player
 
 var max_dash_cooldown: float = .1
 var dash_cooldown: float = 0.0
+
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -60,8 +62,8 @@ func _physics_process(delta: float) -> void:
 		drag_strategy.velocity_decay_rate = .01
 	
 	if Input.is_action_just_pressed("target"):
-		var target_node: Node2D = $TargetingPivot/TargetingModule.get_next_target()
-		if target_node and !targeting_pivot.target_node:
+		var target_node: Node2D = targeting_module.get_next_target(self, targeting_pivot.target_node)
+		if target_node:
 			GlobalSignals.player_target_requested.emit(target_node)
 			targeting_pivot.set_target_node(target_node)
 		else:

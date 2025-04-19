@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ol4x06ugv7kw"]
+[gd_scene load_steps=23 format=3 uid="uid://ol4x06ugv7kw"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_tqatu"]
 [ext_resource type="PackedScene" uid="uid://cesdm5o64g6fn" path="res://projectiles/projectile_red_shot.tscn" id="2_aj1wt"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cicfjxy22w5of" path="res://assets/player_ring.png" id="7_2jayw"]
 [ext_resource type="Script" path="res://player/player_targeting_pivot.gd" id="8_116um"]
 [ext_resource type="Script" path="res://player/player_targeting_module.gd" id="9_lrw3e"]
+[ext_resource type="Script" path="res://core/target_base_strategy.gd" id="10_omik6"]
 
 [sub_resource type="Resource" id="Resource_l45ut"]
 script = ExtResource("3_p0kbh")
@@ -34,8 +35,15 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_8vlgr"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xgtp8"]
-radius = 564.15
+[sub_resource type="Resource" id="Resource_wiest"]
+script = ExtResource("10_omik6")
+can_target_self = false
+can_target_owner = false
+can_target_shooters_projectiles = false
+detection_strength = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uw64o"]
+size = Vector2(890, 640)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ocomg"]
 radius = 41.28
@@ -77,15 +85,16 @@ color_ramp = SubResource("Gradient_8vlgr")
 script = ExtResource("8_116um")
 
 [node name="TargetingModule" type="Node2D" parent="TargetingPivot"]
-visible = false
 script = ExtResource("9_lrw3e")
+target_strategy = SubResource("Resource_wiest")
 
 [node name="TargetingArea" type="Area2D" parent="TargetingPivot/TargetingModule"]
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetingPivot/TargetingModule/TargetingArea"]
-shape = SubResource("CircleShape2D_xgtp8")
+position = Vector2(445, 0)
+shape = SubResource("RectangleShape2D_uw64o")
 debug_color = Color(0.911023, 0.211643, 0.524521, 0.42)
 
 [node name="Cannon" type="Sprite2D" parent="TargetingPivot"]
