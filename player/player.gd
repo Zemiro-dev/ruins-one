@@ -7,6 +7,8 @@ class_name Player
 @onready var targeting_pivot: PlayerTargetingPivot = $TargetingPivot
 @onready var proj_marker: Marker2D = $TargetingPivot/ProjMarker
 @onready var targeting_module: PlayerTargetingModule = $TargetingPivot/TargetingModule
+@onready var break_particles: CPUParticles2D = $BreakParticles
+@onready var break_pad: Sprite2D = $BreakPad
 
 @export var current_projectile_scene: PackedScene
 @export var shoot_style: ShootProjectileBaseStrategy
@@ -58,11 +60,18 @@ func _physics_process(delta: float) -> void:
 		dash_particles.emitting = false
 	
 	
+	if Input.is_action_just_pressed("break"):
+		break_particles.emitting = true		
+	
 	if Input.is_action_pressed("break"):
-		drag_strategy.velocity_decay_rate = .1
+		drag_strategy.velocity_decay_rate = .16
 		can_drag = true
+		var tween: Tween = create_tween()
+		tween.tween_property(break_pad, "modulate", Color(1, 1, 1, 1), .1)
 	else:
 		drag_strategy.velocity_decay_rate = .01
+		var tween: Tween = create_tween()
+		tween.tween_property(break_pad, "modulate", Color(1, 1, 1, 0), .1)
 	
 	if Input.is_action_just_pressed("target"):
 		var target_node: Node2D = targeting_module.get_next_target(self, targeting_pivot.target_node)

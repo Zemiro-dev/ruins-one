@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ol4x06ugv7kw"]
+[gd_scene load_steps=27 format=3 uid="uid://ol4x06ugv7kw"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_tqatu"]
 [ext_resource type="PackedScene" uid="uid://cesdm5o64g6fn" path="res://projectiles/projectile_red_shot.tscn" id="2_aj1wt"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://qi5txtm6777y" path="res://assets/player_body.png" id="6_qrtnj"]
 [ext_resource type="Texture2D" uid="uid://cicfjxy22w5of" path="res://assets/player_ring.png" id="7_2jayw"]
 [ext_resource type="Script" path="res://player/player_targeting_pivot.gd" id="8_116um"]
+[ext_resource type="Texture2D" uid="uid://trcgddoue5ml" path="res://assets/red_ring_nooutline.png" id="8_mjk6i"]
+[ext_resource type="Texture2D" uid="uid://dg2o53tnxq3u6" path="res://assets/red_ring.png" id="9_bpy8n"]
 [ext_resource type="Script" path="res://player/player_targeting_module.gd" id="9_lrw3e"]
 [ext_resource type="Script" path="res://core/target_base_strategy.gd" id="10_omik6"]
 
@@ -35,6 +37,14 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_8vlgr"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
+[sub_resource type="Curve" id="Curve_0ky7v"]
+_data = [Vector2(0, 0.493433), 0.0, 1.73203, 0, 0, Vector2(1, 0.76559), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_5cme4"]
+offsets = PackedFloat32Array(0, 0.0482456, 0.296724, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.75, 1, 1, 1, 0.75, 1, 1, 1, 0)
+
 [sub_resource type="Resource" id="Resource_wiest"]
 script = ExtResource("10_omik6")
 can_target_self = false
@@ -42,8 +52,8 @@ can_target_owner = false
 can_target_shooters_projectiles = false
 detection_strength = 5
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uw64o"]
-size = Vector2(890, 640)
+[sub_resource type="CircleShape2D" id="CircleShape2D_vq7vl"]
+radius = 890.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ocomg"]
 radius = 41.28
@@ -71,6 +81,7 @@ hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_cmssk")
 
 [node name="ThrustParticles" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 32
 texture = ExtResource("4_3hrt4")
 emission_shape = 1
@@ -80,6 +91,22 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 128.0
 initial_velocity_max = 128.0
 color_ramp = SubResource("Gradient_8vlgr")
+
+[node name="BreakParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+local_coords = true
+texture = ExtResource("8_mjk6i")
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_0ky7v")
+color_ramp = SubResource("Gradient_5cme4")
+
+[node name="BreakPad" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("9_bpy8n")
 
 [node name="TargetingPivot" type="Node2D" parent="."]
 script = ExtResource("8_116um")
@@ -93,8 +120,8 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetingPivot/TargetingModule/TargetingArea"]
-position = Vector2(445, 0)
-shape = SubResource("RectangleShape2D_uw64o")
+visible = false
+shape = SubResource("CircleShape2D_vq7vl")
 debug_color = Color(0.911023, 0.211643, 0.524521, 0.42)
 
 [node name="Cannon" type="Sprite2D" parent="TargetingPivot"]
@@ -111,4 +138,5 @@ texture = ExtResource("6_qrtnj")
 texture = ExtResource("7_2jayw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_ocomg")
