@@ -38,12 +38,20 @@ var initial_modulate: Color
 var collision_core: Node2D
 var collision_shield: Node2D
 
+var shield: Shield
+
 func _ready() -> void:
 	current_health = max_health
 	current_shield = max_shield
 	initial_modulate = modulate
 	collision_core = get_node_or_null("CollisionCore")
 	collision_shield = get_node_or_null("CollisionShield")
+	shield = get_node_or_null("Shield")
+	if shield:
+		if current_shield > 0:
+			shield.on()
+		else:
+			shield.off()
 	updateCollisionShapes()
 
 
@@ -92,8 +100,10 @@ func take_damage(damage: int, attacker: Node2D, hurtbox: Hurtbox):
 		current_shield -= damage
 		if current_shield <= 0:
 			current_shield = 0
+			if shield: shield.off()
 		on_shield_changed.emit(current_shield, max_shield)
 		tween_color = shield_damage_tween_color
+		if shield: shield.pulse()
 	else:
 		current_health -= damage
 		on_health_changed.emit(current_health, max_health)
@@ -129,6 +139,7 @@ func restore_shield(amount: int):
 	current_shield = clampi(current_shield + amount, current_shield, max_shield)
 	if current_shield != previous_shield:
 		on_shield_changed.emit(current_shield, max_shield)
+		if previous_shield <= 0 and shield: shield.on()
 
 
 func play_damage_tween(color: Color) -> Tween:
