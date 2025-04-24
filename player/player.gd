@@ -15,7 +15,6 @@ class_name Player
 
 @export var impulse_acceleration: float = 1000.0
 @export var handling_multiplier: float = 3.0
-@export var max_speed := 2500.0
 
 @export var release_target_deadzone: float = .5
 @export var release_target_angle: float = PI / 2.
@@ -30,8 +29,6 @@ var weapon_cooldown: float = 0.0
 func _physics_process(delta: float) -> void:
 	super(delta)
 	velocity += get_impulse_vector(delta)
-	if velocity.length() > max_speed:
-		velocity = velocity.normalized() * max_speed
 		
 	if not is_impulse_on():
 		can_drag = true
@@ -93,6 +90,7 @@ func _physics_process(delta: float) -> void:
 	
 	if weapon_cooldown > 0:
 		weapon_cooldown -= delta
+	
 	move_and_resolve(delta)
 
 

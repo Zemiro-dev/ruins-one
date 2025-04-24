@@ -11,6 +11,7 @@ signal on_death(entity: Entity)
 var current_health := 1
 @export var max_shield := 0
 var current_shield := 0
+@export var max_speed: float = 1500.
 
 @export var max_invulnerability_time := 0.0
 var remaining_invulnerability_time := 0.0
@@ -39,6 +40,7 @@ var collision_core: Node2D
 var collision_shield: Node2D
 
 var shield: Shield
+
 
 func _ready() -> void:
 	current_health = max_health
@@ -152,3 +154,8 @@ func play_damage_tween(color: Color) -> Tween:
 	modulate_tween.tween_property(self, "modulate", color, .2)
 	modulate_tween.tween_property(self, "modulate", Color(1, 1, 1), .2)
 	return modulate_tween
+
+
+func cap_velocity() -> void:
+	if velocity.length() > max_speed:
+		velocity = velocity.normalized() * max_speed

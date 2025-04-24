@@ -12,6 +12,7 @@ func _ready() -> void:
  
 func _physics_process(delta: float) -> void:
 	super(delta)
+	#velocity += Vector2(0, 1000. * delta)
 	if current_shield <= 0 and shield_refill.is_stopped():
 		shield_refill.start()
 	$Marker2D/Label.text = str(current_health)
