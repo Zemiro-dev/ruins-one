@@ -4,7 +4,6 @@ extends Entity
 
 func _ready() -> void:
 	super()
-	on_damage_taken.connect(func(attacker: Node2D): shield.pulse())
 	shield_refill.timeout.connect(
 		func():
 			shield.on()

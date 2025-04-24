@@ -23,6 +23,9 @@ class_name Player
 var max_dash_cooldown: float = .1
 var dash_cooldown: float = 0.0
 
+@export var max_weapon_cooldown: float = .1
+var weapon_cooldown: float = 0.0
+
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -42,7 +45,8 @@ func _physics_process(delta: float) -> void:
 		var aim_angle = aim.angle()
 		targeting_pivot.set_target_angle(aim_angle)
 	
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire") and weapon_cooldown <= 0:
+		weapon_cooldown = max_weapon_cooldown
 		var projectile: Projectile = current_projectile_scene.instantiate()
 		shoot_style.shoot(projectile, self, proj_marker.global_transform)
 	
@@ -86,7 +90,9 @@ func _physics_process(delta: float) -> void:
 			GlobalSignals.player_target_released.emit()
 			targeting_pivot.release_target_node()
 			targeting_module.flush_memory()
-		
+	
+	if weapon_cooldown > 0:
+		weapon_cooldown -= delta
 	move_and_resolve(delta)
 
 

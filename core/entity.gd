@@ -98,12 +98,12 @@ func take_damage(damage: int, attacker: Node2D, hurtbox: Hurtbox):
 	var tween_color := health_damage_tween_color
 	if current_shield > 0:
 		current_shield -= damage
+		if shield: shield.pulse()
 		if current_shield <= 0:
 			current_shield = 0
 			if shield: shield.off()
 		on_shield_changed.emit(current_shield, max_shield)
 		tween_color = shield_damage_tween_color
-		if shield: shield.pulse()
 	else:
 		current_health -= damage
 		on_health_changed.emit(current_health, max_health)

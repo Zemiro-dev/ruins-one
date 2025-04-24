@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciig3y1oej1wv"]
+[gd_scene load_steps=16 format=3 uid="uid://ciig3y1oej1wv"]
 
 [ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/pink_bubble.png" id="1_a0l2i"]
 [ext_resource type="Script" path="res://npcs/target_dummy.gd" id="1_vh8wg"]
 [ext_resource type="Script" path="res://core/drag_base_strategy.gd" id="2_fgxuo"]
 [ext_resource type="Script" path="res://core/move_resolve_strategy.gd" id="3_gge71"]
+[ext_resource type="Texture2D" uid="uid://dg2o53tnxq3u6" path="res://assets/red_ring.png" id="4_8ifes"]
+[ext_resource type="PackedScene" uid="uid://c4ibl6204neda" path="res://core/hurtbox.tscn" id="5_7f8aa"]
 [ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://shield/shield.tscn" id="5_ffs8d"]
+[ext_resource type="Script" path="res://core/knockback_base_strategy.gd" id="6_2q1at"]
+[ext_resource type="Script" path="res://core/target_base_strategy.gd" id="7_h667i"]
 
 [sub_resource type="Resource" id="Resource_anssv"]
 script = ExtResource("2_fgxuo")
@@ -12,6 +16,22 @@ velocity_decay_rate = 0.1
 
 [sub_resource type="Resource" id="Resource_d5dhk"]
 script = ExtResource("3_gge71")
+
+[sub_resource type="Resource" id="Resource_rhp2i"]
+script = ExtResource("6_2q1at")
+knockback_strength = 100.0
+camera_shake_strength = 1000.0
+camera_shake_duration = 0.5
+
+[sub_resource type="Resource" id="Resource_mu20w"]
+script = ExtResource("7_h667i")
+can_target_self = false
+can_target_owner = false
+can_target_shooters_projectiles = false
+detection_strength = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_khv1i"]
+radius = 52.345
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcmj6"]
 radius = 49.0102
@@ -25,6 +45,21 @@ max_health = 100
 max_shield = 10
 drag_strategy = SubResource("Resource_anssv")
 move_resolve_strategy = SubResource("Resource_d5dhk")
+
+[node name="RedRing" type="Sprite2D" parent="."]
+position = Vector2(0, 57)
+texture = ExtResource("4_8ifes")
+
+[node name="Hurtbox" parent="RedRing" node_paths=PackedStringArray("damage_source") instance=ExtResource("5_7f8aa")]
+collision_layer = 0
+collision_mask = 2
+knockback_strategy = SubResource("Resource_rhp2i")
+target_strategy = SubResource("Resource_mu20w")
+damage_source = NodePath("../..")
+use_blacklist = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedRing/Hurtbox"]
+shape = SubResource("CircleShape2D_khv1i")
 
 [node name="CollisionCore" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dcmj6")

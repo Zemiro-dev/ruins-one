@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ol4x06ugv7kw"]
+[gd_scene load_steps=28 format=3 uid="uid://ol4x06ugv7kw"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_tqatu"]
 [ext_resource type="PackedScene" uid="uid://cesdm5o64g6fn" path="res://projectiles/projectile_red_shot.tscn" id="2_aj1wt"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dg2o53tnxq3u6" path="res://assets/red_ring.png" id="9_bpy8n"]
 [ext_resource type="Script" path="res://player/player_targeting_module.gd" id="9_lrw3e"]
 [ext_resource type="Script" path="res://core/target_base_strategy.gd" id="10_omik6"]
+[ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://shield/shield.tscn" id="16_inikh"]
 
 [sub_resource type="Resource" id="Resource_l45ut"]
 script = ExtResource("3_p0kbh")
@@ -25,6 +26,9 @@ velocity_decay_rate = 0.01
 
 [sub_resource type="Resource" id="Resource_mobqn"]
 script = ExtResource("4_uprka")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ocomg"]
+radius = 41.28
 
 [sub_resource type="Gradient" id="Gradient_6qltq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -55,18 +59,22 @@ detection_strength = 5
 [sub_resource type="CircleShape2D" id="CircleShape2D_vq7vl"]
 radius = 890.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ocomg"]
-radius = 41.28
-
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_tqatu")
 current_projectile_scene = ExtResource("2_aj1wt")
 shoot_style = SubResource("Resource_l45ut")
+max_shield = 1
 allow_knockback = false
 drag_strategy = SubResource("Resource_mkvoq")
 move_resolve_strategy = SubResource("Resource_mobqn")
+
+[node name="CollisionCore" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ocomg")
+
+[node name="CollisionShield" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-73, 0, -36, -63, 37, -63, 73, 0, 37, 63, -36, 63)
 
 [node name="DashParticles" type="CPUParticles2D" parent="."]
 emitting = false
@@ -137,6 +145,4 @@ texture = ExtResource("6_qrtnj")
 [node name="Ring" type="Sprite2D" parent="."]
 texture = ExtResource("7_2jayw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CircleShape2D_ocomg")
+[node name="Shield" parent="." instance=ExtResource("16_inikh")]
