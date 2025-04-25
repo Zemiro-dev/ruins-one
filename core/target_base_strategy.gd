@@ -14,7 +14,8 @@ func can_target(targeter: Node2D, target: Node2D):
 		(can_target_self or targeter != target) and
 		(can_target_owner or targeter.get_owner() != target) and 
 		same_shooter_check(targeter, target) and
-		detection_strength_check(target)
+		detection_strength_check(target) and
+		!target.get("is_dead")
 	)
 
 

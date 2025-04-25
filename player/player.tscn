@@ -129,7 +129,6 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetingPivot/TargetingModule/TargetingArea"]
-visible = false
 shape = SubResource("CircleShape2D_vq7vl")
 debug_color = Color(0.911023, 0.211643, 0.524521, 0.42)
 

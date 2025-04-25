@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Entity
 
-
 signal on_damage_taken(attacker: Node2D)
 signal on_health_changed(new_health: int, max_health: int)
 signal on_shield_changed(new_shield: int, max_shield: int)
@@ -15,8 +14,6 @@ var current_shield := 0
 
 @export var max_invulnerability_time := 0.0
 var remaining_invulnerability_time := 0.0
-
-#@export var move_resolve_strategy
 
 @export var allow_knockback := true
 @export var knockback_decay_rate := .1

@@ -2,8 +2,10 @@ extends Node2D
 class_name PlayerTargetingModule
 
 @onready var targeting_area: Area2D = $TargetingArea
-@export var target_strategy: TargetBaseStrategy
+@export var max_range: float = 1000.
 @export var angle_between_targets_tolerance: float = PI / 8.
+@export var target_strategy: TargetBaseStrategy
+
 
 var previous_targets: Array[Node2D] = []
 
@@ -56,8 +58,13 @@ func in_line_of_sight(target: Node2D) -> bool:
 	return true
 
 
+func in_range(targeting: Node2D, target: Node2D) -> bool:
+	return targeting.global_position.distance_to(target.global_position) < max_range
+
+
 func allowed_to_target(targeter:Node2D, target: Node2D) -> bool:
 	return (
 		(!target_strategy or target_strategy.can_target(targeter, target))
 		and in_line_of_sight(target)
+		and in_range(targeter, target)
 	)

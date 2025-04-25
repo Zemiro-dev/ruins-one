@@ -51,7 +51,7 @@ func next_zoom(delta: float) -> Vector2:
 	if player != null:
 		var speed := player.velocity.length()
 		if speed > 1500.:
-			var zoom_component := 1. - ((speed - 1500.) / 1500. * .5)
+			var zoom_component := 1. - ((speed - 1500.) / 1500. * .7)
 			target_zoom = Vector2(zoom_component, zoom_component)
 	target_zoom = zoom.lerp(target_zoom, zoom_tracking_rate * delta)
 	return target_zoom
