@@ -79,14 +79,15 @@ func _physics_process(delta: float) -> void:
 		var release: bool = false
 		if target_node and aim.length() > release_target_deadzone:
 			var angle_to_target: float = global_position.angle_to(target_node.global_position) if target_node else 0.
-			release = absf(angle_to_target - aim.angle()) > release_target_angle
+			var aim_angle = aim.angle()
+			release = absf(angle_to_target - aim_angle) > release_target_angle
 		if target_node and !release:
 			targeting_pivot.set_target_node(target_node)
 		else:
 			targeting_pivot.release_target_node()
 	
 	if (targeting_pivot.target_node
-		and !targeting_module.allowed_to_target(self, targeting_pivot.target_node)):
+		and !targeting_module.allowed_to_target(self, targeting_pivot.target_node, true)):
 		targeting_pivot.release_target_node()
 		
 	

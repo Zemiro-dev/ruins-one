@@ -71,6 +71,8 @@ allow_knockback = false
 drag_strategy = SubResource("Resource_mkvoq")
 move_resolve_strategy = SubResource("Resource_mobqn")
 
+[node name="LineOfSightRayCast" type="RayCast2D" parent="."]
+
 [node name="CollisionCore" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ocomg")
 
@@ -120,9 +122,10 @@ texture = ExtResource("9_bpy8n")
 [node name="TargetingPivot" type="Node2D" parent="."]
 script = ExtResource("8_116um")
 
-[node name="TargetingModule" type="Node2D" parent="TargetingPivot"]
+[node name="TargetingModule" type="Node2D" parent="TargetingPivot" node_paths=PackedStringArray("los_ray_cast")]
 script = ExtResource("9_lrw3e")
 target_strategy = SubResource("Resource_wiest")
+los_ray_cast = NodePath("../../LineOfSightRayCast")
 
 [node name="TargetingArea" type="Area2D" parent="TargetingPivot/TargetingModule"]
 collision_layer = 0
@@ -130,7 +133,10 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetingPivot/TargetingModule/TargetingArea"]
 shape = SubResource("CircleShape2D_vq7vl")
-debug_color = Color(0.911023, 0.211643, 0.524521, 0.42)
+debug_color = Color(0.911, 0.212, 0.525, 0.08)
+
+[node name="LosGraceTimer" type="Timer" parent="TargetingPivot/TargetingModule"]
+one_shot = true
 
 [node name="Cannon" type="Sprite2D" parent="TargetingPivot"]
 position = Vector2(38, 0)

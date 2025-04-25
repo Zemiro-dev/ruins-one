@@ -11,6 +11,9 @@ class_name World
 func _ready() -> void:
 	spawn_player()
 
+# TODO Spawners should likely be it's own thing inside its own node
+# TODO that way we can just run through and spawn stuff.
+# TODO How does a spawn point know which signal to trigger?
 func spawn_player() -> void:
 	if player_scene:
 		var player: Player = player_scene.instantiate()

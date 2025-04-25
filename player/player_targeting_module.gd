@@ -1,17 +1,24 @@
 extends Node2D
 class_name PlayerTargetingModule
 
+@onready var los_grace_timer: Timer = $LosGraceTimer
 @onready var targeting_area: Area2D = $TargetingArea
+
 @export var max_range: float = 1000.
 @export var angle_between_targets_tolerance: float = PI / 8.
 @export var target_strategy: TargetBaseStrategy
+@export var los_ray_cast: RayCast2D
 
 
 var previous_targets: Array[Node2D] = []
+var is_losing_los: bool = false
 
 
 func flush_memory() -> void:
 	previous_targets = []
+	is_losing_los = false
+	los_grace_timer.stop()
+	
 
 
 func get_next_target(targeter: Node2D, current_target: Node2D) -> Node2D:
@@ -19,8 +26,9 @@ func get_next_target(targeter: Node2D, current_target: Node2D) -> Node2D:
 	if targets.size():
 		for target in targets:
 			if !previous_targets.has(target) and target != current_target:
-				previous_targets.append(target)
-				return target
+				if allowed_to_target(targeter, target):
+					previous_targets.append(target)
+					return target
 		var i_start := previous_targets.find(current_target)
 		if i_start >= 0:
 			var cycled_indexes = range(i_start + 1, previous_targets.size())
@@ -54,17 +62,42 @@ func compare_targets(a: Node2D, b: Node2D):
 		return angle_a < angle_b
 
 
-func in_line_of_sight(target: Node2D) -> bool:
-	return true
+func in_line_of_sight(target: Node2D, los_grace: bool) -> bool:
+	if !los_ray_cast:
+		return true
+	los_ray_cast.global_position = global_position
+	los_ray_cast.target_position = target.global_position - global_position
+	los_ray_cast.force_raycast_update()
+	var in_los: bool = !los_ray_cast.is_colliding()
+	if los_grace:
+		if !in_los and !is_losing_los:
+			start_los_timer()
+		if !in_los and is_losing_los and los_grace_timer.is_stopped():
+			return false
+		if in_los:
+			stop_los_timer()
+		return true
+	
+	return in_los
+
+
+func start_los_timer() -> void:
+	is_losing_los = true
+	los_grace_timer.start()
+
+
+func stop_los_timer() -> void:
+	is_losing_los = false
+	los_grace_timer.stop()
 
 
 func in_range(targeting: Node2D, target: Node2D) -> bool:
 	return targeting.global_position.distance_to(target.global_position) < max_range
 
 
-func allowed_to_target(targeter:Node2D, target: Node2D) -> bool:
+func allowed_to_target(targeter:Node2D, target: Node2D, los_grace: bool = false) -> bool:
 	return (
 		(!target_strategy or target_strategy.can_target(targeter, target))
-		and in_line_of_sight(target)
+		and in_line_of_sight(target, los_grace)
 		and in_range(targeter, target)
 	)
