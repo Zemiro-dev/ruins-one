@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://ciig3y1oej1wv"]
+[gd_scene load_steps=19 format=3 uid="uid://ciig3y1oej1wv"]
 
 [ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/pink_bubble.png" id="1_a0l2i"]
 [ext_resource type="Script" path="res://npcs/target_dummy.gd" id="1_vh8wg"]
 [ext_resource type="Script" path="res://core/drag_base_strategy.gd" id="2_fgxuo"]
 [ext_resource type="Script" path="res://core/move_resolve_strategy.gd" id="3_gge71"]
 [ext_resource type="Texture2D" uid="uid://dg2o53tnxq3u6" path="res://assets/red_ring.png" id="4_8ifes"]
+[ext_resource type="PackedScene" uid="uid://4egncyc5myi4" path="res://particles/particle_explosion_one_shot.tscn" id="4_ikgw6"]
 [ext_resource type="PackedScene" uid="uid://c4ibl6204neda" path="res://core/hurtbox.tscn" id="5_7f8aa"]
 [ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://shield/shield.tscn" id="5_ffs8d"]
 [ext_resource type="Script" path="res://core/knockback_base_strategy.gd" id="6_2q1at"]
@@ -36,6 +37,14 @@ radius = 52.345
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcmj6"]
 radius = 49.0102
 
+[sub_resource type="Animation" id="Animation_fif20"]
+resource_name = "death"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eb2kb"]
+_data = {
+"death": SubResource("Animation_fif20")
+}
+
 [node name="TargetDummy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
@@ -45,6 +54,7 @@ max_health = 100
 max_shield = 10
 drag_strategy = SubResource("Resource_anssv")
 move_resolve_strategy = SubResource("Resource_d5dhk")
+current_death_explosion_scene = ExtResource("4_ikgw6")
 
 [node name="RedRing" type="Sprite2D" parent="."]
 position = Vector2(0, 57)
@@ -93,3 +103,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ShieldRefill" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eb2kb")
+}

@@ -35,8 +35,9 @@ var initial_modulate: Color
 
 var collision_core: Node2D
 var collision_shield: Node2D
-
 var shield: Shield
+
+@export var current_death_explosion_scene: PackedScene
 
 
 func _ready() -> void:
@@ -156,3 +157,12 @@ func play_damage_tween(color: Color) -> Tween:
 func cap_velocity() -> void:
 	if velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
+
+
+func death_explosion() -> bool:
+	if current_death_explosion_scene:
+		var explosion: CPUParticles2D = current_death_explosion_scene.instantiate()
+		explosion.global_transform = global_transform
+		GlobalSignals.particle_spawn_requested.emit(explosion)
+		return true
+	return false

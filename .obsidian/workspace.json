@@ -20,21 +20,8 @@
               "icon": "lucide-file",
               "title": "2025-03-13 Tilemap"
             }
-          },
-          {
-            "id": "9a318c87d6438808",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.8.10"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.8.10"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -176,19 +163,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9a318c87d6438808",
+  "active": "e2368234c2a798ee",
   "lastOpenFiles": [
-    "player/plaA2FF.tmp",
-    "npcs/tarA246.tmp",
-    "world/worlds/worA221.tmp",
-    "player/pla72A8.tmp",
-    "player/pla678B.tmp",
-    "player/pla6778.tmp",
-    "player/plaAA4.tmp",
-    "player/plaA90.tmp",
-    "player/pla36A2.tmp",
-    "npcs/tar35F9.tmp",
-    "player/pla2AE9.tmp",
+    "player/pla2CF3.tmp",
+    "npcs/tar2C6F.tmp",
+    "world/worlds/wor2C49.tmp",
+    "player/plaEA29.tmp",
+    "npcs/tarE9A5.tmp",
+    "player/pla5AE6.tmp",
+    "npcs/tar5A71.tmp",
+    "core/ent5765.tmp",
+    "player/pla5751.tmp",
+    "particles/par3A3B.tmp",
+    "player/pla399F.tmp",
     "Docs/Journal/2025-04-06 Shield.md",
     "assets/blue_small_circle.png",
     "assets/player_body - Copy.png",

@@ -17,3 +17,9 @@ func _physics_process(delta: float) -> void:
 		shield_refill.start()
 	$Marker2D/Label.text = str(current_health)
 	move_and_resolve(delta)
+
+
+func die() -> void:
+	super()
+	death_explosion()
+	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc2wglausiw88"]
+[gd_scene load_steps=4 format=3 uid="uid://bc2wglausiw88"]
 
 [ext_resource type="Texture2D" uid="uid://r2gimpeoxat2" path="res://assets/particle_red_circle.png" id="1_affhy"]
 [ext_resource type="Script" path="res://particles/particle_one_shot_free.gd" id="2_guo73"]
@@ -7,23 +7,18 @@
 offsets = PackedFloat32Array(0, 0.997636)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_c1p10"]
-gradient = SubResource("Gradient_ttwbf")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pahag"]
-particle_flag_disable_z = true
-spread = 180.0
-initial_velocity_min = 50.0
-initial_velocity_max = 300.0
-gravity = Vector3(0, 0, 0)
-color_ramp = SubResource("GradientTexture1D_c1p10")
-
-[node name="RedCircleOneShot" type="GPUParticles2D"]
+[node name="RedCircleOneShot" type="CPUParticles2D"]
 emitting = false
 amount = 32
-process_material = SubResource("ParticleProcessMaterial_pahag")
-texture = ExtResource("1_affhy")
 lifetime = 0.25
 one_shot = true
 explosiveness = 1.0
+fixed_fps = 30
+draw_order = 1
+texture = ExtResource("1_affhy")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 300.0
+color_ramp = SubResource("Gradient_ttwbf")
 script = ExtResource("2_guo73")

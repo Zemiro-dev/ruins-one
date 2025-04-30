@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://4egncyc5myi4"]
+
+[ext_resource type="Texture2D" uid="uid://b71igb15rweha" path="res://assets/white_circle.png" id="1_rtcet"]
+[ext_resource type="Script" path="res://particles/particle_one_shot_free.gd" id="2_mgfr1"]
+
+[sub_resource type="Curve" id="Curve_miqx7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.754808), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_6g4qi"]
+offsets = PackedFloat32Array(0, 0.1, 0.3, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.992157, 0.972549, 0.32549, 1, 0.876482, 0.293428, 0.19489, 1, 0.870588, 0.258824, 0.188235, 0)
+metadata/_snap_enabled = true
+
+[node name="ParticleExplosionOneShot" type="CPUParticles2D"]
+position = Vector2(28, -3)
+emitting = false
+amount = 12
+lifetime = 0.66
+one_shot = true
+explosiveness = 0.5
+randomness = 0.1
+local_coords = true
+texture = ExtResource("1_rtcet")
+emission_shape = 1
+emission_sphere_radius = 32.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 64.0
+initial_velocity_max = 64.0
+scale_amount_curve = SubResource("Curve_miqx7")
+color_ramp = SubResource("Gradient_6g4qi")
+script = ExtResource("2_mgfr1")
