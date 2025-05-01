@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bc2wglausiw88"]
 
-[ext_resource type="Texture2D" uid="uid://r2gimpeoxat2" path="res://assets/particle_red_circle.png" id="1_affhy"]
+[ext_resource type="Texture2D" uid="uid://r2gimpeoxat2" path="res://assets/sprite/particle_red_circle.png" id="1_affhy"]
 [ext_resource type="Script" path="res://particles/particle_one_shot_free.gd" id="2_guo73"]
 
 [sub_resource type="Gradient" id="Gradient_ttwbf"]

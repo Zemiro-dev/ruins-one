@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw4hgpbdj0ipm"
-path="res://.godot/imported/blue_hex_shield.png-43ee40e4ab0e799e00eb92700116fd8b.ctex"
+uid="uid://bljr48bqtu2ag"
+path="res://.godot/imported/blue_small_circle.png-b0c3bfc980a81b09d3fcc8312ff5b192.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blue_hex_shield.png"
-dest_files=["res://.godot/imported/blue_hex_shield.png-43ee40e4ab0e799e00eb92700116fd8b.ctex"]
+source_file="res://assets/sprite/blue_small_circle.png"
+dest_files=["res://.godot/imported/blue_small_circle.png-b0c3bfc980a81b09d3fcc8312ff5b192.ctex"]
 
 [params]
 

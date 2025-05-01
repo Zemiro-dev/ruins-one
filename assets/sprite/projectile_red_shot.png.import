@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0xb0ffg08uoh"
-path="res://.godot/imported/player_cannon.png-26a89e51de70ef2de540fd82a9b2825a.ctex"
+uid="uid://dcrujv76eet7m"
+path="res://.godot/imported/projectile_red_shot.png-c5da6e010f59af32b90347fb98481787.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player_cannon.png"
-dest_files=["res://.godot/imported/player_cannon.png-26a89e51de70ef2de540fd82a9b2825a.ctex"]
+source_file="res://assets/sprite/projectile_red_shot.png"
+dest_files=["res://.godot/imported/projectile_red_shot.png-c5da6e010f59af32b90347fb98481787.ctex"]
 
 [params]
 

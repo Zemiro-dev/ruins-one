@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcrujv76eet7m"
-path="res://.godot/imported/projectile_red_shot.png-4005062db169b0a3316ec01cd1ca4d86.ctex"
+uid="uid://dg2o53tnxq3u6"
+path="res://.godot/imported/red_ring.png-a581e5d2a2f8de956334d39d291d4d32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/projectile_red_shot.png"
-dest_files=["res://.godot/imported/projectile_red_shot.png-4005062db169b0a3316ec01cd1ca4d86.ctex"]
+source_file="res://assets/sprite/red_ring.png"
+dest_files=["res://.godot/imported/red_ring.png-a581e5d2a2f8de956334d39d291d4d32.ctex"]
 
 [params]
 

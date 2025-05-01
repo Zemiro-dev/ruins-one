@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi6cnmxbkqcgq"
-path="res://.godot/imported/pink_bubble.png-426357e80349dd400c35c15dc95cf045.ctex"
+uid="uid://b71igb15rweha"
+path="res://.godot/imported/white_circle.png-7f1e2fb1ed834fc4f0b1582e504ceae2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pink_bubble.png"
-dest_files=["res://.godot/imported/pink_bubble.png-426357e80349dd400c35c15dc95cf045.ctex"]
+source_file="res://assets/sprite/white_circle.png"
+dest_files=["res://.godot/imported/white_circle.png-7f1e2fb1ed834fc4f0b1582e504ceae2.ctex"]
 
 [params]
 

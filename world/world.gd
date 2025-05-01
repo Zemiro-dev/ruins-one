@@ -6,7 +6,7 @@ class_name World
 @onready var player_spawn: Marker2D = $PlayerSpawn
 @onready var main_camera: CoreCamera = $MainCamera
 @onready var player_nest: Node = $PlayerNest
-@onready var player_tracking_orb: TrackingOrb = $IndicatorNext/PlayerTrackingOrb
+@onready var player_tracking_orb: TrackingOrb = $IndicatorNest/PlayerTrackingOrb
 
 func _ready() -> void:
 	spawn_player()

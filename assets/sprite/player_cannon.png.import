@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://trcgddoue5ml"
-path="res://.godot/imported/red_ring_nooutline.png-ad3182c6b7db3ed7c57dbfe324c06a36.ctex"
+uid="uid://0xb0ffg08uoh"
+path="res://.godot/imported/player_cannon.png-3983a9456c9473b05fd88d209904b6c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/red_ring_nooutline.png"
-dest_files=["res://.godot/imported/red_ring_nooutline.png-ad3182c6b7db3ed7c57dbfe324c06a36.ctex"]
+source_file="res://assets/sprite/player_cannon.png"
+dest_files=["res://.godot/imported/player_cannon.png-3983a9456c9473b05fd88d209904b6c0.ctex"]
 
 [params]
 

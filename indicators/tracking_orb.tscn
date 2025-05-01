@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp3e6bgf4vq28"]
 
 [ext_resource type="Script" path="res://indicators/tracking_orb.gd" id="1_su52r"]
-[ext_resource type="Texture2D" uid="uid://bljr48bqtu2ag" path="res://assets/blue_small_circle.png" id="2_x21np"]
+[ext_resource type="Texture2D" uid="uid://bljr48bqtu2ag" path="res://assets/sprite/blue_small_circle.png" id="2_x21np"]
 
 [sub_resource type="Curve" id="Curve_7ipai"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

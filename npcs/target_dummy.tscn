@@ -1,15 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://ciig3y1oej1wv"]
+[gd_scene load_steps=22 format=3 uid="uid://ciig3y1oej1wv"]
 
-[ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/pink_bubble.png" id="1_a0l2i"]
+[ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/sprite/pink_bubble.png" id="1_a0l2i"]
 [ext_resource type="Script" path="res://npcs/target_dummy.gd" id="1_vh8wg"]
 [ext_resource type="Script" path="res://core/drag_base_strategy.gd" id="2_fgxuo"]
 [ext_resource type="Script" path="res://core/move_resolve_strategy.gd" id="3_gge71"]
-[ext_resource type="Texture2D" uid="uid://dg2o53tnxq3u6" path="res://assets/red_ring.png" id="4_8ifes"]
+[ext_resource type="Texture2D" uid="uid://dg2o53tnxq3u6" path="res://assets/sprite/red_ring.png" id="4_8ifes"]
 [ext_resource type="PackedScene" uid="uid://4egncyc5myi4" path="res://particles/particle_explosion_one_shot.tscn" id="4_ikgw6"]
 [ext_resource type="PackedScene" uid="uid://c4ibl6204neda" path="res://core/hurtbox.tscn" id="5_7f8aa"]
 [ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://shield/shield.tscn" id="5_ffs8d"]
 [ext_resource type="Script" path="res://core/knockback_base_strategy.gd" id="6_2q1at"]
 [ext_resource type="Script" path="res://core/target_base_strategy.gd" id="7_h667i"]
+[ext_resource type="PackedScene" uid="uid://bj01nvklr40bg" path="res://audio/extended_audio_stream_player_2d.tscn" id="11_nnmwd"]
+[ext_resource type="AudioStream" uid="uid://btwjxlttel4c7" path="res://assets/audio/explosion_audio.wav" id="12_84loe"]
 
 [sub_resource type="Resource" id="Resource_anssv"]
 script = ExtResource("2_fgxuo")
@@ -96,6 +98,20 @@ tracks/2/keys = {
 "method": &"death_explosion"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_explosion_audio"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eb2kb"]
 _data = {
@@ -166,3 +182,9 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_eb2kb")
 }
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="ExplodeAudio" parent="Audio" instance=ExtResource("11_nnmwd")]
+stream = ExtResource("12_84loe")
+one_shot = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cicfjxy22w5of"
-path="res://.godot/imported/player_ring.png-619d92dc21362ca9f9e1ea69a769afdd.ctex"
+uid="uid://r2gimpeoxat2"
+path="res://.godot/imported/particle_red_circle.png-5a90a45dc915b45d0929aceb5bb1d4a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player_ring.png"
-dest_files=["res://.godot/imported/player_ring.png-619d92dc21362ca9f9e1ea69a769afdd.ctex"]
+source_file="res://assets/sprite/particle_red_circle.png"
+dest_files=["res://.godot/imported/particle_red_circle.png-5a90a45dc915b45d0929aceb5bb1d4a5.ctex"]
 
 [params]
 

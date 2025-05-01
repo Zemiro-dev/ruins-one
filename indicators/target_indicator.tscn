@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://hrk1uxgdbok7"]
 
-[ext_resource type="Texture2D" uid="uid://bljr48bqtu2ag" path="res://assets/blue_small_circle.png" id="1_50olf"]
+[ext_resource type="Texture2D" uid="uid://bljr48bqtu2ag" path="res://assets/sprite/blue_small_circle.png" id="1_50olf"]
 
 [node name="TargetIndicator" type="Node2D"]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvpqy4he2p537"]
+[gd_scene load_steps=4 format=3 uid="uid://bvpqy4he2p537"]
 
 [ext_resource type="Script" path="res://projectiles/projectile.gd" id="1_nxuqk"]
 [ext_resource type="PackedScene" uid="uid://c4ibl6204neda" path="res://core/hurtbox.tscn" id="2_kxirh"]
+[ext_resource type="PackedScene" uid="uid://bj01nvklr40bg" path="res://audio/extended_audio_stream_player_2d.tscn" id="3_36ime"]
 
 [node name="Projectile" type="Area2D"]
 collision_layer = 8
@@ -19,3 +20,7 @@ script = ExtResource("1_nxuqk")
 [node name="DetProjMarker" type="Marker2D" parent="."]
 
 [node name="DetParticleMarker" type="Marker2D" parent="."]
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="ExplodeAudio" parent="Audio" instance=ExtResource("3_36ime")]

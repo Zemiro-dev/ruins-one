@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0vlsa16wdwcq"
-path="res://.godot/imported/blue_big_hex_shield.png-9506e038aa9db6dac24922627a46b234.ctex"
+uid="uid://b67at41twmx56"
+path="res://.godot/imported/red_ring_highlight.png-ee68e79a1353a7c0026322be8def552a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blue_big_hex_shield.png"
-dest_files=["res://.godot/imported/blue_big_hex_shield.png-9506e038aa9db6dac24922627a46b234.ctex"]
+source_file="res://assets/sprite/red_ring_highlight.png"
+dest_files=["res://.godot/imported/red_ring_highlight.png-ee68e79a1353a7c0026322be8def552a.ctex"]
 
 [params]
 

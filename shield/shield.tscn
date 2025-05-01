@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhqqc880ntgcc"]
 
-[ext_resource type="Texture2D" uid="uid://c0vlsa16wdwcq" path="res://assets/blue_big_hex_shield.png" id="1_auye6"]
+[ext_resource type="Texture2D" uid="uid://c0vlsa16wdwcq" path="res://assets/sprite/blue_big_hex_shield.png" id="1_auye6"]
 [ext_resource type="Script" path="res://shield/shield.gd" id="1_syihu"]
-[ext_resource type="Texture2D" uid="uid://cw4hgpbdj0ipm" path="res://assets/blue_hex_shield.png" id="2_a2ih2"]
+[ext_resource type="Texture2D" uid="uid://cw4hgpbdj0ipm" path="res://assets/sprite/blue_hex_shield.png" id="2_a2ih2"]
 
 [sub_resource type="Curve" id="Curve_3abvo"]
 _data = [Vector2(0, 0), 0.0, 5.48258, 0, 0, Vector2(1, 0.168), 1.10452, 2.34119, 0, 0]

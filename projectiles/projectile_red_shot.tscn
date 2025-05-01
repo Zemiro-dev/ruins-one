@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bvpqy4he2p537" path="res://projectiles/projectile.tscn" id="1_kfb6y"]
 [ext_resource type="PackedScene" uid="uid://bc2wglausiw88" path="res://particles/particle_red_circle_one_shot.tscn" id="2_a0mcf"]
 [ext_resource type="Script" path="res://core/knockback_base_strategy.gd" id="2_cdllh"]
-[ext_resource type="Texture2D" uid="uid://dcrujv76eet7m" path="res://assets/projectile_red_shot.png" id="2_oemq6"]
+[ext_resource type="Texture2D" uid="uid://dcrujv76eet7m" path="res://assets/sprite/projectile_red_shot.png" id="2_oemq6"]
 [ext_resource type="Script" path="res://core/target_base_strategy.gd" id="3_kyody"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_id3k0"]
