@@ -163,6 +163,9 @@ func death_explosion() -> bool:
 	if current_death_explosion_scene:
 		var explosion: CPUParticles2D = current_death_explosion_scene.instantiate()
 		explosion.global_transform = global_transform
+		explosion.rotation = velocity.angle()
+		explosion.initial_velocity_min = velocity.length() / 8.
+		explosion.initial_velocity_max = velocity.length() / 4.
 		GlobalSignals.particle_nest_requested.emit(explosion)
 		return true
 	return false

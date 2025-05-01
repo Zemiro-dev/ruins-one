@@ -22,4 +22,5 @@ func _physics_process(delta: float) -> void:
 
 func die() -> void:
 	super()
+	current_knockback = Vector2.ZERO
 	animation_player.play("die")

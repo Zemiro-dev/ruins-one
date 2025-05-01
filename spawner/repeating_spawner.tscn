@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq3h5ogalw2vt"]
+
+[ext_resource type="Script" path="res://spawner/repeating_spawner.gd" id="1_v5os1"]
+
+[node name="RepeatingSpawner" type="Marker2D"]
+script = ExtResource("1_v5os1")
