@@ -1,6 +1,7 @@
 extends Entity
 
 @onready var shield_refill: Timer = $ShieldRefill
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	super()
@@ -21,5 +22,4 @@ func _physics_process(delta: float) -> void:
 
 func die() -> void:
 	super()
-	death_explosion()
-	queue_free()
+	animation_player.play("die")

@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("fire") and weapon_cooldown <= 0:
 		weapon_cooldown = max_weapon_cooldown
 		var projectile: Projectile = current_projectile_scene.instantiate()
-		shoot_style.shoot(projectile, self, proj_marker.global_transform)
+		shoot_style.shoot(projectile, self, proj_marker.global_transform, targeting_pivot.target_node)
 	
 	if Input.is_action_just_pressed("dash") and dash_cooldown <= 0.:
 		dash_particles.emitting = true

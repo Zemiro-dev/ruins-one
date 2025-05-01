@@ -13,7 +13,6 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.992157, 0.972549, 0.32549, 1
 metadata/_snap_enabled = true
 
 [node name="ParticleExplosionOneShot" type="CPUParticles2D"]
-position = Vector2(28, -3)
 emitting = false
 amount = 12
 lifetime = 0.66

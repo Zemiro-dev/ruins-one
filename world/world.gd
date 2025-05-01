@@ -19,7 +19,7 @@ func spawn_player() -> void:
 		var player: Player = player_scene.instantiate()
 		main_camera.assignToPlayer(player)
 		player.global_transform = player_spawn.global_transform
-		GlobalSignals.player_spawn_requested.emit(player)
+		GlobalSignals.player_nest_requested.emit(player)
 		GlobalSignals.player_target_requested.connect(
 			player_tracking_orb.set_target_node
 		)

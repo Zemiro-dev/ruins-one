@@ -100,7 +100,7 @@ func detonate():
 	if !!detonate_particle_scene:
 		var particle = detonate_particle_scene.instantiate()
 		particle.global_transform = det_particle_marker.global_transform
-		GlobalSignals.particle_spawn_requested.emit(particle)
+		GlobalSignals.particle_nest_requested.emit(particle)
 	if !!detonate_projectile_scene:
 		pass
 	fade()

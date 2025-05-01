@@ -11,4 +11,4 @@ func shoot(proj: Projectile, shooter: Entity, global_transform: Transform2D, tar
 	proj.velocity += proj.eject_velocity.rotated(proj.eject_velocity.angle_to(proj.transform.x))
 	proj.set_target(target)
 	proj.shooter = shooter	
-	GlobalSignals.projectile_spawn_requested.emit(proj)
+	GlobalSignals.projectile_nest_requested.emit(proj)

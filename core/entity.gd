@@ -163,6 +163,6 @@ func death_explosion() -> bool:
 	if current_death_explosion_scene:
 		var explosion: CPUParticles2D = current_death_explosion_scene.instantiate()
 		explosion.global_transform = global_transform
-		GlobalSignals.particle_spawn_requested.emit(explosion)
+		GlobalSignals.particle_nest_requested.emit(explosion)
 		return true
 	return false
