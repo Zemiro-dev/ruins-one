@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#000000"
      inkscape:document-units="px"
-     inkscape:zoom="1"
-     inkscape:cx="192"
-     inkscape:cy="128"
+     inkscape:zoom="2"
+     inkscape:cx="341.75"
+     inkscape:cy="234.5"
      inkscape:window-width="2560"
      inkscape:window-height="1494"
      inkscape:window-x="-11"
@@ -104,7 +104,65 @@
          d="m 383.64645,64.707107 v 64.000003 h -64 V 64.707107 Z"
          sodipodi:nodetypes="ccccc" />
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath17">
+      <path
+         id="path18"
+         style="fill:#d115cc;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:fill markers stroke"
+         d="m 191.99999,0 192,192 H 512 V 319.5 L 320,320 V 512 H 256 V 192 h -64 l -1e-5,192 L 128,320 V 256 H 64 L -7.0710678e-6,192 0,64 H 64 V 0 Z"
+         sodipodi:nodetypes="cccccccccccccccccc" />
+    </clipPath>
   </defs>
+  <rect
+     style="fill:#de4230;fill-opacity:1;stroke:#7f6f8b;stroke-width:2;stroke-miterlimit:5"
+     id="rect45"
+     width="133"
+     height="133"
+     x="-319"
+     y="-131.49219" />
+  <rect
+     style="fill:#ff86dd;stroke:#7f6f8b;stroke-width:2;stroke-miterlimit:5"
+     id="rect1"
+     width="106.47484"
+     height="108.67107"
+     x="-282.5"
+     y="-186.69019" />
+  <rect
+     style="fill:#fdf853;stroke:#7f6f8b;stroke-width:2;stroke-miterlimit:5"
+     id="rect3"
+     width="120.26915"
+     height="112.98342"
+     x="-227.72876"
+     y="-235" />
+  <rect
+     style="fill:#95deec;stroke:#7f6f8b;stroke-width:2;stroke-miterlimit:5"
+     id="rect4"
+     width="124.1488"
+     height="113.41466"
+     x="-192.64868"
+     y="-162.54102" />
+  <rect
+     style="fill:#5ebf88;fill-opacity:1;stroke:#7f6f8b;stroke-width:2;stroke-miterlimit:5"
+     id="rect34"
+     width="130"
+     height="130"
+     x="-251.5"
+     y="-104" />
+  <rect
+     style="fill:#5ebf88;fill-opacity:1;stroke:#7f6f8b;stroke-width:2;stroke-miterlimit:5"
+     id="rect46"
+     width="130"
+     height="130"
+     x="-251.5"
+     y="-104" />
+  <rect
+     style="fill:#d115cc;fill-opacity:1;stroke:#7f6f8b;stroke-width:2;stroke-miterlimit:5"
+     id="rect47"
+     width="133"
+     height="133"
+     x="-299.20093"
+     y="-35.325684" />
   <g
      inkscape:label="Palette"
      inkscape:groupmode="layer"
@@ -117,88 +175,26 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Layer 1">
-    <rect
-       style="fill:#de4230;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
-       id="rect23"
-       width="86.520256"
-       height="86.520256"
-       x="133.39743"
-       y="-205.38019" />
-    <rect
-       style="fill:#fcfef9;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
-       id="rect15"
-       width="86.520256"
-       height="86.520256"
-       x="-208.69974"
-       y="-211.92847" />
-    <rect
-       style="fill:#95deec;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
-       id="rect20"
-       width="86.520256"
-       height="86.520256"
-       x="86.137665"
-       y="-250" />
-    <rect
-       style="fill:#fdf853;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
-       id="rect22"
-       width="86.520256"
-       height="86.520256"
-       x="359.39694"
-       y="-195.78207" />
-    <rect
-       style="fill:#005422;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
-       id="rect24"
-       width="86.520256"
-       height="86.520256"
-       x="527.31104"
-       y="-195.6904" />
-    <rect
-       style="fill:#ff86dd;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
-       id="rect25"
-       width="86.520256"
-       height="86.520256"
-       x="320.06198"
-       y="-233.43912" />
-    <rect
-       style="fill:#580b99;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
-       id="rect26"
-       width="86.520256"
-       height="86.520256"
-       x="-36.972198"
-       y="-211.71954" />
-    <rect
-       style="fill:#180d19;fill-opacity:1;stroke:#fcfef9;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
-       id="rect27"
-       width="86.520256"
-       height="86.520256"
-       x="-248.00003"
-       y="-246.737" />
-    <rect
-       style="fill:#d115cc;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
-       id="rect19"
-       width="86.520256"
-       height="86.520256"
-       x="-68.505402"
-       y="-246.737" />
-    <rect
-       style="fill:#5ebf88;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:stroke fill markers"
-       id="rect28"
-       width="86.520256"
-       height="86.520256"
-       x="491.65231"
-       y="-232.14151" />
     <path
        id="rect9"
        style="fill:#8816b4;stroke:#180d19;stroke-width:16;stroke-linecap:square;stroke-miterlimit:5;paint-order:fill markers stroke"
        d="m 128,0 256,256 v 64 H 128 0 V 256 0 Z"
        sodipodi:nodetypes="cccccccc"
-       clip-path="url(#clipPath16)" />
+       clip-path="url(#clipPath16)"
+       transform="translate(-498.51028,177.48381)" />
     <path
        id="rect17"
        style="fill:#8816b4;stroke:#180d19;stroke-width:16;stroke-linecap:square;stroke-miterlimit:5;paint-order:fill markers stroke"
        d="M 256,0 H 448 V 192 H 320 V 128 H 256 V 64 Z"
        sodipodi:nodetypes="cccccccc"
        clip-path="url(#clipPath21)"
-       transform="translate(0.35355,-64.707107)" />
+       transform="translate(-498.15673,112.7767)"
+       mask="none" />
+    <path
+       id="rect10"
+       style="fill:#d115cc;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:fill markers stroke;stroke:#ff86dd"
+       d="m 191.99999,0 192,192 H 512 V 319.5 L 320,320 V 512 H 256 V 192 h -64 l -1e-5,192 L 128,320 V 256 H 64 L -7.0710678e-6,192 0,64 H 64 V 0 Z"
+       sodipodi:nodetypes="cccccccccccccccccc"
+       clip-path="url(#clipPath17)" />
   </g>
 </svg>

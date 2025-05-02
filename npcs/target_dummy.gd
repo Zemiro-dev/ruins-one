@@ -3,6 +3,7 @@ extends Entity
 @onready var shield_refill: Timer = $ShieldRefill
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var explode_audio: AudioStreamPlayer2D = $Audio/ExplodeAudio
+@onready var audio: Node = $Audio
 
 func _ready() -> void:
 	super()
@@ -29,5 +30,5 @@ func die() -> void:
 
 func play_explosion_audio() -> void:
 	if is_ancestor_of(explode_audio):
-		remove_child(explode_audio)
+		audio.remove_child(explode_audio)
 		GlobalSignals.audio_nest_requested.emit(explode_audio)

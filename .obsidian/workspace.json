@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "assets/audio/CREDITS.md",
+                "file": "Design.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CREDITS"
+              "title": "Design"
             }
           }
         ]
@@ -165,20 +165,22 @@
   },
   "active": "e2368234c2a798ee",
   "lastOpenFiles": [
-    "world/worlds/wor8994.tmp",
-    "assets/audio/bg_6EB5.tmp",
-    "world/WorC7F8.tmp",
-    "nest/aud86AB.tmp",
-    "world/Wor6AEF.tmp",
-    "nest/aud66E9.tmp",
-    "world/Wor66D5.tmp",
-    "nest/aud2EB0.tmp",
-    "world/Wor2E9C.tmp",
-    "nest/aud9BBD.tmp",
-    "nest/aud4FAE.tmp",
+    "npcs/tar873B.tmp",
+    "world/worlds/wor86A2.tmp",
+    "player/pla3836.tmp",
+    "npcs/tar3823.tmp",
+    "world/worlds/wor8BF5.tmp",
+    "npcs/tarEA9C.tmp",
+    "world/worlds/worE9F3.tmp",
+    "npcs/tarA4B9.tmp",
+    "world/worlds/worA420.tmp",
+    "player/pla688E.tmp",
+    "player/pla9ABA.tmp",
+    "Docs/Conceptx/tileset1.svg",
+    "assets/tileset/tileset_dummy.png",
+    "assets/audio/CREDITS.md",
     "Docs/Journal/2025-03-13 Tilemap.md",
     "assets/audio/credits.md",
-    "assets/audio/CREDITS.md",
     "assets/sprite/white_circle.png",
     "assets/sprite/red_ring_nooutline.png",
     "assets/sprite/red_ring_highlight.png",
@@ -187,8 +189,6 @@
     "assets/sprite/player_ring.png",
     "assets/sprite/player_cannon.png",
     "assets/sprite/player_body.png",
-    "assets/sprite/pink_bubble.png",
-    "assets/sprite/particle_red_circle.png",
     "Docs/Journal/2025-04-06 Shield.md",
     "Docs/Journal/2025-04-06 Spawnables.md",
     "Docs/Journal/2025-03-30 Dev Log.md",

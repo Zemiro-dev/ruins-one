@@ -80,7 +80,11 @@ func set_target(body:Node2D, overwrite: bool = false) -> void:
 		if body != null and !body.get("is_dead") and (target_strategy == null or target_strategy.can_target(self, body)):
 			target = body
 			if target.has_signal("on_death"):	
-				target.on_death.connect(release_target)	
+				target.on_death.connect(
+					func(dead_node: Node2D):
+						if target == dead_node:
+							release_target()
+				)	
 
 
 func release_target() -> void:

@@ -24,18 +24,29 @@ func set_target_angle(angle: float):
 
 
 func set_target_node(node: Node2D):
+	disconnect_from_target()
 	target_node = node
-	node.tree_exited.connect(_handle_target_release)
-	if target_node is Entity:
-		target_node.on_death.connect(_handle_entity_death)
+	connect_to_target()
 	GlobalSignals.player_target_requested.emit(target_node)
 
 
-func release_target_node():
+func connect_to_target():
+	target_node.tree_exiting.connect(_handle_target_release)
+	if target_node is Entity:
+		target_node.on_death.connect(_handle_entity_death)
+
+
+func disconnect_from_target():
 	if target_node:
-		target_node.tree_exiting.disconnect(_handle_target_release)
+		if target_node.tree_exiting.is_connected(_handle_target_release):
+			target_node.tree_exiting.disconnect(_handle_target_release)	
 		if target_node is Entity:
-			target_node.on_death.disconnect(_handle_entity_death)
+			if target_node.on_death.is_connected(_handle_entity_death):
+				target_node.on_death.disconnect(_handle_entity_death)
+
+
+func release_target_node():
+	disconnect_from_target()
 	target_node = null
 	target_angle = rotation
 	targeting_module.flush_memory()
