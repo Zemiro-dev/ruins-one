@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckfyok24h54cd"]
+
+[ext_resource type="Texture2D" uid="uid://clwsw5yiqalcm" path="res://assets/sprite/foundation.png" id="1_q4vpq"]
+
+[node name="Foundation" type="StaticBody2D"]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-93.5, -185, -209.2, -83, -209.5, -61.7, -131.5, 183.2, -131.5, 185, 131.6, 185, 209.5, -65.4, 209.5, -83.5, 207.5, -85, 207.5, -85.9, 93.5, -184.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_q4vpq")

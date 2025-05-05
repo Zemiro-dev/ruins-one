@@ -41,6 +41,8 @@ script = ExtResource("2_heo8v")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 
+[node name="Decor" type="Node" parent="."]
+
 [node name="ParticleNest" type="Node" parent="."]
 script = ExtResource("4_bgr11")
 

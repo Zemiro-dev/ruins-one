@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://s8u0v14fqe7e"]
+
+[ext_resource type="PackedScene" uid="uid://25arqew6ayb0" path="res://world/decor/hard_obstacle.tscn" id="1_g6ilc"]
+[ext_resource type="Script" path="res://world/decor/door.gd" id="1_nfg87"]
+[ext_resource type="PackedScene" uid="uid://ckfyok24h54cd" path="res://world/decor/foundation.tscn" id="2_61hby"]
+
+[sub_resource type="Animation" id="Animation_q2roe"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LowerObstacle:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(95, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UpperObstacle:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-95, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_fq841"]
+resource_name = "close"
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LowerObstacle:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(330, -0.25, 0, 0.25, 32, 95, -0.25, -32, 0.2, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UpperObstacle:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-332, -0.25, 0, 0.25, 32, -95, -0.25, 32, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_c8djw"]
+resource_name = "open"
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LowerObstacle:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(95, -0.25, 0, 0.25, -32, 330, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UpperObstacle:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-95, -0.25, 0, 0.25, 32, -330, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ann0w"]
+_data = {
+"RESET": SubResource("Animation_q2roe"),
+"close": SubResource("Animation_fq841"),
+"open": SubResource("Animation_c8djw")
+}
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_nfg87")
+
+[node name="LowerObstacle" type="Node2D" parent="."]
+position = Vector2(0, 95)
+
+[node name="HardObstacle" parent="LowerObstacle" instance=ExtResource("1_g6ilc")]
+scale = Vector2(-1, -1)
+
+[node name="UpperObstacle" type="Node2D" parent="."]
+position = Vector2(0, -95)
+
+[node name="HardObstacle" parent="UpperObstacle" instance=ExtResource("1_g6ilc")]
+
+[node name="UpperFoundation" parent="." instance=ExtResource("2_61hby")]
+position = Vector2(0, -374)
+
+[node name="LowerFoundation" parent="." instance=ExtResource("2_61hby")]
+position = Vector2(0, 374)
+scale = Vector2(1, -1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ann0w")
+}

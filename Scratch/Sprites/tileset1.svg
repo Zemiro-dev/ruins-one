@@ -24,8 +24,8 @@
      inkscape:deskcolor="#000000"
      inkscape:document-units="px"
      inkscape:zoom="2"
-     inkscape:cx="341.75"
-     inkscape:cy="234.5"
+     inkscape:cx="274.75"
+     inkscape:cy="227.5"
      inkscape:window-width="2560"
      inkscape:window-height="1494"
      inkscape:window-x="-11"
@@ -192,7 +192,7 @@
        mask="none" />
     <path
        id="rect10"
-       style="fill:#d115cc;stroke-width:12;stroke-linecap:square;stroke-miterlimit:5;paint-order:fill markers stroke;stroke:#ff86dd"
+       style="fill:#d115cc;stroke-width:24;stroke-linecap:square;stroke-miterlimit:5;paint-order:fill markers stroke;stroke:#ff86dd"
        d="m 191.99999,0 192,192 H 512 V 319.5 L 320,320 V 512 H 256 V 192 h -64 l -1e-5,192 L 128,320 V 256 H 64 L -7.0710678e-6,192 0,64 H 64 V 0 Z"
        sodipodi:nodetypes="cccccccccccccccccc"
        clip-path="url(#clipPath17)" />
