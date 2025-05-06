@@ -31,4 +31,5 @@ func die() -> void:
 func play_explosion_audio() -> void:
 	if is_ancestor_of(explode_audio):
 		audio.remove_child(explode_audio)
+		explode_audio.global_position = global_position
 		GlobalSignals.audio_nest_requested.emit(explode_audio)

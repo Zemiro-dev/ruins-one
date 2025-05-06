@@ -71,6 +71,8 @@ allow_knockback = false
 drag_strategy = SubResource("Resource_mkvoq")
 move_resolve_strategy = SubResource("Resource_mobqn")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
 [node name="LineOfSightRayCast" type="RayCast2D" parent="."]
 
 [node name="CollisionCore" type="CollisionShape2D" parent="."]

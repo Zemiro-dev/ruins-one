@@ -9,6 +9,7 @@ class_name Player
 @onready var targeting_module: PlayerTargetingModule = $TargetingPivot/TargetingModule
 @onready var break_particles: CPUParticles2D = $BreakParticles
 @onready var break_pad: Sprite2D = $BreakPad
+@onready var audio_listener_2d: AudioListener2D = $AudioListener2D
 
 @export var current_projectile_scene: PackedScene
 @export var shoot_style: ShootProjectileBaseStrategy
@@ -24,6 +25,11 @@ var dash_cooldown: float = 0.0
 
 @export var max_weapon_cooldown: float = .1
 var weapon_cooldown: float = 0.0
+
+
+func _ready() -> void:
+	super()
+	audio_listener_2d.make_current()
 
 
 func _physics_process(delta: float) -> void:
