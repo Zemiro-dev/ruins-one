@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://25arqew6ayb0"]
 
-[ext_resource type="Texture2D" uid="uid://chlf6woi4bju" path="res://assets/sprite/hard-obstacle.png" id="1_evscx"]
+[ext_resource type="Texture2D" uid="uid://chlf6woi4bju" path="res://assets/sprite/hard_obstacle.png" id="1_evscx"]
 
 [node name="HardObstacle" type="StaticBody2D"]
 collision_mask = 0

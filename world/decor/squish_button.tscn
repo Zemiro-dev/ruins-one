@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cedhsi6vx78ot"]
 
-[ext_resource type="Texture2D" uid="uid://c76rwa8es0upl" path="res://assets/sprite/squish-button.png" id="1_wkygr"]
+[ext_resource type="Texture2D" uid="uid://c76rwa8es0upl" path="res://assets/sprite/squish_button.png" id="1_wkygr"]
 [ext_resource type="Script" uid="uid://c8fiqc7slkiv3" path="res://world/decor/squish_button.gd" id="2_j6r83"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3uja7"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chlf6woi4bju"
-path="res://.godot/imported/hard-obstacle.png-ec14beb3ee4e68ef578badca1c4dc043.ctex"
+path="res://.godot/imported/hard_obstacle.png-5c2842fbc7255d759a1d3bed23deffe8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/hard-obstacle.png"
-dest_files=["res://.godot/imported/hard-obstacle.png-ec14beb3ee4e68ef578badca1c4dc043.ctex"]
+source_file="res://assets/sprite/hard_obstacle.png"
+dest_files=["res://.godot/imported/hard_obstacle.png-5c2842fbc7255d759a1d3bed23deffe8.ctex"]
 
 [params]
 

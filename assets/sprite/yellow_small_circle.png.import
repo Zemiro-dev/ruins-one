@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c76rwa8es0upl"
-path="res://.godot/imported/squish-button.png-3e16075570528e13455d6d3da0bac1d3.ctex"
+uid="uid://bewxuoukdufxi"
+path="res://.godot/imported/yellow_small_circle.png-1db16aa69f0f13b055d64eb7189a30dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/squish-button.png"
-dest_files=["res://.godot/imported/squish-button.png-3e16075570528e13455d6d3da0bac1d3.ctex"]
+source_file="res://assets/sprite/yellow_small_circle.png"
+dest_files=["res://.godot/imported/yellow_small_circle.png-1db16aa69f0f13b055d64eb7189a30dd.ctex"]
 
 [params]
 
