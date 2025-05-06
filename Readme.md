@@ -8,20 +8,20 @@ You can find the design at [[Design]].
 
 # Entities
 Entities are physics objects that can be destroyed. The player, enemies, and destructible, are all entities.
-- [ ] Create base entity script.
-	- [ ] max_shield, max_health
-	- [ ] Switching hitboxes (shield and not shield)
-	- [ ] How do shields tween vs players tween?
-	- [ ] Death Scene
+- [x] Create base entity script.
+	- [x] max_shield, max_health
+	- [x] Switching hitboxes (shield and not shield)
+	- [x] How do shields tween vs players tween?
+	- [x] Death Scene
 # Player
-- [ ] Create base player scene
-- [ ] Create Player Sprite
+- [x] Create base player scene
+- [x] Create Player Sprite
 - [ ]  Create Fire Animation (Anticipation, Action, Follow Through, Return)
-- [ ] Player needs to 'bounce' off walls slightly. 
+- [x] Player needs to 'bounce' off walls slightly. 
 
 # Shield
-- [ ] Create base shield scene
-- [ ] Allow collision shape to be passed in.
+- [x] Create base shield scene
+- [x] Allow collision shape to be passed in.
 - [ ] Create shield state machine
 	- [ ] Idle 
 	- [ ] Dead
@@ -44,7 +44,10 @@ Entities are physics objects that can be destroyed. The player, enemies, and des
 
 # Projectiles
 Projectiles are damage dealing areas meant to be short lived.
-- [ ] Projectile Script
+- [x] Projectile Script
+- [ ] Enemy Projectile
+	- [ ] Shooting Dummy
+	- [ ] Base Enemy Projectile
 
 # Collectibles
 Collectibles have a simple detection area. Once they detect the player they fly toward them in order to be consumed.

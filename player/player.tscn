@@ -152,3 +152,19 @@ texture = ExtResource("6_qrtnj")
 texture = ExtResource("7_2jayw")
 
 [node name="Shield" parent="." instance=ExtResource("16_inikh")]
+
+[node name="DebugText" type="Node2D" parent="."]
+position = Vector2(154, -58)
+
+[node name="ActionStrength" type="Label" parent="DebugText"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 16
+text = "1
+"
+
+[node name="Input" type="Label" parent="DebugText"]
+offset_top = 28.0
+offset_right = 40.0
+offset_bottom = 51.0
+text = "1"

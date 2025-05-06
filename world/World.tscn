@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dodyvj3itrwoa"]
+[gd_scene load_steps=10 format=3 uid="uid://dodyvj3itrwoa"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_wwhb7"]
 [ext_resource type="Script" path="res://nest/player_nest.gd" id="2_heo8v"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" path="res://nest/audio_nest.gd" id="3_clrj1"]
 [ext_resource type="Script" path="res://nest/particle_nest.gd" id="4_bgr11"]
 [ext_resource type="PackedScene" uid="uid://cp3e6bgf4vq28" path="res://indicators/tracking_orb.tscn" id="6_fiu4g"]
+
+[sub_resource type="Environment" id="Environment_5e8vm"]
+background_mode = 3
+glow_enabled = true
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_wwhb7")
@@ -56,3 +60,6 @@ script = ExtResource("4_bgr11")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
 autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5e8vm")

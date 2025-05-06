@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Design.md",
+                "file": "Readme.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Design"
+              "title": "Readme"
             }
           }
         ]
@@ -163,36 +163,36 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e2368234c2a798ee",
+  "active": "02b9fa95d8d65782",
   "lastOpenFiles": [
-    "npcs/tar85DE.tmp",
-    "world/Wor8535.tmp",
-    "world/worlds/wor850F.tmp",
-    "npcs/tar84DA.tmp",
-    "def838D.tmp",
-    "npcs/tar59F6.tmp",
-    "world/Wor593F.tmp",
-    "world/worlds/wor591A.tmp",
-    "assets/tileset/tileset_dummy.png.import",
-    "pro4D24.tmp",
-    "npcs/tar873B.tmp",
+    "proABA5.tmp",
+    "export/index.png.import",
+    "export/index.icon.png.import",
+    "export/g.zip",
+    "export/index.apple-touch-icon.zip",
+    "exp6DE5.tmp",
+    "export/index.apple-touch-icon.png",
+    "export/index.icon.png",
+    "export/index.png",
+    "export/index.html",
+    "export/index.audio.worklet.js",
+    "export/index.wasm",
+    "export/index.js",
+    "export/index.pck",
+    "export/Ruins One.apple-touch-icon.png",
+    "export/Ruins One.icon.png",
+    "export/Ruins One.png",
+    "Docs/Conceptx/ruins1_enemy_projectile.svg",
+    "Design.md",
     "Docs/Conceptx/tileset1.svg",
     "assets/tileset/tileset_dummy.png",
     "assets/audio/CREDITS.md",
     "Docs/Journal/2025-03-13 Tilemap.md",
     "assets/audio/credits.md",
     "assets/sprite/white_circle.png",
-    "assets/sprite/red_ring_nooutline.png",
-    "assets/sprite/red_ring_highlight.png",
-    "assets/sprite/red_ring.png",
-    "assets/sprite/projectile_red_shot.png",
-    "assets/sprite/player_ring.png",
-    "assets/sprite/player_cannon.png",
-    "assets/sprite/player_body.png",
     "Docs/Journal/2025-04-06 Shield.md",
     "Docs/Journal/2025-04-06 Spawnables.md",
     "Docs/Journal/2025-03-30 Dev Log.md",
-    "Design.md",
     "Readme.md"
   ]
 }

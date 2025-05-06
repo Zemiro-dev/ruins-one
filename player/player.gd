@@ -93,8 +93,14 @@ func _physics_process(delta: float) -> void:
 	
 	if weapon_cooldown > 0:
 		weapon_cooldown -= delta
+		
+	$DebugText/ActionStrength.text = str(Input.get_action_strength("fire"))
 	
 	move_and_resolve(delta)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	$DebugText/Input.text = event.as_text()
 
 
 func get_facing_rotation() -> float:
