@@ -16,11 +16,12 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 script = ExtResource("1_syihu")
 
 [node name="PulseParticles" type="CPUParticles2D" parent="."]
+modulate = Color(2, 2, 2, 1)
 emitting = false
 amount = 1
+texture = ExtResource("1_auye6")
 one_shot = true
 local_coords = true
-texture = ExtResource("1_auye6")
 gravity = Vector2(0, 0)
 scale_amount_curve = SubResource("Curve_3abvo")
 color_ramp = SubResource("Gradient_xfha1")

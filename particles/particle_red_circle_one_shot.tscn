@@ -8,7 +8,7 @@ offsets = PackedFloat32Array(0, 0.997636)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="RedCircleOneShot" type="CPUParticles2D"]
-modulate = Color(56, 1, 1, 1)
+modulate = Color(1.5, 1, 1, 1)
 emitting = false
 amount = 32
 texture = ExtResource("1_affhy")

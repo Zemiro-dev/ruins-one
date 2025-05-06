@@ -27,6 +27,7 @@ radius = 17.0
 height = 52.0
 
 [node name="RedShot" instance=ExtResource("1_kfb6y")]
+modulate = Color(2, 1, 1, 1)
 collision_layer = 0
 detonate_particle_scene = ExtResource("2_a0mcf")
 initial_speed = 2000.0
