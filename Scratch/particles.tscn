@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dadrbqnjsck62"]
 
-[ext_resource type="Script" path="res://core/entity.gd" id="1_j3c63"]
+[ext_resource type="Script" uid="uid://t3d8tdal181l" path="res://core/entity.gd" id="1_j3c63"]
 [ext_resource type="Texture2D" uid="uid://c0vlsa16wdwcq" path="res://assets/sprite/blue_big_hex_shield.png" id="2_xnvlf"]
 [ext_resource type="Texture2D" uid="uid://b71igb15rweha" path="res://assets/sprite/white_circle.png" id="3_v7slc"]
 [ext_resource type="PackedScene" uid="uid://ol4x06ugv7kw" path="res://player/player.tscn" id="4_tskh6"]
@@ -33,11 +33,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m5dpl"]
 _data = {
-"foo": SubResource("Animation_4ewx4")
+&"foo": SubResource("Animation_4ewx4")
 }
 
 [sub_resource type="Curve" id="Curve_nfry3"]
-min_value = -1.0
+_limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 

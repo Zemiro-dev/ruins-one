@@ -1,20 +1,20 @@
 [gd_scene load_steps=28 format=3 uid="uid://ol4x06ugv7kw"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_tqatu"]
+[ext_resource type="Script" uid="uid://dqkubhkmgps8v" path="res://player/player.gd" id="1_tqatu"]
 [ext_resource type="PackedScene" uid="uid://cesdm5o64g6fn" path="res://projectiles/projectile_red_shot.tscn" id="2_aj1wt"]
-[ext_resource type="Script" path="res://core/shoot_projectile_base_strategy.gd" id="3_p0kbh"]
+[ext_resource type="Script" uid="uid://dpdtgg0c1kh2a" path="res://core/shoot_projectile_base_strategy.gd" id="3_p0kbh"]
 [ext_resource type="Texture2D" uid="uid://r2gimpeoxat2" path="res://assets/sprite/particle_red_circle.png" id="4_3hrt4"]
-[ext_resource type="Script" path="res://core/drag_base_strategy.gd" id="4_ejge3"]
-[ext_resource type="Script" path="res://core/move_resolve_strategy.gd" id="4_uprka"]
+[ext_resource type="Script" uid="uid://byki1q084oqrp" path="res://core/drag_base_strategy.gd" id="4_ejge3"]
+[ext_resource type="Script" uid="uid://wmj6vrlhx6gn" path="res://core/move_resolve_strategy.gd" id="4_uprka"]
 [ext_resource type="Texture2D" uid="uid://0xb0ffg08uoh" path="res://assets/sprite/player_cannon.png" id="5_mr540"]
 [ext_resource type="Texture2D" uid="uid://b71igb15rweha" path="res://assets/sprite/white_circle.png" id="6_l5ldl"]
 [ext_resource type="Texture2D" uid="uid://qi5txtm6777y" path="res://assets/sprite/player_body.png" id="6_qrtnj"]
 [ext_resource type="Texture2D" uid="uid://cicfjxy22w5of" path="res://assets/sprite/player_ring.png" id="7_2jayw"]
-[ext_resource type="Script" path="res://player/player_targeting_pivot.gd" id="8_116um"]
+[ext_resource type="Script" uid="uid://clmgxtmcva44i" path="res://player/player_targeting_pivot.gd" id="8_116um"]
 [ext_resource type="Texture2D" uid="uid://trcgddoue5ml" path="res://assets/sprite/red_ring_nooutline.png" id="8_mjk6i"]
 [ext_resource type="Texture2D" uid="uid://dg2o53tnxq3u6" path="res://assets/sprite/red_ring.png" id="9_bpy8n"]
-[ext_resource type="Script" path="res://player/player_targeting_module.gd" id="9_lrw3e"]
-[ext_resource type="Script" path="res://core/target_base_strategy.gd" id="10_omik6"]
+[ext_resource type="Script" uid="uid://bld58yy4rl55n" path="res://player/player_targeting_module.gd" id="9_lrw3e"]
+[ext_resource type="Script" uid="uid://cfrd53y03qiep" path="res://core/target_base_strategy.gd" id="10_omik6"]
 [ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://shield/shield.tscn" id="16_inikh"]
 
 [sub_resource type="Resource" id="Resource_l45ut"]
@@ -34,7 +34,7 @@ radius = 41.28
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_cmssk"]
-min_value = -1.0
+_limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0.00250626, 0.606882), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -82,8 +82,8 @@ polygon = PackedVector2Array(-73, 0, -36, -63, 37, -63, 73, 0, 37, 63, -36, 63)
 [node name="DashParticles" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 4
-lifetime = 0.4
 texture = ExtResource("6_l5ldl")
+lifetime = 0.4
 gravity = Vector2(0, 0)
 scale_amount_min = 0.5
 scale_amount_max = 0.5
@@ -106,10 +106,10 @@ color_ramp = SubResource("Gradient_8vlgr")
 [node name="BreakParticles" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 1
+texture = ExtResource("8_mjk6i")
 lifetime = 0.5
 one_shot = true
 local_coords = true
-texture = ExtResource("8_mjk6i")
 gravity = Vector2(0, 0)
 scale_amount_curve = SubResource("Curve_0ky7v")
 color_ramp = SubResource("Gradient_5cme4")

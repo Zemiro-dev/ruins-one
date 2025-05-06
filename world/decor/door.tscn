@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://s8u0v14fqe7e"]
 
 [ext_resource type="PackedScene" uid="uid://25arqew6ayb0" path="res://world/decor/hard_obstacle.tscn" id="1_g6ilc"]
-[ext_resource type="Script" path="res://world/decor/door.gd" id="1_nfg87"]
+[ext_resource type="Script" uid="uid://xx3s5lm22ti2" path="res://world/decor/door.gd" id="1_nfg87"]
 [ext_resource type="PackedScene" uid="uid://ckfyok24h54cd" path="res://world/decor/foundation.tscn" id="2_61hby"]
 
 [sub_resource type="Animation" id="Animation_q2roe"]
@@ -83,9 +83,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ann0w"]
 _data = {
-"RESET": SubResource("Animation_q2roe"),
-"close": SubResource("Animation_fq841"),
-"open": SubResource("Animation_c8djw")
+&"RESET": SubResource("Animation_q2roe"),
+&"close": SubResource("Animation_fq841"),
+&"open": SubResource("Animation_c8djw")
 }
 
 [node name="Door" type="Node2D"]

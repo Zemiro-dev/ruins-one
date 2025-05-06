@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvpqy4he2p537"]
 
-[ext_resource type="Script" path="res://projectiles/projectile.gd" id="1_nxuqk"]
+[ext_resource type="Script" uid="uid://drahkmi64pcm6" path="res://projectiles/projectile.gd" id="1_nxuqk"]
 [ext_resource type="PackedScene" uid="uid://c4ibl6204neda" path="res://core/hurtbox.tscn" id="2_kxirh"]
 [ext_resource type="PackedScene" uid="uid://bj01nvklr40bg" path="res://audio/extended_audio_stream_player_2d.tscn" id="3_36ime"]
 

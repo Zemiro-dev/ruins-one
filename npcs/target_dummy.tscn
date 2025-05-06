@@ -1,15 +1,15 @@
 [gd_scene load_steps=22 format=3 uid="uid://ciig3y1oej1wv"]
 
 [ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/sprite/pink_bubble.png" id="1_a0l2i"]
-[ext_resource type="Script" path="res://npcs/target_dummy.gd" id="1_vh8wg"]
-[ext_resource type="Script" path="res://core/drag_base_strategy.gd" id="2_fgxuo"]
-[ext_resource type="Script" path="res://core/move_resolve_strategy.gd" id="3_gge71"]
+[ext_resource type="Script" uid="uid://0lq4amxoax6k" path="res://npcs/target_dummy.gd" id="1_vh8wg"]
+[ext_resource type="Script" uid="uid://byki1q084oqrp" path="res://core/drag_base_strategy.gd" id="2_fgxuo"]
+[ext_resource type="Script" uid="uid://wmj6vrlhx6gn" path="res://core/move_resolve_strategy.gd" id="3_gge71"]
 [ext_resource type="Texture2D" uid="uid://dg2o53tnxq3u6" path="res://assets/sprite/red_ring.png" id="4_8ifes"]
 [ext_resource type="PackedScene" uid="uid://4egncyc5myi4" path="res://particles/particle_explosion_one_shot.tscn" id="4_ikgw6"]
 [ext_resource type="PackedScene" uid="uid://c4ibl6204neda" path="res://core/hurtbox.tscn" id="5_7f8aa"]
 [ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://shield/shield.tscn" id="5_ffs8d"]
-[ext_resource type="Script" path="res://core/knockback_base_strategy.gd" id="6_2q1at"]
-[ext_resource type="Script" path="res://core/target_base_strategy.gd" id="7_h667i"]
+[ext_resource type="Script" uid="uid://dkqme87782om3" path="res://core/knockback_base_strategy.gd" id="6_2q1at"]
+[ext_resource type="Script" uid="uid://cfrd53y03qiep" path="res://core/target_base_strategy.gd" id="7_h667i"]
 [ext_resource type="PackedScene" uid="uid://bj01nvklr40bg" path="res://audio/extended_audio_stream_player_2d.tscn" id="11_nnmwd"]
 [ext_resource type="AudioStream" uid="uid://btwjxlttel4c7" path="res://assets/audio/explosion_audio.wav" id="12_84loe"]
 
@@ -115,8 +115,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eb2kb"]
 _data = {
-"RESET": SubResource("Animation_jqof1"),
-"die": SubResource("Animation_fif20")
+&"RESET": SubResource("Animation_jqof1"),
+&"die": SubResource("Animation_fif20")
 }
 
 [node name="TargetDummy" type="CharacterBody2D"]
@@ -180,7 +180,7 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_eb2kb")
+&"": SubResource("AnimationLibrary_eb2kb")
 }
 
 [node name="Audio" type="Node" parent="."]
