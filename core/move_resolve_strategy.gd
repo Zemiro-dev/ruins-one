@@ -30,4 +30,5 @@ func move_and_resolve(entity: Entity, delta: float) -> void:
 				var collision_velocity = collider.velocity.length() * collision.get_normal() * 1.
 				entity.velocity += collision_velocity
 				collider.velocity -= collision_velocity
+	entity.cap_velocity()
 	entity.move_and_collide(entity.velocity * delta)

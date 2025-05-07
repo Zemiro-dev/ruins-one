@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://cejgrbro8820e"]
+
+[ext_resource type="Script" uid="uid://4685bnr2cysb" path="res://npcs/target_dummy_cannon.gd" id="1_yyi1a"]
+[ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/sprite/pink_bubble.png" id="2_ccvpl"]
+[ext_resource type="Script" uid="uid://byki1q084oqrp" path="res://core/drag_base_strategy.gd" id="2_dtpgy"]
+[ext_resource type="Script" uid="uid://wmj6vrlhx6gn" path="res://core/move_resolve_strategy.gd" id="3_a1jxs"]
+[ext_resource type="Texture2D" uid="uid://ucbhwwcwxex4" path="res://assets/sprite/pink_rectangle.png" id="3_xorer"]
+
+[sub_resource type="Resource" id="Resource_xorer"]
+script = ExtResource("2_dtpgy")
+velocity_decay_rate = 0.01
+metadata/_custom_type_script = "uid://byki1q084oqrp"
+
+[sub_resource type="Resource" id="Resource_1sna2"]
+script = ExtResource("3_a1jxs")
+metadata/_custom_type_script = "uid://wmj6vrlhx6gn"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1sna2"]
+radius = 49.0
+
+[node name="TargetDummyCannon" type="CharacterBody2D"]
+collision_layer = 5
+script = ExtResource("1_yyi1a")
+max_speed = 0.0
+drag_strategy = SubResource("Resource_xorer")
+move_resolve_strategy = SubResource("Resource_1sna2")
+
+[node name="CollisionCore" type="CollisionShape2D" parent="."]
+rotation = 0.00546406
+shape = SubResource("CircleShape2D_1sna2")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="ProjectileMarker" type="Marker2D" parent="Pivot"]
+
+[node name="Cannon" type="Sprite2D" parent="Pivot"]
+position = Vector2(39, 0)
+texture = ExtResource("3_xorer")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("2_ccvpl")

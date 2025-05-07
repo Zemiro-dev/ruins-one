@@ -6132,7 +6132,10 @@
        transform="matrix(0.5217495,0.11195335,-0.11916721,0.51798904,-674.13641,129.16004)" />
     <g
        id="g253"
-       transform="translate(-409.5,-146.5)">
+       transform="translate(-119.58622,-177.6127)"
+       inkscape:export-filename="..\..\assets\sprite\projectile_yellow_dbl_star"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <path
          sodipodi:type="star"
          style="opacity:0.5;fill:#fdf853;stroke:#180d19;stroke-width:9.22245;stroke-linecap:square;stroke-miterlimit:5;paint-order:fill markers stroke"
@@ -6223,14 +6226,20 @@
        d="M 107.43179,130.03296 77.412238,121.6729 47.119206,128.9802 45.793538,97.846504 29.482826,71.294197 58.683074,60.412572 78.895531,36.695048 98.267945,61.103527 127.07064,72.997599 109.8432,98.964494 Z"
        inkscape:transform-center-x="-0.15597983"
        inkscape:transform-center-y="-2.6056382"
-       transform="matrix(0.5636528,0,0,0.56204479,-161.64639,47.59088)" />
+       transform="matrix(0.5636528,0,0,0.56204479,128.26739,16.478182)"
+       inkscape:export-filename="..\..\assets\sprite\yellow_star"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <circle
        style="fill:#fdf853;fill-opacity:1;stroke:#180d19;stroke-width:12;stroke-miterlimit:5;paint-order:stroke fill markers"
        id="path45-8-0"
-       cx="30.825228"
-       cy="113.72063"
+       cx="226.78966"
+       cy="-102.18663"
        r="9"
-       transform="rotate(41.646726)" />
+       transform="rotate(41.646726)"
+       inkscape:export-filename="..\..\assets\small_yellow_circle"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
   <g
      inkscape:groupmode="layer"

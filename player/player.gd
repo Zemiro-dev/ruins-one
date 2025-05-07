@@ -79,12 +79,12 @@ func _physics_process(delta: float) -> void:
 		drag_strategy.velocity_decay_rate = .01
 		var tween: Tween = create_tween()
 		tween.tween_property(break_pad, "modulate", Color(1, 1, 1, 0), .1)
-	
+	print(aim.angle())
 	if Input.is_action_just_pressed("target"):
 		var target_node: Node2D = targeting_module.get_next_target(self, targeting_pivot.target_node)
 		var release: bool = false
 		if target_node and aim.length() > release_target_deadzone:
-			var angle_to_target: float = global_position.angle_to(target_node.global_position) if target_node else 0.
+			var angle_to_target: float = global_position.angle_to_point(target_node.global_position) if target_node else 0.
 			var aim_angle = aim.angle()
 			release = absf(angle_to_target - aim_angle) > release_target_angle
 		if target_node and !release:

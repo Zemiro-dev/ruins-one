@@ -18,7 +18,6 @@ func flush_memory() -> void:
 	previous_targets = []
 	is_losing_los = false
 	los_grace_timer.stop()
-	
 
 
 func get_next_target(targeter: Node2D, current_target: Node2D) -> Node2D:
@@ -68,7 +67,7 @@ func in_line_of_sight(target: Node2D, los_grace: bool) -> bool:
 	los_ray_cast.global_position = global_position
 	los_ray_cast.target_position = target.global_position - global_position
 	los_ray_cast.force_raycast_update()
-	var in_los: bool = !los_ray_cast.is_colliding()
+	var in_los: bool = !los_ray_cast.is_colliding() || los_ray_cast.get_collider() == target
 	if los_grace:
 		if !in_los and !is_losing_los:
 			start_los_timer()
