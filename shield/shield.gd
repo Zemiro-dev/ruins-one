@@ -14,14 +14,14 @@ var active: bool = true
 func on() -> void:
 	if active: return
 	active = true
-	var tween_time = stop_on_off_tween()
+	var tween_time: float = stop_on_off_tween()
 	on_off_tween(tween_time, Vector2(1., 1.), Color(1., 1., 1., 1.))
 
 
 func off() -> void:
 	if !active: return 
 	active =	 false
-	var tween_time = stop_on_off_tween()
+	var tween_time: float = stop_on_off_tween()
 	on_off_tween(tween_time, Vector2(0., 0.), Color(1., 1., 1., 0.))
 
 func on_off_tween(time: float, final_scale: Vector2, final_modulate: Color) -> void:

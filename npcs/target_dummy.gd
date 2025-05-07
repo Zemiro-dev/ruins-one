@@ -8,7 +8,7 @@ extends Entity
 func _ready() -> void:
 	super()
 	shield_refill.timeout.connect(
-		func():
+		func() -> void:
 			shield.on()
 			current_shield = max_shield
 	)

@@ -6,17 +6,17 @@ signal on_health_changed(new_health: int, max_health: int)
 signal on_shield_changed(new_shield: int, max_shield: int)
 signal on_death(entity: Entity)
 
-@export var max_health := 1
-var current_health := 1
-@export var max_shield := 0
-var current_shield := 0
+@export var max_health: int = 1
+var current_health : int = 1
+@export var max_shield: int = 0
+var current_shield: int = 0
 @export var max_speed: float = 1500.
 
-@export var max_invulnerability_time := 0.0
-var remaining_invulnerability_time := 0.0
+@export var max_invulnerability_time: float = 0.0
+var remaining_invulnerability_time: float = 0.0
 
-@export var allow_knockback := true
-@export var knockback_decay_rate := .1
+@export var allow_knockback: bool = true
+@export var knockback_decay_rate: float = .1
 var current_knockback: Vector2 = Vector2.ZERO
 
 @export var drag_strategy: DragBaseStrategy

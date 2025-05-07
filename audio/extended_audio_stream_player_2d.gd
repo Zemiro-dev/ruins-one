@@ -10,10 +10,10 @@ class_name ExtendedAudioStreamPlayer2D
 
 func _ready() -> void:
 	if one_shot:
-		finished.connect(func(): queue_free())
+		finished.connect(func() -> void: queue_free())
 
 
 func play_at_random_pitch() -> void:
-	var new_pitch = original_pitch + [-pitch_jitter, 0, pitch_jitter].pick_random()
+	var new_pitch: float = original_pitch + [-pitch_jitter, 0, pitch_jitter].pick_random()
 	pitch_scale = new_pitch
 	play()

@@ -14,7 +14,7 @@ func _ready() -> void:
 	orb_particles.finished.connect(_orb_particles_finished)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !target_node:
 		orb_particles.emitting = false
 		if follow_host:
@@ -35,10 +35,10 @@ func move_to_host() -> void:
 		global_position = host.global_position
 
 
-func set_target_node(node: Node2D):
+func set_target_node(node: Node2D) -> void:
 	target_node = node
 
 
-func release_target_node():
+func release_target_node() -> void:
 	target_node = null
 	

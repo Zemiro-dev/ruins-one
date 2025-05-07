@@ -5,7 +5,7 @@ class_name MoveResolveStrategy
 ## Move the entity and resolve any collisions
 func move_and_resolve(entity: Entity, delta: float) -> void:
 	entity.cap_velocity()
-	var collision = entity.move_and_collide(
+	var collision: KinematicCollision2D = entity.move_and_collide(
 		entity.velocity * delta,
 		true
 	)
@@ -19,7 +19,7 @@ func move_and_resolve(entity: Entity, delta: float) -> void:
 			entity.current_knockback = entity.current_knockback.bounce(
 				collision.get_normal()
 			)
-		var collider = collision.get_collider()
+		var collider: Object = collision.get_collider()
 		if collider is Entity:
 			# TODO Need to ripple not pulse
 			#if collider.shield: collider.shield.pulse()
@@ -27,7 +27,7 @@ func move_and_resolve(entity: Entity, delta: float) -> void:
 			# TODO weight ratio
 			# TODO the bounce code below is messing it up
 			if !collider.velocity.is_zero_approx():
-				var collision_velocity = collider.velocity.length() * collision.get_normal() * 1.
+				var collision_velocity: Vector2 = collider.velocity.length() * collision.get_normal() * 1.
 				entity.velocity += collision_velocity
 				collider.velocity -= collision_velocity
 	entity.cap_velocity()
