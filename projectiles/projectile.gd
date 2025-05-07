@@ -9,10 +9,9 @@ class_name Projectile
 @onready var det_particle_marker: Marker2D = $DetParticleMarker
 
 @export var detonate_projectile_scene: PackedScene
-@export var shoot_style: ShootProjectileBaseStrategy
 @export var detonate_particle_scene: PackedScene
 @export var eject_velocity := Vector2(0., 0.)
-@export var initial_speed := 10.
+@export var initial_speed := 500.
 @export var acceleration := Vector2.ZERO
 @export var natural_acceleration := Vector2.ZERO
 @export var max_speed := 1500.0
@@ -119,6 +118,8 @@ func _on_lifetime_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	if body == shooter:
+		return
 	if body is SquishButton:
 		body.activate()
 	detonate()

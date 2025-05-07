@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt6sn3m2rvl1n"]
+
+[ext_resource type="PackedScene" uid="uid://bvpqy4he2p537" path="res://projectiles/projectile.tscn" id="1_ekm1a"]
+[ext_resource type="Script" uid="uid://dkqme87782om3" path="res://core/knockback_base_strategy.gd" id="2_uh2al"]
+[ext_resource type="Texture2D" uid="uid://bewxuoukdufxi" path="res://assets/sprite/yellow_small_circle.png" id="3_khc3s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tpshn"]
+radius = 15.0
+
+[sub_resource type="Resource" id="Resource_g5j6b"]
+script = ExtResource("2_uh2al")
+knockback_strength = 100.0
+camera_shake_strength = 1000.0
+camera_shake_duration = 0.5
+metadata/_custom_type_script = "uid://dkqme87782om3"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fpqnw"]
+radius = 15.1327
+
+[node name="YellowShot" instance=ExtResource("1_ekm1a")]
+collision_mask = 3
+acceleration = Vector2(100, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_tpshn")
+
+[node name="Hurtbox" parent="." index="1"]
+collision_layer = 0
+collision_mask = 2
+knockback_strategy = SubResource("Resource_g5j6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_fpqnw")
+
+[node name="Sprite2D" parent="." index="3"]
+texture = ExtResource("3_khc3s")

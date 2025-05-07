@@ -79,7 +79,7 @@ func _physics_process(delta: float) -> void:
 		drag_strategy.velocity_decay_rate = .01
 		var tween: Tween = create_tween()
 		tween.tween_property(break_pad, "modulate", Color(1, 1, 1, 0), .1)
-	print(aim.angle())
+	
 	if Input.is_action_just_pressed("target"):
 		var target_node: Node2D = targeting_module.get_next_target(self, targeting_pivot.target_node)
 		var release: bool = false

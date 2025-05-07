@@ -109,7 +109,7 @@ func take_damage(damage: int, attacker: Node2D, hurtbox: Hurtbox):
 		on_health_changed.emit(current_health, max_health)
 	
 	on_damage_taken.emit(attacker)
-	if can_knockback():
+	if can_knockback() and hurtbox.knockback_strategy:
 		hurtbox.knockback_strategy.knockback(self, hurtbox.damage_source)
 	
 	if max_invulnerability_time > 0.0 and current_health > 0:

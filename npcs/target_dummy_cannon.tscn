@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://cejgrbro8820e"]
+[gd_scene load_steps=12 format=3 uid="uid://cejgrbro8820e"]
 
 [ext_resource type="Script" uid="uid://4685bnr2cysb" path="res://npcs/target_dummy_cannon.gd" id="1_yyi1a"]
+[ext_resource type="PackedScene" uid="uid://bt6sn3m2rvl1n" path="res://projectiles/projectile_yellow_shot.tscn" id="2_1sna2"]
+[ext_resource type="Script" uid="uid://dpdtgg0c1kh2a" path="res://core/shoot_projectile_base_strategy.gd" id="2_a1jxs"]
 [ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/sprite/pink_bubble.png" id="2_ccvpl"]
 [ext_resource type="Script" uid="uid://byki1q084oqrp" path="res://core/drag_base_strategy.gd" id="2_dtpgy"]
 [ext_resource type="Script" uid="uid://wmj6vrlhx6gn" path="res://core/move_resolve_strategy.gd" id="3_a1jxs"]
 [ext_resource type="Texture2D" uid="uid://ucbhwwcwxex4" path="res://assets/sprite/pink_rectangle.png" id="3_xorer"]
+
+[sub_resource type="Resource" id="Resource_d7g6b"]
+script = ExtResource("2_a1jxs")
+metadata/_custom_type_script = "uid://dpdtgg0c1kh2a"
 
 [sub_resource type="Resource" id="Resource_xorer"]
 script = ExtResource("2_dtpgy")
@@ -21,6 +27,8 @@ radius = 49.0
 [node name="TargetDummyCannon" type="CharacterBody2D"]
 collision_layer = 5
 script = ExtResource("1_yyi1a")
+current_projectile_scene = ExtResource("2_1sna2")
+shoot_style = SubResource("Resource_d7g6b")
 max_speed = 0.0
 drag_strategy = SubResource("Resource_xorer")
 move_resolve_strategy = SubResource("Resource_1sna2")
@@ -32,6 +40,7 @@ shape = SubResource("CircleShape2D_1sna2")
 [node name="Pivot" type="Node2D" parent="."]
 
 [node name="ProjectileMarker" type="Marker2D" parent="Pivot"]
+position = Vector2(55, 0)
 
 [node name="Cannon" type="Sprite2D" parent="Pivot"]
 position = Vector2(39, 0)
