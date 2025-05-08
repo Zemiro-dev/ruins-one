@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbagm8ew16wa2"]
+
+[ext_resource type="PackedScene" uid="uid://devxriocp3vsv" path="res://projectiles/projectile_trail.tscn" id="1_0l31c"]
+[ext_resource type="Texture2D" uid="uid://bewxuoukdufxi" path="res://assets/sprite/yellow_small_circle.png" id="2_wt72i"]
+
+[sub_resource type="Curve" id="Curve_nk44p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_deycr"]
+colors = PackedColorArray(1, 1, 1, 1, 1.992, 1.973, 1.325, 0)
+
+[node name="ProjectileTrailYellowShot" instance=ExtResource("1_0l31c")]
+emitting = true
+amount = 32
+texture = ExtResource("2_wt72i")
+lifetime_randomness = 0.9
+gravity = Vector2(0, 0)
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+scale_amount_curve = SubResource("Curve_nk44p")
+color_ramp = SubResource("Gradient_deycr")

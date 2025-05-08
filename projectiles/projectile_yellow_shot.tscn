@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt6sn3m2rvl1n"]
+[gd_scene load_steps=9 format=3 uid="uid://bt6sn3m2rvl1n"]
 
 [ext_resource type="PackedScene" uid="uid://bvpqy4he2p537" path="res://projectiles/projectile.tscn" id="1_ekm1a"]
+[ext_resource type="Script" uid="uid://cdkyfgmp1038w" path="res://projectiles/projectile_yellow_shot.gd" id="2_khc3s"]
 [ext_resource type="Script" uid="uid://dkqme87782om3" path="res://core/knockback_base_strategy.gd" id="2_uh2al"]
 [ext_resource type="Texture2D" uid="uid://bewxuoukdufxi" path="res://assets/sprite/yellow_small_circle.png" id="3_khc3s"]
+[ext_resource type="PackedScene" uid="uid://cbagm8ew16wa2" path="res://projectiles/projectile_trail_yellow_shot.tscn" id="3_tpshn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tpshn"]
 radius = 15.0
@@ -19,6 +21,9 @@ radius = 15.1327
 
 [node name="YellowShot" instance=ExtResource("1_ekm1a")]
 collision_mask = 3
+script = ExtResource("2_khc3s")
+activation_speed = 510.0
+trail_particle_scene = ExtResource("3_tpshn")
 acceleration = Vector2(100, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]

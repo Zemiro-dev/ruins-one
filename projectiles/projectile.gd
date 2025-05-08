@@ -42,6 +42,12 @@ var shooter: Node2D
 
 
 func _ready() -> void:
+	rotation += randf_range(-radial_spread, radial_spread)
+	var spread: Vector2 = Vector2(0., randf_range(-side_spread, side_spread))
+	spread = spread.rotated(global_transform.get_rotation())
+	position += spread
+	velocity = transform.x * initial_speed
+	velocity += eject_velocity.rotated(eject_velocity.angle_to(transform.x))
 	connect_signals()
 	current_health = max_health
 
