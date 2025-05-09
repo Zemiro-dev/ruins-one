@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dodyvj3itrwoa"]
+[gd_scene load_steps=16 format=3 uid="uid://dodyvj3itrwoa"]
 
 [ext_resource type="Script" uid="uid://cgy8fp37ivss" path="res://world/world.gd" id="1_wwhb7"]
 [ext_resource type="Script" uid="uid://bo413ej0adquw" path="res://nest/player_nest.gd" id="2_heo8v"]
@@ -8,6 +8,12 @@
 [ext_resource type="Script" uid="uid://ws3qs4snnmrw" path="res://nest/audio_nest.gd" id="3_clrj1"]
 [ext_resource type="Script" uid="uid://bptnkgmhja7ci" path="res://nest/particle_nest.gd" id="4_bgr11"]
 [ext_resource type="PackedScene" uid="uid://cp3e6bgf4vq28" path="res://indicators/tracking_orb.tscn" id="6_fiu4g"]
+[ext_resource type="Texture2D" uid="uid://dlrw0625kedig" path="res://assets/ui/health_under.png" id="9_0n6y5"]
+[ext_resource type="Texture2D" uid="uid://b0vh5ecde1k57" path="res://assets/ui/health_over.png" id="10_gqh78"]
+[ext_resource type="Texture2D" uid="uid://biq2hsrt6ejes" path="res://assets/ui/health_progress.png" id="11_qpjny"]
+[ext_resource type="Texture2D" uid="uid://bjag1n0ef1in3" path="res://assets/ui/shield_under.png" id="12_x3yhk"]
+[ext_resource type="Texture2D" uid="uid://ccm48f83olqlx" path="res://assets/ui/shield_over.png" id="13_8u1wm"]
+[ext_resource type="Texture2D" uid="uid://kkr4bp450g2v" path="res://assets/ui/shield_progress.png" id="14_y7dlm"]
 
 [sub_resource type="Environment" id="Environment_5e8vm"]
 background_mode = 3
@@ -62,6 +68,28 @@ script = ExtResource("4_bgr11")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 57.0
+offset_top = 26.0
+offset_right = 813.0
+offset_bottom = 103.0
+value = 59.0
+texture_under = ExtResource("9_0n6y5")
+texture_over = ExtResource("10_gqh78")
+texture_progress = ExtResource("11_qpjny")
+
+[node name="ShieldBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 35.0
+offset_top = 103.0
+offset_right = 768.0
+offset_bottom = 150.0
+value = 80.0
+texture_under = ExtResource("12_x3yhk")
+texture_over = ExtResource("13_8u1wm")
+texture_progress = ExtResource("14_y7dlm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5e8vm")

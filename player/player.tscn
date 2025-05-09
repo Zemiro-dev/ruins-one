@@ -30,13 +30,12 @@ script = ExtResource("4_uprka")
 [sub_resource type="CircleShape2D" id="CircleShape2D_ocomg"]
 radius = 41.28
 
+[sub_resource type="Curve" id="Curve_32hag"]
+_data = [Vector2(0, 0.487053), 0.0, 0.0, 0, 0, Vector2(1, 0.382861), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="Gradient" id="Gradient_6qltq"]
 colors = PackedColorArray(1.2, 1.2, 1.2, 1, 1.2, 1.2, 1.2, 0)
-
-[sub_resource type="Curve" id="Curve_cmssk"]
-_limits = [-1.0, 1.0, 0.0, 1.0]
-_data = [Vector2(0.00250626, 0.606882), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_8vlgr"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -82,16 +81,15 @@ shape = SubResource("CircleShape2D_ocomg")
 polygon = PackedVector2Array(-73, 0, -36, -63, 37, -63, 73, 0, 37, 63, -36, 63)
 
 [node name="DashParticles" type="CPUParticles2D" parent="."]
+rotation = 0.000835791
 emitting = false
 amount = 4
 texture = ExtResource("6_l5ldl")
-lifetime = 0.4
+lifetime = 0.3
 gravity = Vector2(0, 0)
-scale_amount_min = 0.5
-scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_32hag")
+color = Color(0.584314, 0.870588, 0.92549, 1)
 color_ramp = SubResource("Gradient_6qltq")
-hue_variation_max = 1.0
-hue_variation_curve = SubResource("Curve_cmssk")
 
 [node name="ThrustParticles" type="CPUParticles2D" parent="."]
 emitting = false
