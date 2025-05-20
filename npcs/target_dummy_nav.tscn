@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwf3288bmdlhu"]
+
+[ext_resource type="Script" uid="uid://dw3rl2ufot2tr" path="res://npcs/target_dummy_nav.gd" id="1_8ldwe"]
+[ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/sprite/pink_bubble.png" id="2_51mm1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2rq01"]
+radius = 49.0
+
+[node name="TargetDummyNav" type="CharacterBody2D"]
+script = ExtResource("1_8ldwe")
+
+[node name="CollisionCore" type="CollisionShape2D" parent="."]
+rotation = 0.00546406
+shape = SubResource("CircleShape2D_2rq01")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("2_51mm1")
