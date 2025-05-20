@@ -9,11 +9,11 @@ func _physics_process(delta: float) -> void:
 	if target:
 		navigation_agent.target_position = target.global_position
 	
+	velocity = Vector2.ZERO
 	if !navigation_agent.is_navigation_finished():
 		var current_agent_position: Vector2 = global_position
 		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-		velocity = current_agent_position.direction_to(next_path_position) * 200.
-	else:
-		velocity = Vector2.ZERO
+		if navigation_agent.is_target_reachable():
+			velocity = current_agent_position.direction_to(next_path_position) * 200.
 
 	move_and_resolve(delta)

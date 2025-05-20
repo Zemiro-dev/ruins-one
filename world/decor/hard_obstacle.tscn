@@ -10,6 +10,3 @@ polygon = PackedVector2Array(-76, -125, -76, 80, -38.9, 80, 10, 125, 76, 125, 76
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
 texture = ExtResource("1_evscx")
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-vertices = PackedVector2Array(-76, -125, -76, 80, -38.9, 80, 10, 125, 76, 125, 76, -125)

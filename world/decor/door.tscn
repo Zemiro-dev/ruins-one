@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://s8u0v14fqe7e"]
+[gd_scene load_steps=9 format=3 uid="uid://s8u0v14fqe7e"]
 
 [ext_resource type="PackedScene" uid="uid://25arqew6ayb0" path="res://world/decor/hard_obstacle.tscn" id="1_g6ilc"]
 [ext_resource type="Script" uid="uid://xx3s5lm22ti2" path="res://world/decor/door.gd" id="1_nfg87"]
@@ -28,6 +28,18 @@ tracks/1/keys = {
 "points": PackedFloat32Array(-95, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NavigationRegion2D:navigation_layers")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
 
 [sub_resource type="Animation" id="Animation_fq841"]
 resource_name = "close"
@@ -53,6 +65,18 @@ tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(-332, -0.25, 0, 0.25, 32, -95, -0.25, 32, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NavigationRegion2D:navigation_layers")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_c8djw"]
@@ -80,6 +104,18 @@ tracks/1/keys = {
 "points": PackedFloat32Array(-95, -0.25, 0, 0.25, 32, -330, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NavigationRegion2D:navigation_layers")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ann0w"]
 _data = {
@@ -87,6 +123,12 @@ _data = {
 &"close": SubResource("Animation_fq841"),
 &"open": SubResource("Animation_c8djw")
 }
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2tpiu"]
+vertices = PackedVector2Array(96, 145, -96, 145, -96, -111, 96, -111)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-96, -111, 96, -111, 96, 145, -96, 145)])
+agent_radius = 0.0
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_nfg87")
@@ -113,3 +155,8 @@ scale = Vector2(1, -1)
 libraries = {
 &"": SubResource("AnimationLibrary_ann0w")
 }
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(0, -17)
+navigation_polygon = SubResource("NavigationPolygon_2tpiu")
+navigation_layers = 2

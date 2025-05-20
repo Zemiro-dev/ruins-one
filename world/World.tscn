@@ -52,9 +52,12 @@ script = ExtResource("2_l7ww2")
 [node name="PlayerNest" type="Node" parent="."]
 script = ExtResource("2_heo8v")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_layers = 3
 
-[node name="Decor" type="Node" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
+
+[node name="Decor" type="Node" parent="NavigationRegion2D"]
 
 [node name="ParticleNest" type="Node" parent="."]
 script = ExtResource("4_bgr11")
