@@ -8,5 +8,8 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-93.5, -185, -209.2, -83, -209.5, -61.7, -131.5, 183.2, -131.5, 185, 131.6, 185, 209.5, -65.4, 209.5, -83.5, 207.5, -85, 207.5, -85.9, 93.5, -184.9)
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-93.5, -185, -209.2, -83, -209.5, -61.7, -131.5, 183.2, -131.5, 185, 131.6, 185, 209.5, -65.4, 209.5, -83.5, 207.5, -85, 207.5, -85.9, 93.5, -184.9)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_q4vpq")

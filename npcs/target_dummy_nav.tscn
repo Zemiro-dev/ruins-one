@@ -1,13 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwf3288bmdlhu"]
+[gd_scene load_steps=8 format=3 uid="uid://cwf3288bmdlhu"]
 
 [ext_resource type="Script" uid="uid://dw3rl2ufot2tr" path="res://npcs/target_dummy_nav.gd" id="1_8ldwe"]
+[ext_resource type="Script" uid="uid://byki1q084oqrp" path="res://core/drag_base_strategy.gd" id="2_0qrdh"]
 [ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/sprite/pink_bubble.png" id="2_51mm1"]
+[ext_resource type="Script" uid="uid://wmj6vrlhx6gn" path="res://core/move_resolve_strategy.gd" id="3_ipcww"]
+
+[sub_resource type="Resource" id="Resource_w0vr0"]
+script = ExtResource("2_0qrdh")
+velocity_decay_rate = 0.01
+metadata/_custom_type_script = "uid://byki1q084oqrp"
+
+[sub_resource type="Resource" id="Resource_1h54g"]
+script = ExtResource("3_ipcww")
+metadata/_custom_type_script = "uid://wmj6vrlhx6gn"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2rq01"]
 radius = 49.0
 
 [node name="TargetDummyNav" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_8ldwe")
+drag_strategy = SubResource("Resource_w0vr0")
+move_resolve_strategy = SubResource("Resource_1h54g")
 
 [node name="CollisionCore" type="CollisionShape2D" parent="."]
 rotation = 0.00546406
@@ -15,3 +30,7 @@ shape = SubResource("CircleShape2D_2rq01")
 
 [node name="Body" type="Sprite2D" parent="."]
 texture = ExtResource("2_51mm1")
+
+[node name="NavigationAgent" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true

@@ -111,5 +111,5 @@ scale = Vector2(1, -1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ann0w")
+&"": SubResource("AnimationLibrary_ann0w")
 }
