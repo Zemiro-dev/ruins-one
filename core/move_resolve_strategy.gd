@@ -27,7 +27,9 @@ func move_and_resolve(entity: Entity, delta: float) -> void:
 			# TODO weight ratio
 			# TODO the bounce code below is messing it up
 			if !collider.velocity.is_zero_approx():
-				var collision_velocity: Vector2 = collider.velocity.length() * collision.get_normal() * 1.
+				var collision_velocity: Vector2 = (
+					collider.velocity.length() * collision.get_normal() * 1.
+				)
 				entity.velocity += collision_velocity
 				collider.velocity -= collision_velocity
 	entity.cap_velocity()

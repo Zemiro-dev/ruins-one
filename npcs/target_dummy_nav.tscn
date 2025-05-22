@@ -34,3 +34,5 @@ texture = ExtResource("2_51mm1")
 [node name="NavigationAgent" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
 avoidance_enabled = true
+
+[node name="LineOfSightRayCast" type="RayCast2D" parent="."]
