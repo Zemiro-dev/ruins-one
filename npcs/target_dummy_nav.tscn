@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwf3288bmdlhu"]
+[gd_scene load_steps=9 format=3 uid="uid://cwf3288bmdlhu"]
 
 [ext_resource type="Script" uid="uid://dw3rl2ufot2tr" path="res://npcs/target_dummy_nav.gd" id="1_8ldwe"]
 [ext_resource type="Script" uid="uid://byki1q084oqrp" path="res://core/drag_base_strategy.gd" id="2_0qrdh"]
 [ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/sprite/pink_bubble.png" id="2_51mm1"]
 [ext_resource type="Script" uid="uid://wmj6vrlhx6gn" path="res://core/move_resolve_strategy.gd" id="3_ipcww"]
+
+[sub_resource type="Curve" id="Curve_0qrdh"]
+_data = [Vector2(0.0786517, 0.995199), 0.0, -0.640878, 0, 0, Vector2(0.998496, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Resource" id="Resource_w0vr0"]
 script = ExtResource("2_0qrdh")
@@ -21,6 +25,8 @@ radius = 49.0
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_8ldwe")
+slow_down_curve = SubResource("Curve_0qrdh")
+max_speed = 1000.0
 drag_strategy = SubResource("Resource_w0vr0")
 move_resolve_strategy = SubResource("Resource_1h54g")
 

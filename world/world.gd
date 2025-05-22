@@ -33,4 +33,7 @@ func spawn_player() -> void:
 		health_bar.initialize(player.on_health_changed, player.current_health, player.max_health)
 		shield_bar.initialize(player.on_shield_changed, player.current_shield, player.max_shield)
 		target_dummy_nav.target = player
+		$EnemyNest/TargetDummyNav2.target = player
+		$EnemyNest/TargetDummyNav3.target = player
+		$EnemyNest/TargetDummyNav4.target = player
 	
