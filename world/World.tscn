@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dodyvj3itrwoa"]
+[gd_scene load_steps=19 format=3 uid="uid://dodyvj3itrwoa"]
 
 [ext_resource type="Script" uid="uid://cgy8fp37ivss" path="res://world/world.gd" id="1_wwhb7"]
 [ext_resource type="Script" uid="uid://bo413ej0adquw" path="res://nest/player_nest.gd" id="2_heo8v"]
 [ext_resource type="Script" uid="uid://bcj6ixqm2cb0l" path="res://nest/projectile_nest.gd" id="2_l7ww2"]
 [ext_resource type="Script" uid="uid://de5j14todoqxj" path="res://core/camera.gd" id="2_syy4v"]
+[ext_resource type="Texture2D" uid="uid://cicfjxy22w5of" path="res://assets/sprite/player_ring.png" id="2_ww6ps"]
+[ext_resource type="Script" uid="uid://def3pcsgcjl8v" path="res://tools/editor_only_sprite.gd" id="2_y7dlm"]
 [ext_resource type="Script" uid="uid://iwg5wck37cov" path="res://nest/enemy_nest.gd" id="3_4khqu"]
 [ext_resource type="Script" uid="uid://ws3qs4snnmrw" path="res://nest/audio_nest.gd" id="3_clrj1"]
 [ext_resource type="Script" uid="uid://bptnkgmhja7ci" path="res://nest/particle_nest.gd" id="4_bgr11"]
@@ -27,6 +29,10 @@ script = ExtResource("1_wwhb7")
 metadata/_edit_vertical_guides_ = [-86.0]
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
+
+[node name="PlayerSpawnSprite" type="Sprite2D" parent="PlayerSpawn"]
+texture = ExtResource("2_ww6ps")
+script = ExtResource("2_y7dlm")
 
 [node name="MainCamera" type="Camera2D" parent="."]
 process_callback = 0

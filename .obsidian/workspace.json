@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Readme.md",
+                "file": "Docs/Journal/2025-05-22 Enemy.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Readme"
+              "title": "2025-05-22 Enemy"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "b5b3b6b4888d679c",
@@ -163,19 +164,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "02b9fa95d8d65782",
+  "active": "e2368234c2a798ee",
   "lastOpenFiles": [
+    "world/worlds/world_dummy.tscn3374896842.tmp",
+    "world/worlds/world_dummy.tscn3371629638.tmp",
+    "world/World.tscn3352566933.tmp",
+    "world/World.tscn3331050042.tmp",
+    "tools/editor_only_sprite.gd.uid",
+    "tools/editor_only_sprite.gd",
+    "tools",
+    "Readme.md",
+    "Docs/Journal/2025-05-22 Enemy.md",
     "projectiles/projectile_yellow_shot.tscn7576951486.tmp",
     "player/player.tscn7576837294.tmp",
     "projectiles/projectile_yellow_shot.gd7576336457.tmp",
     "projectiles/projectile_trail.gd7469668516.tmp",
-    "projectiles/projectile_red_shot.tscn7453033766.tmp",
-    "projectiles/projectile_yellow_shot.tscn7453006570.tmp",
-    "projectiles/projectile_yellow_shot.gd7451999896.tmp",
-    "projectiles/projectile_yellow_shot.tscn7451973768.tmp",
-    "player/player.tscn7370235064.tmp",
-    "projectiles/projectile_yellow_shot.gd7369259298.tmp",
-    "projectiles/projectile_yellow_shot.tscn7369237900.tmp",
     "assets/sprite/pink_rectangle.png",
     "assets/sprite/yellow_small_circle.png",
     "assets/yellow_small_circle.png",
@@ -192,7 +195,6 @@
     "assets/audio/credits.md",
     "Docs/Journal/2025-04-06 Shield.md",
     "Docs/Journal/2025-04-06 Spawnables.md",
-    "Docs/Journal/2025-03-30 Dev Log.md",
-    "Readme.md"
+    "Docs/Journal/2025-03-30 Dev Log.md"
   ]
 }
