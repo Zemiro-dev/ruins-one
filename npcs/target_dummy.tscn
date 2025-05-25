@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ciig3y1oej1wv"]
+[gd_scene load_steps=16 format=3 uid="uid://ciig3y1oej1wv"]
 
 [ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/sprite/pink_bubble.png" id="1_a0l2i"]
 [ext_resource type="Script" uid="uid://0lq4amxoax6k" path="res://npcs/target_dummy.gd" id="1_vh8wg"]
@@ -6,12 +6,13 @@
 [ext_resource type="Script" uid="uid://wmj6vrlhx6gn" path="res://core/move_resolve_strategy.gd" id="3_gge71"]
 [ext_resource type="PackedScene" uid="uid://4egncyc5myi4" path="res://particles/particle_explosion_one_shot.tscn" id="4_ikgw6"]
 [ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://shield/shield.tscn" id="5_ffs8d"]
+[ext_resource type="PackedScene" uid="uid://ci3lxt0552nhd" path="res://shield/shield_control_module.tscn" id="9_ljjik"]
 [ext_resource type="PackedScene" uid="uid://bj01nvklr40bg" path="res://audio/extended_audio_stream_player_2d.tscn" id="11_nnmwd"]
 [ext_resource type="AudioStream" uid="uid://btwjxlttel4c7" path="res://assets/audio/explosion_audio.wav" id="12_84loe"]
 
 [sub_resource type="Resource" id="Resource_anssv"]
 script = ExtResource("2_fgxuo")
-velocity_decay_rate = 0.01
+velocity_decay_rate = 0.1
 
 [sub_resource type="Resource" id="Resource_d5dhk"]
 script = ExtResource("3_gge71")
@@ -110,6 +111,8 @@ drag_strategy = SubResource("Resource_anssv")
 move_resolve_strategy = SubResource("Resource_d5dhk")
 current_death_explosion_scene = ExtResource("4_ikgw6")
 
+[node name="ControlModules" type="Node" parent="."]
+
 [node name="CollisionCore" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dcmj6")
 
@@ -119,7 +122,9 @@ polygon = PackedVector2Array(-73, 0, -36, -63, 37, -63, 73, 0, 37, 63, -36, 63)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_a0l2i")
 
-[node name="Shield" parent="." instance=ExtResource("5_ffs8d")]
+[node name="Modules" type="Node2D" parent="."]
+
+[node name="Shield" parent="Modules" instance=ExtResource("5_ffs8d")]
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
@@ -153,3 +158,12 @@ libraries = {
 [node name="ExplodeAudio" parent="Audio" instance=ExtResource("11_nnmwd")]
 stream = ExtResource("12_84loe")
 one_shot = true
+
+[node name="ShieldControlModule" parent="." node_paths=PackedStringArray("shield", "entity") instance=ExtResource("9_ljjik")]
+shield = NodePath("../Modules/Shield")
+entity = NodePath("..")
+reactivation_time = 3.0
+regeneration_time = 0.0
+stunned_time = 6.0
+reactivation_amount = 8
+regeneration_amount = 2

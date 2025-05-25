@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://ci3lxt0552nhd"]
+
+[ext_resource type="Script" uid="uid://d24ec6saec0aq" path="res://shield/shield_control_module.gd" id="1_877il"]
+[ext_resource type="Script" uid="uid://dekcbea4tqa58" path="res://core/state_machine.gd" id="2_0bcsc"]
+[ext_resource type="Script" uid="uid://b122id05011xi" path="res://shield/idle_shield_state.gd" id="3_hbtuj"]
+[ext_resource type="Script" uid="uid://8ohlgp5o1c3f" path="res://shield/dead_shield_state.gd" id="4_1yd6m"]
+[ext_resource type="Script" uid="uid://dmuytc01s4eo0" path="res://shield/reactivating_shield_state.gd" id="5_asntq"]
+[ext_resource type="Script" uid="uid://n6cxluhavwy" path="res://shield/regenerating_shield_state.gd" id="6_5lu8p"]
+[ext_resource type="Script" uid="uid://dfgkju6j0tr02" path="res://shield/stunned_shield_state.gd" id="7_60yio"]
+
+[node name="ShieldControlModule" type="Node"]
+script = ExtResource("1_877il")
+reactivation_amount = null
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_0bcsc")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_hbtuj")
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("4_1yd6m")
+
+[node name="Reactivating" type="Node" parent="StateMachine"]
+script = ExtResource("5_asntq")
+
+[node name="Regenerating" type="Node" parent="StateMachine"]
+script = ExtResource("6_5lu8p")
+
+[node name="Stunned" type="Node" parent="StateMachine"]
+script = ExtResource("7_60yio")
