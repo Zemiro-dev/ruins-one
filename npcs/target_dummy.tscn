@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://byki1q084oqrp" path="res://core/drag_base_strategy.gd" id="2_fgxuo"]
 [ext_resource type="Script" uid="uid://wmj6vrlhx6gn" path="res://core/move_resolve_strategy.gd" id="3_gge71"]
 [ext_resource type="PackedScene" uid="uid://4egncyc5myi4" path="res://particles/particle_explosion_one_shot.tscn" id="4_ikgw6"]
-[ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://shield/shield.tscn" id="5_ffs8d"]
+[ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://assets/sprite/shield.tscn" id="5_ffs8d"]
 [ext_resource type="PackedScene" uid="uid://ci3lxt0552nhd" path="res://shield/shield_control_module.tscn" id="9_ljjik"]
 [ext_resource type="PackedScene" uid="uid://bj01nvklr40bg" path="res://audio/extended_audio_stream_player_2d.tscn" id="11_nnmwd"]
 [ext_resource type="AudioStream" uid="uid://btwjxlttel4c7" path="res://assets/audio/explosion_audio.wav" id="12_84loe"]
@@ -113,6 +113,15 @@ current_death_explosion_scene = ExtResource("4_ikgw6")
 
 [node name="ControlModules" type="Node" parent="."]
 
+[node name="ShieldControlModule" parent="ControlModules" node_paths=PackedStringArray("shield", "entity") instance=ExtResource("9_ljjik")]
+shield = NodePath("../../Modules/Shield")
+entity = NodePath("../..")
+reactivation_time = 3.0
+regeneration_time = 0.0
+stunned_time = 6.0
+reactivation_amount = 8
+regeneration_amount = 2
+
 [node name="CollisionCore" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dcmj6")
 
@@ -145,25 +154,13 @@ theme_override_font_sizes/font_size = 32
 text = "100"
 metadata/_edit_use_anchors_ = true
 
-[node name="ShieldRefill" type="Timer" parent="."]
-one_shot = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_eb2kb")
 }
 
-[node name="Audio" type="Node" parent="."]
+[node name="Audio" type="Node2D" parent="."]
 
 [node name="ExplodeAudio" parent="Audio" instance=ExtResource("11_nnmwd")]
 stream = ExtResource("12_84loe")
 one_shot = true
-
-[node name="ShieldControlModule" parent="." node_paths=PackedStringArray("shield", "entity") instance=ExtResource("9_ljjik")]
-shield = NodePath("../Modules/Shield")
-entity = NodePath("..")
-reactivation_time = 3.0
-regeneration_time = 0.0
-stunned_time = 6.0
-reactivation_amount = 8
-regeneration_amount = 2

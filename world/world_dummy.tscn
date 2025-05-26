@@ -1,7 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://sdutrusexip8"]
 
 [ext_resource type="PackedScene" uid="uid://dodyvj3itrwoa" path="res://world/World.tscn" id="1_fwfxv"]
-[ext_resource type="PackedScene" uid="uid://ciig3y1oej1wv" path="res://npcs/target_dummy.tscn" id="2_1sa0m"]
 [ext_resource type="PackedScene" uid="uid://ol4x06ugv7kw" path="res://player/player.tscn" id="2_pca17"]
 [ext_resource type="PackedScene" uid="uid://dq3h5ogalw2vt" path="res://spawner/repeating_spawner.tscn" id="3_mauv6"]
 [ext_resource type="Texture2D" uid="uid://b588xfsqx5eon" path="res://assets/tileset/tileset_dummy.png" id="5_npey6"]
@@ -10,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bxqbsvsusfrjc" path="res://assets/audio/bg_music_1.ogg" id="6_ngodl"]
 [ext_resource type="PackedScene" uid="uid://s8u0v14fqe7e" path="res://world/decor/door.tscn" id="6_r8xdd"]
 [ext_resource type="PackedScene" uid="uid://cedhsi6vx78ot" path="res://world/decor/squish_button.tscn" id="7_0srh1"]
+[ext_resource type="PackedScene" uid="uid://bxu2uqr2hxdur" path="res://npcs/target_dummy_enemy.tscn" id="7_mgogi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_11a04"]
 vertices = PackedVector2Array(3552, 1507, 3552, 1085.65, 3614.15, 1139, 3961.77, 1010.2, 3915.64, 864, 4950.57, 864, 4979.53, 1517.74, 3816.12, 1139, 416, 416, 416, -96, 434.742, -96, 608, 77.2578, 608, 335.906, 521.258, 410.367, 616.352, 720, 659, 720, 659, 1034, 616.352, 1034, 406.633, 1001.37, 333.25, 928, -178.75, 864, -672, 864, -672, 416, -32, 416, -32, 288, -608, 288, -608, 96, -434.75, 96, -370.742, 32, -306.75, 32, -242.742, -32, -178.75, -32, 224, 416, -114.742, -96, 224, -96, 592.297, 645.961, 593.57, 645.844, 545.82, 490.367, 537.789, 496, 517.617, 539.203, 589.938, 1120, 525.258, 1120, -114.742, 928, 549.078, 625.789, 521.75, 586.719, 1013.77, 414.797, 958.93, 366.313, 992, 333.258, 1696, 224, 1760, 224, 1760, 288, 1837.35, 392, 1880, 392, 1880, 706, 1837.35, 706, 1760, 800, 1760, 864, 1696, 864, 917.461, 720, 1696, 1120, 944.602, 1120, 917.461, 1034, 875, 720, 875, 1034, 1041.22, -60.9375, 1057.51, -96, 1696, -96, 992, -32.6172, 1002.19, -33.5313, 1805.41, 288, 1808.48, 800, 3564.35, 391, 3607, 391, 3607, 705, 3564.35, 705, 3515.52, 864, 3488, 864, 3488, 800, 3396.46, 705, 3354, 705, 3354, 391, 3396.46, 391, 3488, 288, 3488, 224, 3513.07, 224, 3426.44, 800, 3428.97, 288, 3095.35, 391, 3138, 391, 3138, 705, 3095.35, 705, 2138.46, 706, 2096, 706, 2096, 392, 2138.46, 392, 2171.28, 288, 2530.33, 288, 2532.22, 295.063, 3066.17, 800, 2696.09, 800, 2691.78, 783.93, 2658.07, 750.219, 2658.07, 328.781, 2691.77, 295.07, 3063.72, 288, 2532.22, 783.93, 2527.91, 800, 2168.12, 800, 2565.93, 328.781, 2565.93, 750.219, 2693.67, 288, 2612, 341.133, 2612, 737.867, 3614.15, -43, 3552, 10.3438, 3552, -426, 4704, 224, 3918.17, 224, 3961.77, 85.7969, 4893.39, -426, 3816.12, -43, 4704, 352, 4935.45, 523.281, 4905.37, 553.367, 3865.46, 705, 3823, 705, 3823, 391, 3865.46, 391, 3877.76, 352, 4722.74, 736, 3875.24, 736)
@@ -91,18 +91,18 @@ sources/1 = SubResource("TileSetAtlasSource_mu1mr")
 player_scene = ExtResource("2_pca17")
 
 [node name="DummySpawner" parent="." index="1" instance=ExtResource("3_mauv6")]
-position = Vector2(1210, 64)
-spawn_scene = ExtResource("2_1sa0m")
+position = Vector2(1209, 63)
+spawn_scene = ExtResource("7_mgogi")
 max_respawn_delay = 1.0
 
 [node name="DummySpawner2" parent="." index="2" instance=ExtResource("3_mauv6")]
 position = Vector2(1458, 997)
-spawn_scene = ExtResource("2_1sa0m")
+spawn_scene = ExtResource("7_mgogi")
 max_respawn_delay = 1.0
 
 [node name="DummySpawner3" parent="." index="3" instance=ExtResource("3_mauv6")]
 position = Vector2(-69, 657)
-spawn_scene = ExtResource("2_1sa0m")
+spawn_scene = ExtResource("7_mgogi")
 max_respawn_delay = 1.0
 
 [node name="TargetDummyCannon" parent="EnemyNest" index="0" instance=ExtResource("5_w6ge2")]

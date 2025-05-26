@@ -10,7 +10,6 @@
 
 [node name="ShieldControlModule" type="Node"]
 script = ExtResource("1_877il")
-reactivation_amount = null
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_0bcsc")

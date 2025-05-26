@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dg2o53tnxq3u6" path="res://assets/sprite/red_ring.png" id="9_bpy8n"]
 [ext_resource type="Script" uid="uid://bld58yy4rl55n" path="res://player/player_targeting_module.gd" id="9_lrw3e"]
 [ext_resource type="Script" uid="uid://cfrd53y03qiep" path="res://core/target_base_strategy.gd" id="10_omik6"]
-[ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://shield/shield.tscn" id="16_inikh"]
+[ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://assets/sprite/shield.tscn" id="16_inikh"]
 
 [sub_resource type="Resource" id="Resource_l45ut"]
 script = ExtResource("3_p0kbh")

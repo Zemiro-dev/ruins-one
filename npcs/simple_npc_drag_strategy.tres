@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DragBaseStrategy" load_steps=2 format=3 uid="uid://buyd10ax4m5n8"]
+
+[ext_resource type="Script" uid="uid://byki1q084oqrp" path="res://core/drag_base_strategy.gd" id="1_0eoat"]
+
+[resource]
+script = ExtResource("1_0eoat")
+velocity_decay_rate = 0.1
+metadata/_custom_type_script = "uid://byki1q084oqrp"

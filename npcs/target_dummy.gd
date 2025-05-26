@@ -1,6 +1,5 @@
 extends Entity
 
-@onready var shield_refill: Timer = $ShieldRefill
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var explode_audio: AudioStreamPlayer2D = $Audio/ExplodeAudio
 @onready var audio: Node = $Audio

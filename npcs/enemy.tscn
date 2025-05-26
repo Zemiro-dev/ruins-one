@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://byfec3we1c0b6"]
+
+[ext_resource type="Script" uid="uid://c6u00smwkghwh" path="res://npcs/enemy.gd" id="1_qcigq"]
+[ext_resource type="Resource" uid="uid://buyd10ax4m5n8" path="res://npcs/simple_npc_drag_strategy.tres" id="2_dqmbh"]
+[ext_resource type="Resource" uid="uid://b8kavm8imt0ay" path="res://npcs/simple_npc_move_resolve_strategy.tres" id="3_88d44"]
+[ext_resource type="PackedScene" uid="uid://4egncyc5myi4" path="res://particles/particle_explosion_one_shot.tscn" id="4_88d44"]
+[ext_resource type="AnimationLibrary" uid="uid://cdjioopmdnh1w" path="res://npcs/enemy_animation_library.tres" id="5_0agjy"]
+[ext_resource type="PackedScene" uid="uid://bj01nvklr40bg" path="res://audio/extended_audio_stream_player_2d.tscn" id="5_vd47b"]
+[ext_resource type="AudioStream" uid="uid://btwjxlttel4c7" path="res://assets/audio/explosion_audio.wav" id="6_0agjy"]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_qcigq")
+drag_strategy = ExtResource("2_dqmbh")
+move_resolve_strategy = ExtResource("3_88d44")
+current_death_explosion_scene = ExtResource("4_88d44")
+
+[node name="ControlModules" type="Node" parent="."]
+
+[node name="CollisionCore" type="CollisionShape2D" parent="."]
+
+[node name="CollisionShield" type="CollisionPolygon2D" parent="."]
+
+[node name="BottomModules" type="Node2D" parent="."]
+
+[node name="HullSprite" type="Sprite2D" parent="."]
+
+[node name="TopModules" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": ExtResource("5_0agjy")
+}
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="ExplodeAudio" parent="Audio" instance=ExtResource("5_vd47b")]
+stream = ExtResource("6_0agjy")
+one_shot = true

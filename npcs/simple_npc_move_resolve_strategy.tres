@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MoveResolveStrategy" load_steps=2 format=3 uid="uid://b8kavm8imt0ay"]
+
+[ext_resource type="Script" uid="uid://wmj6vrlhx6gn" path="res://core/move_resolve_strategy.gd" id="1_xe8lc"]
+
+[resource]
+script = ExtResource("1_xe8lc")
+metadata/_custom_type_script = "uid://wmj6vrlhx6gn"
