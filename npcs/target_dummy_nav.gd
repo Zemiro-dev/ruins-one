@@ -7,9 +7,9 @@ extends Entity
 @export var target: Node2D
 @export var steer_force: float = 500.0
 @export var max_steer_speed: float = 500.0
-@export var kill_circle_radius: float = 200.0
 @export var slow_down_distance: float = 50.0
 @export var slow_down_curve: Curve
+@export var kill_circle_radius: float = 200.0
 var circle_rng: float = 1.0
 
 func _ready() -> void:
@@ -29,7 +29,6 @@ func _physics_process(delta: float) -> void:
 			goal_position = final_goal_position
 		else:
 			if !navigation_agent.is_navigation_finished():
-				var current_agent_position: Vector2 = global_position
 				var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 				if navigation_agent.is_target_reachable():
 					goal_position = next_path_position

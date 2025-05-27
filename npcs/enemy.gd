@@ -5,11 +5,32 @@ class_name Enemy
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var explode_audio: ExtendedAudioStreamPlayer2D = $Audio/ExplodeAudio
 @onready var audio: Node2D = $Audio
+@export var navigation_module: NavigationModule
+@export var acceleration_module: AccelerationModule
 @export var target: Entity
 @export var steer_force: float = 500.0
+var spawn_position: Vector2
+
+func _ready() -> void:
+	super()
+	spawn_position = global_position
 
 func _physics_process(delta: float) -> void:
 	super(delta)
+	var final_goal: Vector2 = global_position
+	var current_goal: Vector2 = global_position
+	if navigation_module:
+		final_goal = navigation_module.final_goal()
+		current_goal = navigation_module.current_goal(final_goal)
+	
+	if acceleration_module:
+		if global_position.distance_to(final_goal) > 10:
+			velocity += acceleration_module.get_frame_acceleration(
+				velocity,
+				global_position,
+				current_goal,
+				final_goal
+			)
 	# Remember to turn off drag if we have a goal velocity
 	move_and_resolve(delta)
 

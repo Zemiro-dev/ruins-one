@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://sdutrusexip8"]
+[gd_scene load_steps=15 format=4 uid="uid://sdutrusexip8"]
 
 [ext_resource type="PackedScene" uid="uid://dodyvj3itrwoa" path="res://world/World.tscn" id="1_fwfxv"]
 [ext_resource type="PackedScene" uid="uid://ol4x06ugv7kw" path="res://player/player.tscn" id="2_pca17"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bxqbsvsusfrjc" path="res://assets/audio/bg_music_1.ogg" id="6_ngodl"]
 [ext_resource type="PackedScene" uid="uid://s8u0v14fqe7e" path="res://world/decor/door.tscn" id="6_r8xdd"]
 [ext_resource type="PackedScene" uid="uid://cedhsi6vx78ot" path="res://world/decor/squish_button.tscn" id="7_0srh1"]
+[ext_resource type="PackedScene" uid="uid://de8t7ue3ttium" path="res://npcs/nav_target_dummy_enemy.tscn" id="7_gq3f5"]
 [ext_resource type="PackedScene" uid="uid://bxu2uqr2hxdur" path="res://npcs/target_dummy_enemy.tscn" id="7_mgogi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_11a04"]
@@ -109,21 +110,20 @@ max_respawn_delay = 1.0
 position = Vector2(-393, 192)
 rotation = 0.600014
 
-[node name="TargetDummyNav" parent="EnemyNest" index="1" instance=ExtResource("6_11a04")]
-position = Vector2(1088, 832)
-steer_force = 2000.0
-
-[node name="TargetDummyNav2" parent="EnemyNest" index="2" instance=ExtResource("6_11a04")]
+[node name="TargetDummyNav2" parent="EnemyNest" index="1" instance=ExtResource("6_11a04")]
 position = Vector2(1581, 31)
 steer_force = 2000.0
 
-[node name="TargetDummyNav3" parent="EnemyNest" index="3" instance=ExtResource("6_11a04")]
+[node name="TargetDummyNav3" parent="EnemyNest" index="2" instance=ExtResource("6_11a04")]
 position = Vector2(2631, 611)
 steer_force = 2000.0
 
-[node name="TargetDummyNav4" parent="EnemyNest" index="4" instance=ExtResource("6_11a04")]
+[node name="TargetDummyNav4" parent="EnemyNest" index="3" instance=ExtResource("6_11a04")]
 position = Vector2(4642, 538)
 steer_force = 2000.0
+
+[node name="TargetDummyEnemy" parent="EnemyNest" index="4" instance=ExtResource("7_gq3f5")]
+position = Vector2(1063, 889)
 
 [node name="NavigationRegion2D" parent="." index="12"]
 visible = false

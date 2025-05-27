@@ -1,29 +1,42 @@
-[gd_scene load_steps=8 format=3 uid="uid://de8t7ue3ttium"]
+[gd_scene load_steps=12 format=3 uid="uid://de8t7ue3ttium"]
 
 [ext_resource type="PackedScene" uid="uid://byfec3we1c0b6" path="res://npcs/enemy.tscn" id="1_fqgoq"]
 [ext_resource type="PackedScene" uid="uid://ci3lxt0552nhd" path="res://shield/shield_control_module.tscn" id="2_gm6ia"]
+[ext_resource type="Script" uid="uid://buk0xy7dvlins" path="res://npcs/hunter_navigation_module.gd" id="3_7pqh5"]
 [ext_resource type="Script" uid="uid://7a62metxqt2s" path="res://npcs/line_of_sight_module.gd" id="3_gm6ia"]
 [ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/sprite/pink_bubble.png" id="3_qaiil"]
+[ext_resource type="Script" uid="uid://jgeghxwd76mm" path="res://npcs/simple_acceleration_module.gd" id="4_6far2"]
 [ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://assets/sprite/shield.tscn" id="4_7pqh5"]
 [ext_resource type="PackedScene" uid="uid://bcrfoksvd7dhx" path="res://npcs/debug_status_module.tscn" id="5_6far2"]
+[ext_resource type="Script" uid="uid://bgadi3r1qma3" path="res://npcs/tracker_module.gd" id="5_7pqh5"]
+
+[sub_resource type="Curve" id="Curve_6far2"]
+_data = [Vector2(0.0786517, 0.995199), 0.0, -0.640878, 0, 0, Vector2(0.998496, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lsjeu"]
 radius = 49.0102
 
-[node name="TargetDummyEnemy" instance=ExtResource("1_fqgoq")]
+[node name="TargetDummyEnemy" node_paths=PackedStringArray("navigation_module", "acceleration_module") instance=ExtResource("1_fqgoq")]
+navigation_module = NodePath("ControlModules/HunterNavigationModule")
+acceleration_module = NodePath("ControlModules/SimpleAccelerationModule")
 max_health = 10
 max_shield = 5
-max_speed = null
-max_invulnerability_time = null
-allow_knockback = null
-knockback_decay_rate = null
-should_play_damage_tween = null
-health_damage_tween_color = null
-shield_damage_tween_color = null
 
 [node name="ShieldControlModule" parent="ControlModules" index="0" node_paths=PackedStringArray("shield", "entity") instance=ExtResource("2_gm6ia")]
 shield = NodePath("../../TopModules/Shield")
 entity = NodePath("../..")
+
+[node name="HunterNavigationModule" type="Node" parent="ControlModules" index="1" node_paths=PackedStringArray("los_module", "tracker_module", "entity")]
+script = ExtResource("3_7pqh5")
+los_module = NodePath("../../BottomModules/LineOfSightModule")
+tracker_module = NodePath("../../BottomModules/TrackerModule")
+circle_radius = null
+entity = NodePath("../..")
+
+[node name="SimpleAccelerationModule" type="Node" parent="ControlModules" index="2"]
+script = ExtResource("4_6far2")
+slow_down_curve = SubResource("Curve_6far2")
 
 [node name="CollisionCore" parent="." index="1"]
 shape = SubResource("CircleShape2D_lsjeu")
@@ -35,6 +48,12 @@ polygon = PackedVector2Array(-73, 0, -36, -63, 37, -63, 73, 0, 37, 63, -36, 63)
 script = ExtResource("3_gm6ia")
 
 [node name="LosRayCast" type="RayCast2D" parent="BottomModules/LineOfSightModule" index="0"]
+
+[node name="TrackerModule" type="Node2D" parent="BottomModules" index="1"]
+script = ExtResource("5_7pqh5")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="BottomModules/TrackerModule" index="0"]
+avoidance_enabled = true
 
 [node name="HullSprite" parent="." index="4"]
 texture = ExtResource("3_qaiil")

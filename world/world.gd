@@ -9,7 +9,6 @@ class_name World
 @onready var player_tracking_orb: TrackingOrb = $IndicatorNest/PlayerTrackingOrb
 @onready var health_bar: TexturedResourceBar = $CanvasLayer/HealthBar
 @onready var shield_bar: TexturedResourceBar = $CanvasLayer/ShieldBar
-@onready var target_dummy_nav: CharacterBody2D = $EnemyNest/TargetDummyNav
 
 func _ready() -> void:
 	spawn_player()
@@ -32,8 +31,7 @@ func spawn_player() -> void:
 		player_tracking_orb.host = player
 		health_bar.initialize(player.on_health_changed, player.current_health, player.max_health)
 		shield_bar.initialize(player.on_shield_changed, player.current_shield, player.max_shield)
-		target_dummy_nav.target = player
 		$EnemyNest/TargetDummyNav2.target = player
 		$EnemyNest/TargetDummyNav3.target = player
 		$EnemyNest/TargetDummyNav4.target = player
-	
+		$EnemyNest/TargetDummyEnemy.target = player
