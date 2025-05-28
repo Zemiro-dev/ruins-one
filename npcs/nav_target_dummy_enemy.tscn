@@ -31,7 +31,6 @@ entity = NodePath("../..")
 script = ExtResource("3_7pqh5")
 los_module = NodePath("../../BottomModules/LineOfSightModule")
 tracker_module = NodePath("../../BottomModules/TrackerModule")
-circle_radius = null
 entity = NodePath("../..")
 
 [node name="SimpleAccelerationModule" type="Node" parent="ControlModules" index="2"]

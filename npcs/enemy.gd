@@ -17,20 +17,23 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
-	var final_goal: Vector2 = global_position
-	var current_goal: Vector2 = global_position
+	var navigation_result: NavigationModuleResult
 	if navigation_module:
-		final_goal = navigation_module.final_goal()
-		current_goal = navigation_module.current_goal(final_goal)
-	
-	if acceleration_module:
-		if global_position.distance_to(final_goal) > 10:
+		navigation_result = navigation_module.navigate()
+		
+	if navigation_result and navigation_result.can_reach_goal:
+		if global_position.distance_to(navigation_result.goal) > 10:
+			can_drag = false
 			velocity += acceleration_module.get_frame_acceleration(
 				velocity,
 				global_position,
-				current_goal,
-				final_goal
-			)
+				navigation_result.next,
+				navigation_result.goal
+			) * delta
+		else:
+			can_drag = true
+	else:
+		can_drag = true
 	# Remember to turn off drag if we have a goal velocity
 	move_and_resolve(delta)
 

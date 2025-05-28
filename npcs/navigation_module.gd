@@ -4,14 +4,11 @@ class_name NavigationModule
 
 @export var entity: Entity
 
-func final_goal() -> Vector2:
+func navigate() -> NavigationModuleResult:
 	if entity:
-		return entity.global_position
-	return Vector2.ZERO
-
-
-func current_goal(final_goal: Vector2) -> Vector2:
-	if entity:
-		return entity.global_position
-	return Vector2.ZERO
-	
+		return NavigationModuleResult.new(
+			entity.global_position,
+			entity.global_position,
+			true
+		)
+	return NavigationModuleResult.new(Vector2.ZERO, Vector2.ZERO, false)

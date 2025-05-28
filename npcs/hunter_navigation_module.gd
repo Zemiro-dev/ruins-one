@@ -13,7 +13,7 @@ func _ready() -> void:
 	circle_rng = rng.randf()
 
 
-func final_goal() -> Vector2:
+func navigate() -> NavigationModuleResult:
 	var goal: Vector2 = entity.global_position
 	if entity.target:
 		goal = get_rng_circle(
@@ -21,14 +21,13 @@ func final_goal() -> Vector2:
 		)
 	elif entity is Enemy and entity.spawn_position:
 		goal = entity.spawn_position
-	return goal
-
-
-func current_goal(final_goal: Vector2) -> Vector2:
-	var navigation_goal: Vector2 = tracker_module.get_goal_position(final_goal, entity.global_position)
-	if !los_module.in_los(final_goal):
-		return navigation_goal
-	return final_goal
+	
+	var tracker_module_result: PositionModuleResult = tracker_module.get_goal_position(goal)
+	return NavigationModuleResult.new(
+		goal,
+		goal if los_module.in_los(goal) else tracker_module_result.next_position,
+		tracker_module_result.can_reach
+	)
 
 
 func get_rng_circle(circle_center: Vector2, radius: float, rand: float) -> Vector2:
