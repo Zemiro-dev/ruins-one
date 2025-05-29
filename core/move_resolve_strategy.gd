@@ -3,6 +3,7 @@ class_name MoveResolveStrategy
 
 
 ## Move the entity and resolve any collisions
+## Stolen from https://www.youtube.com/watch?app=desktop&v=1L2g4ZqmFLQ
 func move_and_resolve(entity: Entity, delta: float) -> void:
 	entity.cap_velocity()
 	var collision: KinematicCollision2D = entity.move_and_collide(
@@ -10,27 +11,30 @@ func move_and_resolve(entity: Entity, delta: float) -> void:
 		true
 	)
 	if collision:
-		# TODO need to ripple not pulse
-		#if entity.shield: entity.shield.pulse()
-		if !entity.velocity.is_zero_approx():
-			entity.velocity = entity.velocity.bounce(
-				collision.get_normal()
-			)
-			entity.current_knockback = entity.current_knockback.bounce(
-				collision.get_normal()
-			)
 		var collider: Object = collision.get_collider()
 		if collider is Entity:
-			# TODO Need to ripple not pulse
-			#if collider.shield: collider.shield.pulse()
-			# TODO The enemy should inform the collision partner of an impact 
-			# TODO weight ratio
-			# TODO the bounce code below is messing it up
-			if !collider.velocity.is_zero_approx():
-				var collision_velocity: Vector2 = (
-					collider.velocity.length() * collision.get_normal() * 1.
+			var rel_velocity = entity.velocity - collider.velocity
+			var impulse_magnitude = -rel_velocity.dot(collision.get_normal()) / 2 # TODO mass based/ (1/m1 + 1/m2) 
+			var impulse_direction = collision.get_normal()
+			var impulse = impulse_direction * impulse_magnitude
+			entity.velocity = impulse
+			collider.velocity = -impulse
+			# TODO what should I actually do with knockback?
+			entity.current_knockback = Vector2.ZERO
+			collider.current_knockback = Vector2.ZERO
+			pass
+		else:
+			if !entity.velocity.is_zero_approx():
+				entity.velocity = entity.velocity.bounce(
+					collision.get_normal()
 				)
-				entity.velocity += collision_velocity
-				collider.velocity -= collision_velocity
+				entity.velocity += entity.velocity.normalized() * collision.get_depth()
+			else:
+				entity.velocity = collision.get_normal() * collision.get_depth()
+			if !entity.current_knockback.is_zero_approx():
+				entity.current_knockback = entity.current_knockback.bounce(
+					collision.get_normal()
+				)
 	entity.cap_velocity()
+	print(entity.velocity)
 	entity.move_and_collide(entity.velocity * delta)

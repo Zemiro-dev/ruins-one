@@ -20,6 +20,7 @@ radius = 49.0102
 [node name="TargetDummyEnemy" node_paths=PackedStringArray("navigation_module", "acceleration_module") instance=ExtResource("1_fqgoq")]
 navigation_module = NodePath("ControlModules/HunterNavigationModule")
 acceleration_module = NodePath("ControlModules/SimpleAccelerationModule")
+steer_force = 100.0
 max_health = 10
 max_shield = 5
 

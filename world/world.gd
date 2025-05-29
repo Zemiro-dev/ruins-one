@@ -35,3 +35,5 @@ func spawn_player() -> void:
 		$EnemyNest/TargetDummyNav3.target = player
 		$EnemyNest/TargetDummyNav4.target = player
 		$EnemyNest/TargetDummyEnemy.target = player
+		$EnemyNest/TargetDummyEnemy2.target = player
+		$EnemyNest/TargetDummyEnemy3.target = player
