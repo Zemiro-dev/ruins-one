@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://sdutrusexip8"]
+[gd_scene load_steps=14 format=4 uid="uid://sdutrusexip8"]
 
 [ext_resource type="PackedScene" uid="uid://dodyvj3itrwoa" path="res://world/World.tscn" id="1_fwfxv"]
 [ext_resource type="PackedScene" uid="uid://ol4x06ugv7kw" path="res://player/player.tscn" id="2_pca17"]
 [ext_resource type="PackedScene" uid="uid://dq3h5ogalw2vt" path="res://spawner/repeating_spawner.tscn" id="3_mauv6"]
 [ext_resource type="Texture2D" uid="uid://b588xfsqx5eon" path="res://assets/tileset/tileset_dummy.png" id="5_npey6"]
 [ext_resource type="PackedScene" uid="uid://cejgrbro8820e" path="res://npcs/target_dummy_cannon.tscn" id="5_w6ge2"]
-[ext_resource type="PackedScene" uid="uid://cwf3288bmdlhu" path="res://npcs/target_dummy_nav.tscn" id="6_11a04"]
 [ext_resource type="AudioStream" uid="uid://bxqbsvsusfrjc" path="res://assets/audio/bg_music_1.ogg" id="6_ngodl"]
 [ext_resource type="PackedScene" uid="uid://s8u0v14fqe7e" path="res://world/decor/door.tscn" id="6_r8xdd"]
 [ext_resource type="PackedScene" uid="uid://cedhsi6vx78ot" path="res://world/decor/squish_button.tscn" id="7_0srh1"]
@@ -89,9 +88,7 @@ physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_mu1mr")
 
 [node name="WorldDummy" instance=ExtResource("1_fwfxv")]
-visible = false
 player_scene = ExtResource("2_pca17")
-metadata/_edit_vertical_guides_ = [-86.0]
 
 [node name="DummySpawner" parent="." index="1" instance=ExtResource("3_mauv6")]
 position = Vector2(1209, 63)
@@ -112,26 +109,17 @@ max_respawn_delay = 1.0
 position = Vector2(-393, 192)
 rotation = 0.600014
 
-[node name="TargetDummyNav2" parent="EnemyNest" index="1" instance=ExtResource("6_11a04")]
-position = Vector2(4277, 530)
-steer_force = 2000.0
+[node name="NavTargetDummyEnemy" parent="EnemyNest" index="1" instance=ExtResource("7_gq3f5")]
+position = Vector2(-243, 82)
 
-[node name="TargetDummyNav3" parent="EnemyNest" index="2" instance=ExtResource("6_11a04")]
-position = Vector2(4474, 435)
-steer_force = 2000.0
+[node name="NavTargetDummyEnemy2" parent="EnemyNest" index="2" instance=ExtResource("7_gq3f5")]
+position = Vector2(1543, 75)
 
-[node name="TargetDummyNav4" parent="EnemyNest" index="3" instance=ExtResource("6_11a04")]
-position = Vector2(4642, 538)
-steer_force = 2000.0
+[node name="NavTargetDummyEnemy3" parent="EnemyNest" index="3" instance=ExtResource("7_gq3f5")]
+position = Vector2(2630, 523)
 
-[node name="TargetDummyEnemy" parent="EnemyNest" index="4" instance=ExtResource("7_gq3f5")]
-position = Vector2(1063, 889)
-
-[node name="TargetDummyEnemy2" parent="EnemyNest" index="5" instance=ExtResource("7_gq3f5")]
-position = Vector2(1522, 312)
-
-[node name="TargetDummyEnemy3" parent="EnemyNest" index="6" instance=ExtResource("7_gq3f5")]
-position = Vector2(2840, 552)
+[node name="NavTargetDummyEnemy4" parent="EnemyNest" index="4" instance=ExtResource("7_gq3f5")]
+position = Vector2(3665, -353)
 
 [node name="NavigationRegion2D" parent="." index="12"]
 visible = false

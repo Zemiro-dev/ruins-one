@@ -22,7 +22,7 @@ script = ExtResource("3_p0kbh")
 
 [sub_resource type="Resource" id="Resource_mkvoq"]
 script = ExtResource("4_ejge3")
-velocity_decay_rate = 0.01
+velocity_decay_rate = 0.05
 
 [sub_resource type="Resource" id="Resource_mobqn"]
 script = ExtResource("4_uprka")
@@ -65,8 +65,8 @@ motion_mode = 1
 script = ExtResource("1_tqatu")
 current_projectile_scene = ExtResource("2_aj1wt")
 shoot_style = SubResource("Resource_l45ut")
-max_health = 100
-max_shield = 20
+max_health = 10
+max_shield = 200
 max_speed = 2500.0
 allow_knockback = false
 drag_strategy = SubResource("Resource_mkvoq")
@@ -153,7 +153,9 @@ texture = ExtResource("6_qrtnj")
 [node name="Ring" type="Sprite2D" parent="."]
 texture = ExtResource("7_2jayw")
 
-[node name="Shield" parent="." instance=ExtResource("16_inikh")]
+[node name="Shield" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("16_inikh")]
+entity = NodePath("..")
+regeneration_time = 0.1
 
 [node name="DebugText" type="Node2D" parent="."]
 visible = false

@@ -2,39 +2,45 @@ extends Entity
 class_name Enemy
 
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var explode_audio: ExtendedAudioStreamPlayer2D = $Audio/ExplodeAudio
-@onready var audio: Node2D = $Audio
-@export var navigation_module: NavigationModule
 @export var acceleration_module: AccelerationModule
 @export var target: Entity
 @export var steer_force: float = 500.0
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var explode_audio: ExtendedAudioStreamPlayer2D = $Audio/ExplodeAudio
+@onready var audio: Node2D = $Audio
+@onready var small_navigation_module: SmallNavigationModule
+@onready var line_of_sight_module: LineOfSightModule
+
 var spawn_position: Vector2
+
 
 func _ready() -> void:
 	super()
 	spawn_position = global_position
+	small_navigation_module = get_node_or_null("BottomModules/SmallNavigationModule")
+	line_of_sight_module = get_node_or_null('BottomModules/LineOfSightModule')
+	if small_navigation_module:
+		small_navigation_module.enabled = true
+
 
 func _physics_process(delta: float) -> void:
 	super(delta)
-	var navigation_result: NavigationModuleResult
-	if navigation_module:
-		navigation_result = navigation_module.navigate()
-		
-	if navigation_result and navigation_result.can_reach_goal:
-		if global_position.distance_to(navigation_result.goal) > 10:
+	can_drag = true
+	var in_los: bool = line_of_sight_module.in_los(target.global_position) if target and line_of_sight_module else false
+	if target and !in_los and small_navigation_module:
+		small_navigation_module.set_final_position(target.global_position)
+		var next_position: Vector2 = small_navigation_module.next_position
+		var acceleration = acceleration_module.get_frame_acceleration(
+			velocity,
+			global_position,
+			next_position,
+			target.global_position
+		)
+		if !acceleration.is_zero_approx():
+			velocity += acceleration * delta
 			can_drag = false
-			velocity += acceleration_module.get_frame_acceleration(
-				velocity,
-				global_position,
-				navigation_result.next,
-				navigation_result.goal
-			) * delta
-		else:
-			can_drag = true
-	else:
-		can_drag = true
-	# Remember to turn off drag if we have a goal velocity
+	
 	move_and_resolve(delta)
 
 

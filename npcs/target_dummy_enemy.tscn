@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxu2uqr2hxdur"]
+[gd_scene load_steps=6 format=3 uid="uid://bxu2uqr2hxdur"]
 
 [ext_resource type="PackedScene" uid="uid://byfec3we1c0b6" path="res://npcs/enemy.tscn" id="1_lsjeu"]
-[ext_resource type="PackedScene" uid="uid://ci3lxt0552nhd" path="res://shield/shield_control_module.tscn" id="2_tvsmd"]
 [ext_resource type="PackedScene" uid="uid://bhqqc880ntgcc" path="res://assets/sprite/shield.tscn" id="3_g4c1c"]
 [ext_resource type="Texture2D" uid="uid://bi6cnmxbkqcgq" path="res://assets/sprite/pink_bubble.png" id="3_xovd6"]
 [ext_resource type="PackedScene" uid="uid://bcrfoksvd7dhx" path="res://npcs/debug_status_module.tscn" id="4_g4c1c"]
@@ -13,10 +12,6 @@ radius = 49.0102
 max_health = 10
 max_shield = 5
 
-[node name="ShieldControlModule" parent="ControlModules" index="0" node_paths=PackedStringArray("shield", "entity") instance=ExtResource("2_tvsmd")]
-shield = NodePath("../../TopModules/Shield")
-entity = NodePath("../..")
-
 [node name="CollisionCore" parent="." index="1"]
 shape = SubResource("CircleShape2D_lsjeu")
 
@@ -26,8 +21,9 @@ polygon = PackedVector2Array(-73, 0, -36, -63, 37, -63, 73, 0, 37, 63, -36, 63)
 [node name="HullSprite" parent="." index="4"]
 texture = ExtResource("3_xovd6")
 
-[node name="Shield" parent="TopModules" index="0" instance=ExtResource("3_g4c1c")]
-modulate = Color(0.992157, 0.972549, 0.32549, 1)
+[node name="DebugStatusModule" parent="TopModules" index="0" node_paths=PackedStringArray("entity") instance=ExtResource("4_g4c1c")]
+entity = NodePath("../..")
 
-[node name="DebugStatusModule" parent="TopModules" index="1" node_paths=PackedStringArray("entity") instance=ExtResource("4_g4c1c")]
+[node name="Shield" parent="TopModules" index="1" node_paths=PackedStringArray("entity") instance=ExtResource("3_g4c1c")]
+modulate = Color(0.992157, 0.972549, 0.32549, 1)
 entity = NodePath("../..")

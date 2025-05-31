@@ -31,9 +31,7 @@ func spawn_player() -> void:
 		player_tracking_orb.host = player
 		health_bar.initialize(player.on_health_changed, player.current_health, player.max_health)
 		shield_bar.initialize(player.on_shield_changed, player.current_shield, player.max_shield)
-		$EnemyNest/TargetDummyNav2.target = player
-		$EnemyNest/TargetDummyNav3.target = player
-		$EnemyNest/TargetDummyNav4.target = player
-		$EnemyNest/TargetDummyEnemy.target = player
-		$EnemyNest/TargetDummyEnemy2.target = player
-		$EnemyNest/TargetDummyEnemy3.target = player
+		$EnemyNest/NavTargetDummyEnemy.target = player
+		$EnemyNest/NavTargetDummyEnemy2.target = player
+		$EnemyNest/NavTargetDummyEnemy3.target = player
+		$EnemyNest/NavTargetDummyEnemy4.target = player

@@ -20,6 +20,9 @@ func move_and_resolve(entity: Entity, delta: float) -> void:
 			entity.velocity = impulse
 			collider.velocity = -impulse
 			# TODO what should I actually do with knockback?
+			var pause_drag_time: float = .0
+			entity.pause_drag(pause_drag_time)
+			collider.pause_drag(pause_drag_time)
 			entity.current_knockback = Vector2.ZERO
 			collider.current_knockback = Vector2.ZERO
 			pass
@@ -36,5 +39,4 @@ func move_and_resolve(entity: Entity, delta: float) -> void:
 					collision.get_normal()
 				)
 	entity.cap_velocity()
-	print(entity.velocity)
 	entity.move_and_collide(entity.velocity * delta)

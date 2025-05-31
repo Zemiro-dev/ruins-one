@@ -20,7 +20,8 @@ var remaining_invulnerability_time: float = 0.0
 var current_knockback: Vector2 = Vector2.ZERO
 
 @export var drag_strategy: DragBaseStrategy
-var can_drag := true
+var remaining_pause_drag_time: float = 0
+var can_drag: float = true
 
 @export var move_resolve_strategy: MoveResolveStrategy
 
@@ -54,10 +55,15 @@ func _physics_process(delta: float) -> void:
 	updateCollisionShapes()
 	if remaining_invulnerability_time > 0.0:
 		remaining_invulnerability_time -= delta
+	if remaining_pause_drag_time > 0.0:
+		remaining_pause_drag_time -= delta
 	if !current_knockback.is_zero_approx():
-		velocity += current_knockback
-		current_knockback = current_knockback.lerp(Vector2.ZERO, knockback_decay_rate)
-	if can_drag and !!drag_strategy:
+		if can_knockback():
+			velocity += current_knockback
+			current_knockback = current_knockback.lerp(Vector2.ZERO, knockback_decay_rate)
+		else:
+			current_knockback = Vector2.ZERO
+	if can_be_dragged():
 		velocity = drag_strategy.drag(velocity)
 
 
@@ -73,6 +79,10 @@ func is_invulnerable():
 
 func can_knockback():
 	return !is_invulnerable() and allow_knockback
+
+
+func can_be_dragged() -> bool:
+	return can_drag and remaining_pause_drag_time <= 0.0 and !!drag_strategy
 
 
 func updateCollisionShapes() -> void:
@@ -161,3 +171,7 @@ func death_explosion() -> bool:
 		GlobalSignals.particle_nest_requested.emit(explosion)
 		return true
 	return false
+
+
+func pause_drag(s_time: float):
+	remaining_pause_drag_time = maxf(s_time, remaining_pause_drag_time)

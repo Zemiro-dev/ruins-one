@@ -1,18 +1,10 @@
-@tool
 extends Node
 class_name ShieldControlModule
 
 
 @onready var state_machine: StateMachine = $StateMachine
-@export var shield: Shield :
-	set(value):
-		shield = value
-		update_configuration_warnings()
-@export var entity: Entity :
-	set(value):
-		entity = value
-		update_configuration_warnings()
-
+@export var shield: Shield 
+@export var entity: Entity
 @export var reactivation_time: float = 10
 @export var regeneration_time: float = 1
 @export var stunned_time: float = 5
@@ -23,9 +15,9 @@ var is_stunned: bool = false
 enum States { IDLE, DEAD, REGENERATING, REACTIVATING, STUNNED }
 
 
-func _ready() -> void:
-	if Engine.is_editor_hint():
-		return
+func activate(_shield: Shield, _entity: Entity):
+	shield = _shield
+	entity = _entity
 	state_machine.add_state(States.IDLE, $StateMachine/Idle)
 	state_machine.add_state(States.DEAD, $StateMachine/Dead)
 	state_machine.add_state(States.REGENERATING, $StateMachine/Regenerating)
@@ -38,15 +30,6 @@ func _ready() -> void:
 		func(attacker: Node2D):
 			is_stunned = true
 	)
-
-
-func _get_configuration_warnings():
-	var warnings: PackedStringArray = PackedStringArray()
-	if !shield:
-		warnings.append('Shield to control is not set.')
-	if !entity:
-		warnings.append('Entity to monitor for shield health not set.')
-	return warnings
 
 
 ## Resets is_stunned to false and returns its value before doing so.

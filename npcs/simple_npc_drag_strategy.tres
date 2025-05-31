@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_0eoat")
-velocity_decay_rate = 0.1
+velocity_decay_rate = 0.05
 metadata/_custom_type_script = "uid://byki1q084oqrp"

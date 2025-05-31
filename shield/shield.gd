@@ -1,14 +1,44 @@
+@tool
 extends Node2D
 class_name Shield
 
+## Entity to monitor for shield health
+@export var entity: Entity :
+	set(value):
+		entity = value
+		update_configuration_warnings()
+@export var reactivation_time: float = 10
+@export var regeneration_time: float = 1
+@export var stunned_time: float = 5
+@export var reactivation_amount: int = 1
+@export var regeneration_amount: int = 1		
+@export var on_off_time: float = .2
 
 @onready var shell: Sprite2D = $Shell
 @onready var pulse_particles: CPUParticles2D = $PulseParticles
+@onready var shield_control_module: ShieldControlModule = $ShieldControlModule
 
-@export var on_off_time: float = .2
 var scale_tween: Tween
 var modulate_tween: Tween
 var active: bool = true
+
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	if entity:
+		shield_control_module.reactivation_time = reactivation_time
+		shield_control_module.regeneration_time = regeneration_time
+		shield_control_module.stunned_time = stunned_time
+		shield_control_module.reactivation_amount = reactivation_amount
+		shield_control_module.regeneration_amount = regeneration_amount
+		shield_control_module.activate(self, entity)
+
+
+func _get_configuration_warnings():
+	var warnings: PackedStringArray = PackedStringArray()
+	if !entity:
+		warnings.append('Entity to monitor for shield health not set.')
+	return warnings
 
 
 func on() -> void:

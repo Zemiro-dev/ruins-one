@@ -26,6 +26,8 @@ var dash_cooldown: float = 0.0
 @export var max_weapon_cooldown: float = .1
 var weapon_cooldown: float = 0.0
 
+var saved_drag: float = 0.0
+
 
 func _ready() -> void:
 	super()
@@ -71,12 +73,16 @@ func _physics_process(delta: float) -> void:
 		break_particles.emitting = true		
 	
 	if Input.is_action_pressed("break"):
+		if saved_drag <= 0.0:
+			saved_drag = drag_strategy.velocity_decay_rate
 		drag_strategy.velocity_decay_rate = .16
 		can_drag = true
 		var tween: Tween = create_tween()
 		tween.tween_property(break_pad, "modulate", Color(1, 1, 1, 1), .1)
 	else:
-		drag_strategy.velocity_decay_rate = .01
+		if saved_drag > 0:
+			drag_strategy.velocity_decay_rate = saved_drag
+			saved_drag = 0.0
 		var tween: Tween = create_tween()
 		tween.tween_property(break_pad, "modulate", Color(1, 1, 1, 0), .1)
 	
