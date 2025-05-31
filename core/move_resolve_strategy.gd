@@ -4,6 +4,10 @@ class_name MoveResolveStrategy
 
 ## Move the entity and resolve any collisions
 ## Stolen from https://www.youtube.com/watch?app=desktop&v=1L2g4ZqmFLQ
+## There is an issue with movement due to the calculated normal and the hex
+## shields. Might need to fuck with it based on best feed.
+## look at https://web.archive.org/web/20160418004153/http://freespace.virgin.net/hugo.elias/models/m_snokr.htm
+## I put a screenshot in the docs too
 func move_and_resolve(entity: Entity, delta: float) -> void:
 	entity.cap_velocity()
 	var collision: KinematicCollision2D = entity.move_and_collide(
