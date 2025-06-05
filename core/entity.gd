@@ -11,6 +11,11 @@ var current_health : int = 1
 @export var max_shield: int = 0
 var current_shield: int = 0
 @export var max_speed: float = 1500.
+## Mass in player mass units
+@export var mass: float = 1.0
+## Values [0, 1]
+@export var restitution: float = 1.0
+
 
 @export var max_invulnerability_time: float = 0.0
 var remaining_invulnerability_time: float = 0.0
